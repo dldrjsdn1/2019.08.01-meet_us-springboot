@@ -1,0 +1,40 @@
+package Meet_Us;
+
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+
+@SpringBootApplication
+//@SpringBootApplication의 의미는
+//@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan
+//이런 의미 입니다.
+//@Configuration : 현재 클래스가 Spring의 설정 파일임을 알려주는 어노테이션
+//@EnableAutoConfiguration : Spring boot 클래스패스 세팅 및 다양한 Bean 추가 등을 시켜주는 어노테이션
+//@ComponetScan : 다른 컴포넌트, 서비스, 설정 등을 찾을 수 있게 도와주는 어노테이션
+@MapperScan(value={"Meet_Us.main.dao"})
+
+public class Index {
+  public static void main(String[] args) {
+        SpringApplication.run(Index.class);
+    }
+  
+  @Bean
+  public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
+      SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+      sessionFactory.setDataSource(dataSource);
+      
+      Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
+      sessionFactory.setMapperLocations(res);
+      
+      return sessionFactory.getObject();
+  }
+ 
+}
+
