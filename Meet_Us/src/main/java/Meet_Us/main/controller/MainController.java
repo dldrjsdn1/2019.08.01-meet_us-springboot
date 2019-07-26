@@ -17,39 +17,38 @@ import Meet_Us.main.vo.MainVo;
 
 @Controller
 @EnableAutoConfiguration
+@RequestMapping(value="/*", produces="text/plain;charset=UTF-8")
 public class MainController {
 
 	@Autowired
 	private MainMapper mapper;
 
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//
+//		Date date = new Date();
+//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+//
+//		String formattedDate = dateFormat.format(date);
+//
+//		model.addAttribute("serverTime", formattedDate);
+//
+//		return "index";
+//	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-
-		return "index";
-	}
-
-	@RequestMapping(value = "/db", method = RequestMethod.GET)
-	public String dbTest(Locale locale, Model model) throws Exception{
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-       
-	  List<MainVo> list = mapper.selectMainList();
-	  
-	  model.addAttribute("list", list);
-
-      return "index";
+	public String Home() throws Exception{
+      return "/bootstrap/Home";
+  }
+	
+	@RequestMapping(value = "/MeeterMain", method = RequestMethod.GET)
+	public String MeeterMain() throws Exception{
+      return "/bootstrap/MeeterMain";
+  }
+	
+	@RequestMapping(value = "/MeeterDetail", method = RequestMethod.GET)
+	public String MeeterDetail() throws Exception{
+      return "/bootstrap/MeeterDetail";
   }
 
 }
