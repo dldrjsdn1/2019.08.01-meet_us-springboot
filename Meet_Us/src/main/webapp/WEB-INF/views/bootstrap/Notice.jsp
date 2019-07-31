@@ -61,9 +61,9 @@
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
 						<li><a href="#">&gt;</a></li>
-						<li><a href="#">C</a></li>
+						<li><a href="../NoticeInsert">C</a></li>
 						<li><a href="#">D</a></li>
-						<li><a href="#">M</a></li>
+						<li><a href="../NoticeModify">M</a></li>
 					</ul>
 				</div>
 			</div>

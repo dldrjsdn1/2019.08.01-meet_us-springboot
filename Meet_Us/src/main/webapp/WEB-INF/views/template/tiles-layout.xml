@@ -38,5 +38,19 @@
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/NoticeDetail.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
+	
+	<!-- Notice Insert 페이지-->
+	<definition name="bootstrap.NoticeInsert" extends="defaultLayout"> 
+		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
+		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/NoticeInsert.jsp" />
+		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+	</definition>
+	
+	<!-- Notice Modify 페이지-->
+	<definition name="bootstrap.NoticeModify" extends="defaultLayout"> 
+		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
+		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/NoticeModify.jsp" />
+		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+	</definition>
 
 </tiles-definitions>

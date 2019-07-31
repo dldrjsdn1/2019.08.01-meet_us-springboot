@@ -60,5 +60,15 @@ public class MainController {
 	public String NoticeDetail() throws Exception{
       return "bootstrap.NoticeDetail";
   }
+	
+	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
+	public String NoticeInsert() throws Exception{
+      return "bootstrap.NoticeInsert";
+  }
+	
+	@RequestMapping(value = "/NoticeModify", method = RequestMethod.GET)
+	public String NoticeModify() throws Exception{
+      return "bootstrap.NoticeModify";
+  }
 
 }
