@@ -23,5 +23,25 @@ public class BoardController {
 		return "board/BoardMain";
 	}
 
+	@RequestMapping(value = "/Notice", method = RequestMethod.GET)
+	public String Notice() throws Exception{
+      return "bootstrap.Notice";
+  }
+	
+	@RequestMapping(value = "/NoticeDetail", method = RequestMethod.GET)
+	public String NoticeDetail() throws Exception{
+      return "bootstrap.NoticeDetail";
+  }
+	
+	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
+	public String NoticeInsert() throws Exception{
+      return "bootstrap.NoticeInsert";
+  }
+	
+	@RequestMapping(value = "/NoticeModify", method = RequestMethod.GET)
+	public String NoticeModify() throws Exception{
+      return "bootstrap.NoticeModify";
+  }
+
 }
 
