@@ -38,17 +38,22 @@ public class MainController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String Home() throws Exception{
-      return "/bootstrap/Home";
+      return "bootstrap.Home";
   }
 	
 	@RequestMapping(value = "/MeeterMain", method = RequestMethod.GET)
 	public String MeeterMain() throws Exception{
-      return "/bootstrap/MeeterMain";
+      return "bootstrap.MeeterMain";
   }
 	
 	@RequestMapping(value = "/MeeterDetail", method = RequestMethod.GET)
 	public String MeeterDetail() throws Exception{
-      return "/bootstrap/MeeterDetail";
+      return "bootstrap.MeeterDetail";
+  }
+	
+	@RequestMapping(value = "/Notice", method = RequestMethod.GET)
+	public String Notice() throws Exception{
+      return "bootstrap.Notice";
   }
 
 }

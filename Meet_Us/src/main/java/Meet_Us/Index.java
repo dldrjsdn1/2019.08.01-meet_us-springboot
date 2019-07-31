@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesView;
 
 @SpringBootApplication
 //@SpringBootApplication의 의미는
@@ -35,6 +38,21 @@ public class Index {
       
       return sessionFactory.getObject();
   }
+  
+	@Bean
+	public TilesConfigurer tilesConfigurer(){
+		final TilesConfigurer configurer = new TilesConfigurer();
+		configurer.setDefinitions(new String[] {"/WEB-INF/views/template/tiles-layout.xml"});
+		configurer.setCheckRefresh(true);
+		return configurer;
+	}
+	
+	@Bean
+	public UrlBasedViewResolver tilesViewResolver(){
+		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+		resolver.setViewClass(TilesView.class);
+		return resolver;
+	}
  
 }
 
