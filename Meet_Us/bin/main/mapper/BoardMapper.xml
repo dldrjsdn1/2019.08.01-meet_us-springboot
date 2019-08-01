@@ -5,8 +5,50 @@
     
 <mapper namespace="Meet_Us.board.dao.BoardMapper">
         
-<select id="test" parameterType="Meet_Us.board.vo.BoardVo" resultType="Meet_Us.board.vo.BoardVo" >
-SELECT * FROM TEST
+<select id="selectBoardList" parameterType="Meet_Us.board.vo.BoardVo" resultType="Meet_Us.board.vo.BoardVo" >
+	SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	BOARD_NO,
+  	 				 	BOARD_TITLE,
+   					 	BOARD_CONTENT,
+   					 	DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTDATE,
+						DATE_FORMAT(BOARD_MODIFYDATE, '%Y-%m-%d') AS BOARD_MODIFYDATE,
+  					  	BOARD_VIEWCOUNT,
+  					  	USER_ID,
+  					  	BOARD_DELFLAG
+	FROM 
+						MEET_BOARD,
+						(SELECT @rownum:=0) r
+	WHERE 
+						BOARD_DELFLAG = 'N';
 </select>
+
+<select id="selectBoardDetail" parameterType="int" resultType="Meet_Us.board.vo.BoardVo">
+	SELECT 
+						BOARD_NO,
+						BOARD_TITLE,
+						BOARD_CONTENT,
+						DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTD,
+						DATE_FORMAT(BOARD_MODIFYDATE, '%Y-%m-%d') AS BOARD_MODIFYDATE,
+						BOARD_VIEWCOUNT,
+						USER_ID,
+						BOARD_DELFLAG
+	FROM 
+						MEET_BOARD,
+    					(SELECT @rownum:=0) r
+	WHERE 
+						BOARD_DELFLAG = 'N'
+	AND 
+						BOARD_NO= #{board_no};
+</select>
+
+<update id="selectBoardDelete" parameterType="int">
+	UPDATE 
+						MEET_BOARD 
+	SET 
+						BOARD_DELFLAG="Y" 
+	WHERE 
+						BOARD_NO = #{board_no};
+</update>
 
 </mapper>
