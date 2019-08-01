@@ -70,5 +70,10 @@ public class MainController {
 	public String NoticeModify() throws Exception{
       return "bootstrap.NoticeModify";
   }
+	
+	@RequestMapping(value = "/Map", method = RequestMethod.GET)
+	public String Map() throws Exception{
+      return "bootstrap.Map";
+  }
 
 }
