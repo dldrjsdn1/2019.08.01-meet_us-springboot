@@ -40,28 +40,28 @@
 	        </div>
 	      </div>
 
-<!-- 	      <div class="slider-item"> -->
-<!-- 	      	<div class="overlay"></div> -->
-<!-- 	        <div class="container-fluid p-0"> -->
-<!-- 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true"> -->
-<!-- 	          	<div class="one-third order-md-last"> -->
-<!-- 	          		<div class="img" style="background-image:url(resources/images/bg_2.jpg);"> -->
-<!-- 	          			<div class="overlay"></div> -->
-<!-- 	          		</div> -->
-<!-- 	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Africa</span></div> -->
-<!-- 	          	</div> -->
-<!-- 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }"> -->
-<!-- 		          	<div class="text"> -->
-<!-- 		          		<span class="subheading pl-5">Discover Africa</span> -->
-<!-- 			            <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1> -->
-<!-- 			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p> -->
+	      <div class="slider-item">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid p-0">
+	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third order-md-last">
+	          		<div class="img" style="background-image:url(resources/images/bg_2.jpg);">
+	          			<div class="overlay"></div>
+	          		</div>
+	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Africa</span></div>
+	          	</div>
+		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading pl-5">Discover Africa</span>
+			            <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1>
+			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
 			            
-<!-- 			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p> -->
-<!-- 		            </div> -->
-<!-- 		          </div> -->
-<!-- 	        	</div> -->
-<!-- 	        </div> -->
-<!-- 	      </div> -->
+			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
 	    </div>
     </section>
 
@@ -484,19 +484,6 @@
 		</div>
 	</div>
 	</section>
-
-	<!-- kakao map api -->
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c106edb300bf0777e34f3e2bd20cf0d"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667),
-			level : 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
-	</script>
 
 </body>
 </html>

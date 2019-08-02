@@ -12,10 +12,10 @@
     <style>
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap {position:relative;width:100%;height:350px;}
-.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:400px;}
-.placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+.placeinfo {position:relative;width:70%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
 .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:40px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:20px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
 .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
 .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
@@ -56,17 +56,18 @@
 					<form action="#" class="search-form">
 						<div class="form-group">
 							<span class="icon icon-search" onclick="SearchPlace()" style="cursor: pointer;"></span> <input type="text" id="SearchPlaceId"
-								class="form-control" placeholder="Place Searching">
+								class="form-control" placeholder="Place Searching" onkeydown="JavaScript:Enter_Check()" >
 						</div>
 					</form>
 				</div>
 				<div class="sidebar-box ftco-animate">
 					<h3 class="heading-sidebar"><strong>Meeters & Address</strong></h3>
 					<ul class="categories">
-						<li><a href="#">Fitness Gym(인천 서구 검암동110) <span></span></a></li>
-						<li><a href="#">Crossfit (인천 서구 검암동110)<span></span></a></li>
-						<li><a href="#">Yoga (인천 서구 검암동110)<span></span></a></li>
-						<li><a href="#">aerobics (인천 서구 검암동110)<span></span></a></li>
+						<li id="Location1">주소(장소)<span></span></a></li>
+						<li id="Location2">주소(장소)<span></span></a></li>
+						<li id="Location3">주소(장소)<span></span></a></li>
+						<li id="Location4">주소(장소)<span></span></a></li>
+						<li id="Location5">주소(장소)<span></span></a></li>
 					</ul>
 
 					<div class="comment-form-wrap pt-5">
@@ -95,6 +96,16 @@
 	<script>
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+	
+	// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
+	var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
+	contentNode = document.createElement('div'); // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+	
+	// 커스텀 오버레이의 컨텐츠 노드에 css class를 추가합니다 
+	contentNode.className = 'placeinfo_wrap';
+	
+	// 커스텀 오버레이 컨텐츠를 설정합니다
+	placeOverlay.setContent(contentNode);  
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
@@ -107,8 +118,8 @@
 	
 	function SearchPlace(){
 	var place = document.getElementById('SearchPlaceId').value;
-	alert(place);
-	var map = new kakao.maps.Map(mapContainer, mapOption); 
+// 	alert(place);
+// 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places(); 
 
@@ -147,34 +158,73 @@
 
 		var content = '<div class="placeinfo">'
 											+ '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">'
-											+ place.place_name +'&nbsp&nbsp&nbsp&nbsp'+ '</a>';
+											+ place.place_name + '</a>';
 
 									if (place.road_address_name) {
 										content += '    <span title="' + place.road_address_name + '">'
-												+ place.road_address_name
+												+ place.road_address_name 
 												+ '</span>'
 												+ '  <span class="jibun" title="' + place.address_name + '">(지번 : '
-												+ place.address_name
+												+ place.address_name 
 												+ ')</span>';
 									} else {
 										content += '    <span title="' + place.address_name + '">'
-												+ place.address_name
+												+ place.address_name 
 												+ '</span>';
 									}
 
 									content += '    <span class="tel">'
-											+ place.phone + '</span>'
+											+ place.phone + '</span>';
+											
+									content += '<button type="button" onclick="save_click('+"'"+ place.place_name +"'"+');" class="btn btn-success btn-sm" style="margin-left:38%; margin-top:10px;">저장</button>'
 											+ '</div>'
 											+ '<div class="after"></div>';
-
-									// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-									infowindow.setContent(content);
-									infowindow.open(map, marker);
+											
+// 									// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+// 									infowindow.setContent(content);
+// 									infowindow.open(map, marker);
+									
+									contentNode.innerHTML = content;
+								    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+								    placeOverlay.setMap(map);
+								    
+								    
 								});
 			}
 		}
 	</script>
+
+	<script type="text/javascript">
+		function Enter_Check() {
+			// 엔터키의 코드는 13입니다.
+			if (event.keyCode == 13) {
+				SearchPlace();
+			}
+		}
+	</script>
 	
-	
-  </body>
+	<script type="text/javascript">
+	 var names = new Array();
+	 var nameCnt = 0;
+
+	function save_click(name) {
+// 		alert(name);
+// 		names.push(name);
+		
+		if(nameCnt <= 4){
+			names.push(name);
+			nameCnt++;
+		}else{
+			alert("지정 주소가 너무 많습니다.");
+		}
+		
+		for(int i=0; i<nameCnt; i++){
+		document.getElementById(Location1).innerHTML= names[i];
+		}
+		
+	}
+	</script>
+
+
+</body>
 </html>
