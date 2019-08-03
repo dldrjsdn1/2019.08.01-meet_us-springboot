@@ -63,20 +63,24 @@
 				<div class="sidebar-box ftco-animate">
 					<h3 class="heading-sidebar"><strong>Meeters & Address</strong></h3>
 					<ul class="categories">
-						<li id="Location1">주소(장소)<span></span></a></li>
-						<li id="Location2">주소(장소)<span></span></a></li>
-						<li id="Location3">주소(장소)<span></span></a></li>
-						<li id="Location4">주소(장소)<span></span></a></li>
-						<li id="Location5">주소(장소)<span></span></a></li>
+						<li id="Location0">장소<span></span></a></li>
+						<li id="Location1">장소<span></span></a></li>
+						<li id="Location2">장소<span></span></a></li>
+						<li id="Location3">장소<span></span></a></li>
+						<li id="Location4">장소<span></span></a></li>
 					</ul>
 
 					<div class="comment-form-wrap pt-5">
-						<form action="#">
 							<div class="form-group">
-								<input type="submit" value="Starting Meeting"
-									class="btn py-3 px-4 btn-primary"  style="width:100%;">
+								<button type="button"  onclick="starting_meeter_click();"
+									class="btn py-3 px-4 btn-primary"  style="width:100%;">Starting Meeting</button>
 							</div>
-						</form>
+					</div>
+					<div class="comment-form-wrap pt-5">
+						<div class="form-group">
+							<button type="button" onclick="location.href='../Map'"
+								class="btn py-3 px-4 btn-dark" style="width: 100%;">Reset</button>
+						</div>
 					</div>
 				</div>
 				
@@ -118,8 +122,7 @@
 	
 	function SearchPlace(){
 	var place = document.getElementById('SearchPlaceId').value;
-// 	alert(place);
-// 	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places(); 
 
@@ -176,7 +179,8 @@
 									content += '    <span class="tel">'
 											+ place.phone + '</span>';
 											
-									content += '<button type="button" onclick="save_click('+"'"+ place.place_name +"'"+');" class="btn btn-success btn-sm" style="margin-left:38%; margin-top:10px;">저장</button>'
+									content += '<button type="button" onclick="save_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+');" class="btn btn-success btn-sm" style="margin-left:26.5%; margin-top:10px;">저장</button>'
+											+ '<button type="button" onclick="close_window();" class="btn btn-dark btn-sm" style="margin-left:5%; margin-top:10px;">닫기</button>'
 											+ '</div>'
 											+ '<div class="after"></div>';
 											
@@ -184,6 +188,7 @@
 // 									infowindow.setContent(content);
 // 									infowindow.open(map, marker);
 									
+									placeOverlay.setMap(null);
 									contentNode.innerHTML = content;
 								    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
 								    placeOverlay.setMap(map);
@@ -192,8 +197,43 @@
 								});
 			}
 		}
+	
+
+	</script>
+	
+	<script>
+	//닫기 버튼
+	function close_window() {        
+ 	placeOverlay.setMap(null); 
+	}
 	</script>
 
+
+	<script type="text/javascript">
+	 var names = new Array();
+	 var nameCnt = 0;
+	 var placey = new Array();
+	 var placex = new Array();
+
+	function save_click(name, placeY, placeX) {
+		alert("저장되었습니다.");
+		
+		if(nameCnt <= 4){
+			names.push(name);
+			placey.push(placeY);
+			placex.push(placeX);
+			nameCnt++;
+		}else{
+			alert("지정 주소가 너무 많습니다.");
+		}
+		
+		for(var i=0; i<nameCnt; i++){
+		document.getElementById("Location"+i).innerHTML= names[i];
+		}
+	}
+	</script>
+	
+	
 	<script type="text/javascript">
 		function Enter_Check() {
 			// 엔터키의 코드는 13입니다.
@@ -203,27 +243,70 @@
 		}
 	</script>
 	
-	<script type="text/javascript">
-	 var names = new Array();
-	 var nameCnt = 0;
+	
+<!--  	meeter 버튼 클릭 이벤트    -->
+	<script> 
+	function starting_meeter_click(){ 
+		
+	var map1 = new kakao.maps.Map(mapContainer, mapOption);  // 지도를 생성합니다
+	
+	// 	중심좌표
+	var centerY = 0;
+	var centerX = 0;
+	
+	// 마커 이미지의 이미지 주소입니다 
+	var imageSrc = "resources/images/map-marker-icon.png";  
+	
+	for (var i = 0; i < nameCnt; i++) { 
+	
+	    // 마커 이미지의 이미지 크기 입니다 
+	    var imageSize = new kakao.maps.Size(29, 35);  
+	
+	    // 마커 이미지를 생성합니다     
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
+	    
+	    var latlng = new kakao.maps.LatLng(placey[i], placex[i]); 
+	    var title = names[i]; 
+	    
+	    //중심좌표 구하기
+	    centerY += placey[i]*1;
+	    centerX += placex[i]*1;
 
-	function save_click(name) {
-// 		alert(name);
-// 		names.push(name);
-		
-		if(nameCnt <= 4){
-			names.push(name);
-			nameCnt++;
-		}else{
-			alert("지정 주소가 너무 많습니다.");
-		}
-		
-		for(int i=0; i<nameCnt; i++){
-		document.getElementById(Location1).innerHTML= names[i];
-		}
-		
+	    // 마커를 생성합니다 
+	    var marker = new kakao.maps.Marker({ 
+	        map: map1, // 마커를 표시할 지도 
+	        position: latlng, // 마커를 표시할 위치 
+	        title : title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다 
+	        image : markerImage // 마커 이미지  
+	    }); 
 	}
-	</script>
+	
+
+		// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+			// LatLngBounds 객체에 좌표를 추가합니다
+			var bounds = new kakao.maps.LatLngBounds();
+
+			for (var i = 0; i < nameCnt; i++) {
+				bounds.extend(new kakao.maps.LatLng(placey[i], placex[i]));
+			}
+
+			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+			map1.setBounds(bounds);
+			
+			// 장소 중심점 마크
+			var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+			var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize); 
+			// 중심점 마커를 생성합니다 
+		    var marker = new kakao.maps.Marker({ 
+		        map: map1, // 마커를 표시할 지도 
+		        position: new kakao.maps.LatLng(centerY/(nameCnt*1.0), centerX/(nameCnt*1.0)), // 마커를 표시할 위치 
+		        title : "중심", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다 
+		        image : markerImageCenter // 마커 이미지  
+		    }); 
+			
+			
+		}
+	</script>  
 
 
 </body>
