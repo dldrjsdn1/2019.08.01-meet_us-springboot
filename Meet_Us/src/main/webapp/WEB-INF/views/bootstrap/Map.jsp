@@ -64,19 +64,8 @@
 			<div class="col-lg-8 ftco-animate">
 			<div class="map_wrap">
 				<div id="map"></div>
-					<ul id="category">
-						<li id="BK9" data-order="0"><span class="category_bg bank"></span>
-							은행</li>
-						<li id="MT1" data-order="1"><span class="category_bg mart"></span>
-							마트</li>
-						<li id="PM9" data-order="2"><span
-							class="category_bg pharmacy"></span> 약국</li>
-						<li id="OL7" data-order="3"><span class="category_bg oil"></span>
-							주유소</li>
-						<li id="CE7" data-order="4"><span class="category_bg cafe"></span>
-							카페</li>
-						<li id="CS2" data-order="5"><span class="category_bg store"></span>
-							편의점</li>
+					<ul id="category" style="margin-left: 5%;">
+
 					</ul>
 				</div>
 			</div>
@@ -108,13 +97,17 @@
 
 						<div class="form-group">
 							<button type="button"
-								onclick="starting_meeter_click();"
-								class="btn py-3 px-4 btn-warning" style="width: 100%;">Center View</button>
+								onclick="centerView_click();"
+								class="btn py-3 px-4 btn-warning" style="width: 100%; color: white;">Center View</button>
 						</div>
 						<div class="form-group">
 							<button type="button" onclick="categorySearch_click();"
 								class="btn py-3 px-4 btn-primary" style="width: 100%;">Starting
 								Meeting</button>
+						</div>
+						<div class="form-group">
+							<button type="button" onclick="reset_click();"
+								class="btn py-3 px-4 btn-dark" style="width: 100%;">Reset</button>
 						</div>
 					</div>
 				</div>
@@ -163,7 +156,7 @@
 	var ps = new kakao.maps.services.Places(); 
 
 	// 키워드로 장소를 검색합니다
-	ps.keywordSearch(document.getElementById('SearchPlaceId').value, placesSearchCB); 
+	ps.keywordSearch(place, placesSearchCB); 
 
 	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 	function placesSearchCB (data, status, pagination) {
@@ -237,63 +230,79 @@
 		}
 	
 
-	</script>
-	
-	<script>
-	//닫기 버튼
+<!-- 닫기 버튼 -->
 	function close_window() {        
  	placeOverlay.setMap(null); 
 	}
-	</script>
 
 
-
-
-	<script type="text/javascript">
+<!-- 주소 저장 -->
 	 var names = new Array();
 	 var nameCnt = 0;
 	 var placey = new Array();
 	 var placex = new Array();
+	 var check = false;
 
-		<script type="text/javascript">
-		 var names = new Array();
-		 var nameCnt = 0;
-		 var placey = new Array();
-		 var placex = new Array();
 		function save_click(name, placeY, placeX) {
-			alert("저장되었습니다.");
 			
-			if(nameCnt <= 4){
+			// 첫번째 주소 저장
+			if(nameCnt == 0){
 				names.push(name);
 				placey.push(placeY);
 				placex.push(placeX);
 				nameCnt++;
-			}else{
-				alert("지정 주소가 너무 많습니다.");
+				document.getElementById("Location0").innerHTML= names[0];
+				alert("저장되었습니다.");
 			}
 			
-			for(var i=0; i<nameCnt; i++){
-			document.getElementById("Location"+i).innerHTML= names[i];
+			else if(nameCnt > 0){
+				if(nameCnt >= 5){
+					alert("지정 주소가 너무 많습니다.");
+				}else{
+					for(var i=0; i<nameCnt; i++){
+						if(names[i] == name){
+							check = true;
+						}
+					}
+					if(check == true){
+						alert("이미 저장된 주소입니다.");
+						check = false;
+					}else if(check == false){
+						for(var i=0; i<nameCnt; i++){
+							names.push(name);
+			 				placey.push(placeY);
+			 				placex.push(placeX);
+						}
+						nameCnt++;
+						alert("저장되었습니다.");
+					}
+					for(var i=0; i<nameCnt; i++){
+						document.getElementById("Location"+i).innerHTML= names[i];
+					}
+				}
 			}
 		}
-		</script>
+
 	
 	
-	<script type="text/javascript">
+<!-- 엔터 입력시 이벤트 -->
 		function Enter_Check() {
 			// 엔터키의 코드는 13입니다.
 			if (event.keyCode == 13) {
 				SearchPlace();
 			}
 		}
-	</script>
+
 	
 	
-<!--  	meeter 버튼 클릭 이벤트    -->
-	<script> 
-	function starting_meeter_click(){ 
+<!-- centerView 클릭시 -->
+	let RcenterY = 0;
+	let RcenterX = 0;
+	
+	function centerView_click(){ 
 		
-	var map1 = new kakao.maps.Map(mapContainer, mapOption);  // 지도를 생성합니다
+	map = null;
+	map = new kakao.maps.Map(mapContainer, mapOption);  // 지도를 생성합니다
 	
 	// 	중심좌표
 	var centerY = 0;
@@ -319,7 +328,7 @@
 
 	    // 마커를 생성합니다 
 	    var marker = new kakao.maps.Marker({ 
-	        map: map1, // 마커를 표시할 지도 
+	        map: map, // 마커를 표시할 지도 
 	        position: latlng, // 마커를 표시할 위치 
 	        title : title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다 
 	        image : markerImage // 마커 이미지  
@@ -336,7 +345,7 @@
 			}
 
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-			map1.setBounds(bounds);
+			map.setBounds(bounds);
 			
 			// 장소 중심점 마크
 			var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -344,29 +353,43 @@
 			
 			// 중심점 마커를 생성합니다 
 		    var marker = new kakao.maps.Marker({ 
-		        map: map1, // 마커를 표시할 지도 
+		        map: map, // 마커를 표시할 지도 
 		        position: new kakao.maps.LatLng(centerY/(nameCnt*1.0), centerX/(nameCnt*1.0)), // 마커를 표시할 위치 
 		        title : "중심", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다 
 		        image : markerImageCenter // 마커 이미지  
 		    }); 
 			
 // 			alert(new kakao.maps.LatLng(centerY/(nameCnt*1.0), centerX/(nameCnt*1.0)));
-			var RcenterY = centerY/(nameCnt*1.0);
-			var RcenterX = centerX/(nameCnt*1.0);
+			 RcenterY = centerY/(nameCnt*1.0);
+			 RcenterX = centerX/(nameCnt*1.0);
 			
-		    categorySearch(RcenterY,RcenterX);
 		}
-	</script>
 
 
- 	<!-- 	중심점 기준으로 카테고리별 검색 --> 
- 	<script type="text/javascript"> 
- 	function categorySearch(RcenterY,RcenterX){
- 		alert(RcenterY+"/"+RcenterX);
-			function categorySearch_click(){
+<!-- 	중심점 기준으로 카테고리별 검색 --> 
+ 	function categorySearch_click(){
+ 		
+ 		
+ 		//starting meeting 클릭시 카테리기 보이게 하기
+ 		var categoryNode = document.getElementById('category'); 
+
+ 		var contentCategory = '<li id="BK9" data-order="0"><span class="category_bg bank"></span>은행</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>'
+ 							+ '<li id="MT1" data-order="1"><span class="category_bg mart"></span>마트</li>';
+ 		
+ 		categoryNode.innerHTML = contentCategory;
+ 		
+ 		
+ 		
+//  		alert(RcenterY+"/"+RcenterX);
+
+
 				
-			alert(RcenterY+"/"+RcenterX);
-			
 			var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
 		    contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
 		    markers = [], // 마커를 담을 배열입니다
@@ -383,6 +406,23 @@
 		
 		// 장소 검색 객체를 생성합니다
 		var ps = new kakao.maps.services.Places(map); 
+		
+		var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+		// 마커 이미지의 이미지 크기 입니다 
+	    var imageSize = new kakao.maps.Size(29, 35);  
+		var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize);
+		
+		// 마커 찍기
+		var marker = new kakao.maps.Marker({ 
+		    // 지도 중심좌표에 마커를 생성합니다 
+		    position: new kakao.maps.LatLng(RcenterY,RcenterX),
+			image : markerImageCenter
+		}); 
+		// 지도에 마커를 표시합니다
+		marker.setMap(map);
+		
+		
+		
 		
 		// 지도에 idle 이벤트를 등록합니다
 		kakao.maps.event.addListener(map, 'idle', searchPlaces);
@@ -464,6 +504,14 @@
 		    }
 		}
 		
+		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+		function removeMarker() {
+		    for ( var i = 0; i < markers.length; i++ ) {
+		        markers[i].setMap(null);
+		    }   
+		    markers = [];
+		}
+		
 		// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 		function addMarker(position, order) {
 		    var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
@@ -483,14 +531,6 @@
 		    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
 		
 		    return marker;
-		}
-		
-		// 지도 위에 표시되고 있는 마커를 모두 제거합니다
-		function removeMarker() {
-		    for ( var i = 0; i < markers.length; i++ ) {
-		        markers[i].setMap(null);
-		    }   
-		    markers = [];
 		}
 		
 		// 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
@@ -557,10 +597,18 @@
 		        el.className = 'on';
 		    } 
 		} 
-		
-			}
  	}
- 	</script> 
+
+ 	
+ 	
+<!--  	reset 버튼 클릭 이벤트 -->
+ 	function reset_click(){
+ 		location.reload();
+ 	}
+
+ 	
+ 	
+ </script>
 
 </body>
 </html>
