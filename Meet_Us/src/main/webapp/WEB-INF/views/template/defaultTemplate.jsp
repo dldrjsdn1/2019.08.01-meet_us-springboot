@@ -37,8 +37,6 @@ if(request.getProtocol().equals("HTTP/1.1"))
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/icomoon.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
-    
-    
 	
 	<title>Meet_Us</title>
 	</head>
@@ -70,11 +68,9 @@ if(request.getProtocol().equals("HTTP/1.1"))
   <script src="<c:url value="/resources/js/aos.js"/>"></script>
   <script src="<c:url value="/resources/js/jquery.animateNumber.min.js"/>"></script>
   <script src="<c:url value="/resources/js/scrollax.min.js"/>"></script>
-
-
-
-  
   <script src="<c:url value="/resources/js/main.js"/>"></script>
-	
+  
+<!--   SweetAlert alert css  -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</body>
 </html>

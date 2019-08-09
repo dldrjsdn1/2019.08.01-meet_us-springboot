@@ -7,43 +7,42 @@
     <title>Meet Us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
     <style>
-.map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap {position:static;width:100%;height:100%;}
-#category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
-#category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
-#category li.on {background: #eee;}
-#category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
-#category li:last-child{margin-right:0;border-right:0;}
-#category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-#category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
-#category li .bank {background-position: -10px 0;}
-#category li .mart {background-position: -10px -36px;}
-#category li .pharmacy {background-position: -10px -72px;}
-#category li .oil {background-position: -10px -108px;}
-#category li .cafe {background-position: -10px -144px;}
-#category li .store {background-position: -10px -180px;}
-#category li.on .category_bg {background-position-x:-46px;}
-.placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
-.placeinfo {position:relative;width:70%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
-.placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
-.placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:20px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-.placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
-.placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-.placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
-.placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
-.placeinfo .tel {color:#0f7833;}
-.placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
-/* 중간지점 스타일 */
-.hAddr {position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
-#centerAddr {display:block;margin-top:2px;font-weight: normal;}
-.title {font-weight:bold;display:block;}
-</style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+    .jg{font-family: 'Jeju Gothic', sans-serif;}
+    .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+    .map_wrap {position:static;width:100%;height:100%;}
+    #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
+    #category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
+    #category li.on {background: #eee;}
+    #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
+    #category li:last-child{margin-right:0;border-right:0;}
+    #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
+    #category li .category_bg {background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png) no-repeat;}
+    #category li .bank {background-position: -10px 0;}
+    #category li .mart {background-position: -10px -36px;}
+    #category li .pharmacy {background-position: -10px -72px;}
+    #category li .oil {background-position: -10px -108px;}
+    #category li .cafe {background-position: -10px -144px;}
+    #category li .store {background-position: -10px -180px;}
+    #category li.on .category_bg {background-position-x:-46px;}
+    .placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+    .placeinfo {position:relative;width:70%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+    .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+    .placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:20px;height:12px;background:url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+    .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+    .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+    .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #d95050;background: #d95050 url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+    .placeinfo .tel {color:#0f7833;}
+    .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
+    /* 중간지점 스타일 */
+    .hAddr {position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
+    .title {font-weight:bold;display:block;}
+	</style>
 
-
-  </head>
+ </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
 	  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
@@ -66,11 +65,11 @@
       <div class="container">
 		<div class="row">
 			<div class="col-lg-8 ftco-animate">
-			<div class="map_wrap">
+<!-- 			<div class="map_wrap"> -->
 				<div id="map"></div>
 					<div id="centerInfoDiv">
 					</div>
-				</div>
+<!-- 				</div> -->
 			</div>
 
 			<div class="col-lg-4 sidebar ftco-animate">
@@ -80,20 +79,20 @@
 							<span class="icon icon-search" onclick="SearchPlace()" style="cursor: pointer;"></span> <input type="text" id="SearchPlaceId"
 								class="form-control" placeholder="Place Searching" onkeydown="JavaScript:Enter_Check()" >
 						</div>
-						<div class="form-group">
-							<span class="icon icon-search" onclick="CenterPlaceKeyword()" style="cursor: pointer;"></span> <input type="text" id="CenterPlaceKeywordId"
-								class="form-control" placeholder="Category Keyword" onkeydown="JavaScript:Enter_Check_keyword()" >
+						<div class="form-group" id="CenterPlaceKeyword">
 						</div>
 					</form>
 				</div>
 				<div class="sidebar-box ftco-animate">
-					<h3 class="heading-sidebar"><strong>Meeters & Address</strong></h3>
-					<ul class="categories">
-						<li id="Location0">장소<span></span></a></li>
-						<li id="Location1">장소<span></span></a></li>
-						<li id="Location2">장소<span></span></a></li>
-						<li id="Location3">장소<span></span></a></li>
-						<li id="Location4">장소<span></span></a></li>
+					<h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">Meeting Place</p></h3>
+					<p id="meetingPlaceAddressId" style="font-size:80%;"></p>
+					<ul class="categories" id="Location">
+						<li id="Location0"></li>
+						<li id="Location1"></li>
+						<li id="Location2"></li>
+						<li id="Location3"></li>
+						<li id="Location4"></li>
+						<li></li>
 					</ul>
 
 					<div class="comment-form-wrap pt-5">
@@ -129,7 +128,7 @@
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 	var markers = [];
-	
+	var centerPlace;
 	
 	
 	// 마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
@@ -154,10 +153,16 @@
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places(); 
 
+	//중간 마크 
+	// 장소 중심점 마크
+	var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+	var imageSize = new kakao.maps.Size(29, 35);
+	var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize); 
+	// 마커 이미지의 이미지 크기 입니다 
+   
 	
 // 	장소 검색 이벤트-------------------------------------------------------------------------------------------------------------------------------------------
 	function SearchPlace(){
-	
 	// 지도에 표시되고 있는 마커를 제거합니다
 	removeMarker();
 	
@@ -185,7 +190,7 @@
 	    } 
 	    
 	    else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-	    	alert("검색 결과가 업습니다.");
+	    	swal("헛!", "검색결과가 없어요.", "error");
 	    }
 	    
 	    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
@@ -227,33 +232,19 @@
 									content += '    <span class="tel">'
 											+ place.phone + '</span>';
 											
-									content += '<button type="button" onclick="save_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+');" class="btn btn-success btn-sm" style="margin-left:35%; margin-top:10px;">저장</button>'
+									content += '<button type="button" onclick="save_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+');" class="btn btn-success btn-sm" style="margin-left:26%; margin-top:10px;">저장</button>'
 											+ '<button type="button" onclick="close_window();" class="btn btn-dark btn-sm" style="margin-left:5%; margin-top:10px;">닫기</button>'
 											+ '</div>'
 											+ '<div class="after"></div>';
 											
-// 									// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-// 									infowindow.setContent(content);
-// 									infowindow.open(map, marker);
-
-
 									contentNode.innerHTML = content;
 								    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
 								    placeOverlay.setMap(map);
-								    
 								    
 								});
 			}
 		}
 		
-<!-- 마커 제거 -->
-    function removeMarker() {
-        for ( var i = 0; i < markers.length; i++ ) {
-            markers[i].setMap(null);
-        }   
-        markers = [];
-    }
-	
 
 <!-- 닫기 버튼 -->
 	function close_window() {        
@@ -263,46 +254,45 @@
 
 <!-- 주소 저장  이벤트 ----------------------------------------------------------------------------------------------------------------------------->
 	 var names = new Array();
-	 var nameCnt = 0;
+ 	 var nameCnt = 0;
 	 var placey = new Array();
 	 var placex = new Array();
 	 var check = false;
 
 		function save_click(name, placeY, placeX) {
-			
 			// 첫번째 주소 저장
 			if(nameCnt == 0){
 				names.push(name);
 				placey.push(placeY);
 				placex.push(placeX);
 				nameCnt++;
-				document.getElementById("Location0").innerHTML= names[0];
-				alert("저장되었습니다.");
+				document.getElementById("Location0").innerHTML= '<li id="Location0">'+names[0]+'<span></span></a></li>';
+				swal(name, "저장되었습니다.");
 			}
 			
 			else if(nameCnt > 0){
 				if(nameCnt >= 5){
-					alert("지정 주소가 너무 많습니다.");
+					swal("헛!", "주소가 너무 많습니다.", "error");
 				}else{
+					//중복 주소 검사
 					for(var i=0; i<nameCnt; i++){
 						if(names[i] == name){
 							check = true;
 						}
 					}
 					if(check == true){
-						alert("이미 저장된 주소입니다.");
+						swal("아차!", name+"는(은) 이미 저장된 주소입니다.", "error");
 						check = false;
 					}else if(check == false){
-						for(var i=0; i<nameCnt; i++){
-							names.push(name);
-			 				placey.push(placeY);
-			 				placex.push(placeX);
-						}
+						names[nameCnt] = name;
+						placey[nameCnt] = placeY;
+						placex[nameCnt] = placeX;
+						swal(name, "저장되었습니다.");
 						nameCnt++;
-						alert("저장되었습니다.");
 					}
-					for(var i=0; i<nameCnt; i++){
-						document.getElementById("Location"+i).innerHTML= names[i];
+					for(var i=1; i<nameCnt; i++){
+// 						document.getElementById("Location"+i).innerHTML= names[i];
+						document.getElementById("Location"+i).innerHTML= '<li id="Location'+i+ '">'+names[i]+'<span></span></a></li>';
 					}
 				}
 			}
@@ -310,7 +300,7 @@
 
 	
 	
-<!-- 엔터 입력시 이벤트 -->
+<!-- 엔터 입력시 이벤트 ------------------------------------------------------------------------------------------------->
 		function Enter_Check() {
 			// 엔터키의 코드는 13입니다.
 			if (event.keyCode == 13) {
@@ -332,6 +322,8 @@
 	let RcenterX = 0;
 	
 	function centerView_click(){ 
+		
+	document.getElementById('CenterPlaceKeyword').innerHTML='	<span class="icon icon-search" onclick="CenterPlaceKeyword()" style="cursor: pointer;"></span> <input type="text" id="CenterPlaceKeywordId" class="form-control" placeholder="Category Keyword" onkeydown="JavaScript:Enter_Check_keyword()" >';
 	
 	removeMarker();
 	placeOverlay.setMap(null);
@@ -345,8 +337,8 @@
 	
 	for (var i = 0; i < nameCnt; i++) { 
 	
-	    // 마커 이미지의 이미지 크기 입니다 
-	    var imageSize = new kakao.maps.Size(29, 35);  
+// 	    // 마커 이미지의 이미지 크기 입니다 
+// 	    var imageSize = new kakao.maps.Size(29, 35);  
 	
 	    // 마커 이미지를 생성합니다     
 	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
@@ -382,9 +374,8 @@
 			// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 			map.setBounds(bounds);
 			
-			// 장소 중심점 마크
-			var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-			var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize);
+
+// 			var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize);
 			
 			// 중심점 마커를 생성합니다 
 		    var marker = new kakao.maps.Marker({ 
@@ -396,7 +387,6 @@
 		    marker.setMap(map); // 지도 위에 마커를 표출합니다
 		    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
 			
-// 			alert(new kakao.maps.LatLng(centerY/(nameCnt*1.0), centerX/(nameCnt*1.0)));
 			 RcenterY = centerY/(nameCnt*1.0);
 			 RcenterX = centerX/(nameCnt*1.0);
 			 
@@ -426,6 +416,7 @@
 				            // 행정동의 region_type 값은 'H' 이므로
 				            if (result[i].region_type === 'H') {
 				                infoDiv.innerHTML = result[i].address_name;
+				                centerPlace = result[i].address_name;
 				                break;
 				            }
 				        }
@@ -434,9 +425,9 @@
 			
 		}
 
- var centerPlace;
+
  
-<!-- largeCenter_click 이벤트 ------------------------------------------------------------------------------------------> 
+<!-- largeCenter_click 이벤트 ----------------------------------------------------------------------------------------------------------------> 
  	function largeCenter_click(){ 
 		removeMarker();
 		
@@ -444,7 +435,7 @@
 		map.setLevel(5);
 		    
 		// 장소 검색 객체를 생성합니다
-		var ps = new kakao.maps.services.Places(map); 
+// 		var ps = new kakao.maps.services.Places(map); 
 		
 		var imageSrcCenter = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 		// 마커 이미지의 이미지 크기 입니다 
@@ -452,14 +443,14 @@
 		var markerImageCenter = new kakao.maps.MarkerImage(imageSrcCenter, imageSize);
 		
 		// 마커 찍기
-		var centerMarkers = new kakao.maps.Marker({ 
+		var marker = new kakao.maps.Marker({ 
 		    // 지도 중심좌표에 마커를 생성합니다 
 		    position: new kakao.maps.LatLng(RcenterY,RcenterX),
 			image : markerImageCenter
 		}); 
 		// 지도에 마커를 표시합니다
-		centerMarkers.setMap(map);
-// 		markers.push(marker);
+		marker.setMap(map);
+ 		markers.push(marker);
 		
 		 var centerInfoDiv = document.getElementById('centerInfoDiv');
 		 centerInfoDiv.innerHTML = '<div class="hAddr"><span class="title">지도중심기준 행정동 주소정보</span><span id="centerAddr"></span></div>';
@@ -496,17 +487,23 @@
  	
  	
  	
-<!--  	CenterPlaceKeyword 검색시 이벤트 --------------------------------------------------------------------------------------------> 
+<!--  	CenterPlaceKeyword 검색시 이벤트 ---------------------------------------------------------------------------------------------------> 
  	function CenterPlaceKeyword(){
- 		removeMarker();
+ 	removeMarker();
+ 	placeOverlay.setMap(null);
+	var centerMarker = new kakao.maps.Marker({
+	        position: new kakao.maps.LatLng(RcenterY, RcenterX),
+	        image : markerImageCenter
+	    });
+	centerMarker.setMap(map);
 // 	map.setCenter(new kakao.maps.LatLng(RcenterY, RcenterX));
 	map.setLevel(5);
 	
-	
+ 
  	var placeKeyword = document.getElementById('CenterPlaceKeywordId').value;
-	
+ 	centerPlace
  // 키워드로 장소를 검색합니다
- 	ps.keywordSearch(centerPlace+placeKeyword, placesSearchCB, {location:new kakao.maps.LatLng(RcenterY, RcenterX)}); 
+ 	ps.keywordSearch(placeKeyword, placesSearchCB, {location:new kakao.maps.LatLng(RcenterY, RcenterX)}); 
 
  	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
  	function placesSearchCB (data, status, pagination) {
@@ -523,7 +520,7 @@
  	    }
 
  	     else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-	    	alert("검색 결과가 업습니다.");
+ 	    	swal("헛!", "검색결과가 없어요.", "error");
 	    }
 	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
      		map.setBounds(bounds);
@@ -534,34 +531,92 @@
  	    
  	    // 마커를 생성하고 지도에 표시합니다
  	    var marker = new kakao.maps.Marker({
-//  	        map: map,
  	        position: new kakao.maps.LatLng(place.y, place.x) 
  	    });
- 	    
+ 	   
 		marker.setMap(map);
 		markers.push(marker);
 
- 	    // 마커에 클릭이벤트를 등록합니다
- 	    kakao.maps.event.addListener(marker, 'click', function() {
- 	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
- 	        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
- 	        infowindow.open(map, marker);
- 	    });
- 	}
+	    // 마커에 클릭이벤트를 등록합니다
+	    kakao.maps.event.addListener(marker, 'click', function() {
+		 content = '<div class="placeinfo">'
+											+ '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">'
+											+ place.place_name + '</a>';
+
+									if (place.road_address_name) {
+										content += '    <span title="' + place.road_address_name + '">'
+												+ place.road_address_name 
+												+ '</span>'
+												+ '  <span class="jibun" title="' + place.address_name + '">(지번 : '
+												+ place.address_name 
+												+ ')</span>';
+									} else {
+										content += '    <span title="' + place.address_name + '">'
+												+ place.address_name 
+												+ '</span>';
+									}
+
+									content += '    <span class="tel">'
+											+ place.phone + '</span>';
+											
+									content += '<button type="button" onclick="meetingPlaceSave_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+","+"'"+ place.road_address_name +"'"+');" class="btn btn-success btn-sm" style="margin-left:9.5%; margin-top:10px;">Meeting Place</button>'
+											+ '<button type="button" onclick="close_window();" class="btn btn-dark btn-sm" style="margin-left:5%; margin-top:10px;">닫기</button>'
+											+ '</div>'
+											+ '<div class="after"></div>';
+											
+									contentNode.innerHTML = content;
+								    placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+								    placeOverlay.setMap(map);
+								    
+								    
+								});
+ 							}
+ 			}
  	
- 	
+<!-- meeting Place 클릭 이벤트  ---------------------------------------------------------------------------------------------------------->
+	var MeetingPlace;
+	var MeetingY;
+	var MeetingX;
+	var MeetingAd
+	
+ 	function meetingPlaceSave_click(placeName, y, x, address){
+ 		 MeetingPlace = placeName;
+ 		 MeetingY = y;
+ 		 MeetingX = x;
+ 		MeetingAd = address;
+ 		 
+ 		swal({
+ 			  title: MeetingPlace,
+ 			  text: "Meeting Place로 저장하시겠습니까?",
+ 			  icon: "warning",
+ 			  buttons: true,
+ 			})
+ 			.then((willDelete) => {
+ 			  if (willDelete) {
+ 			    swal(MeetingPlace, MeetingPlace+"가(이) Meeting Place로 선정되었습니다.", {
+ 			      icon: "success",
+ 			    });
+ 			   document.getElementById('meetingPlaceId').innerHTML = MeetingPlace;
+ 			  document.getElementById('meetingPlaceAddressId').innerHTML = address;
+ 			   
+ 			   
+ 			  } 
+ 			});
  	}
 
-
- 	
  	
 <!--  	reset 버튼 클릭 이벤트 -->
  	function reset_click(){
  		location.reload();
  	}
-
  	
- 	
+<!-- 	마커 제거 -->
+    function removeMarker() {
+        for ( var i = 0; i < markers.length; i++ ) {
+            markers[i].setMap(null);
+        }   
+        markers = [];
+    }
  </script>
 
 </body>
