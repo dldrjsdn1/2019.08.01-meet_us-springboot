@@ -20,4 +20,14 @@ public class UserTeamServiceImp implements UserTeamService {
 		return mapper.userIdCheck(user_id);
 	}
 
+	@Override
+	public int emailIsCheck(String user_email) {
+		return mapper.emailIsCheck(user_email);
+	}
+
+	@Override
+	public int userInsert(UserTeamVo vo) {
+		return mapper.userInsert(vo);
+	}
+
 }

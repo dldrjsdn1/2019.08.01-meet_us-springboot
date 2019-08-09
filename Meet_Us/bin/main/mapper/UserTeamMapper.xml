@@ -14,5 +14,36 @@
 	WHERE 
 				USER_ID = #{user_id}
 	</select>
+	
+	<select id="emailIsCheck" parameterType="String" resultType="int">
+	SELECT 
+				COUNT(*) 
+	FROM 
+				MEET_USER 
+	WHERE 
+				USER_EMAIL = #{user_email}
+	</select>
+	
+	<insert id="userInsert" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
+	INSERT INTO 
+	MEET_USER(
+				USER_ID,
+				USER_PASSWORD,
+				USER_EMAIL,
+				USER_NAME,
+				USER_AGE,
+				USER_GENDER,
+				USER_DEFAULTADDRESS) 
+	VALUES(
+				#{user_id},
+				#{user_password},
+				#{user_email},
+				#{user_name},
+				DATE_FORMAT(now(), '%Y') - #{user_age} +1,
+				#{user_gender},
+				#{user_defaultAddress})
+	</insert>
+	
+	
 
 </mapper>
