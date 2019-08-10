@@ -21,14 +21,102 @@
 						(SELECT @rownum:=0) r
 	WHERE 
 						BOARD_DELFLAG = 'N'
+	ORDER BY                   
+						NO DESC, BOARD_NO DESC
 </select>
 
-<select id="selectBoardDetail" parameterType="int" resultType="Meet_Us.board.vo.BoardVo">
+<select id="selectBoardPageList" parameterType="hashmap" resultType="Meet_Us.board.vo.BoardVo" >
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	BOARD_NO,
+  	 				 	BOARD_TITLE,
+   					 	BOARD_CONTENT,
+   					 	DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTDATE,
+						DATE_FORMAT(BOARD_MODIFYDATE, '%Y-%m-%d') AS BOARD_MODIFYDATE,
+  					  	BOARD_VIEWCOUNT,
+  					  	USER_ID,
+  					  	BOARD_DELFLAG
+		FROM 
+						MEET_BOARD,
+						(SELECT @rownum:=0) r
+		WHERE 
+						BOARD_DELFLAG = 'N'
+		ORDER BY                   
+						NO DESC, BOARD_NO DESC
+		LIMIT 
+						#{pageStart}, #{perPageNum}
+	]]>
+</select>
+
+<select id="selectCountBoardList" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	BOARD_NO,
+  					  	BOARD_DELFLAG
+		FROM 
+						MEET_BOARD,
+						(SELECT @rownum:=0) r
+   		WHERE
+       				    BOARD_DELFLAG = 'N'
+	]]>
+</select>
+
+<!-- 검색 후 리스트 쿼리문 -->
+<select id="selectSearchPageList" parameterType="Meet_Us.board.vo.PageCriteria" resultType="Meet_Us.board.vo.BoardVo">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	BOARD_NO,
+  	 				 	BOARD_TITLE,
+   					 	BOARD_CONTENT,
+   					 	DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTDATE,
+						DATE_FORMAT(BOARD_MODIFYDATE, '%Y-%m-%d') AS BOARD_MODIFYDATE,
+  					  	BOARD_VIEWCOUNT,
+  					  	USER_ID,
+  					  	BOARD_DELFLAG
+		FROM 
+						MEET_BOARD,
+						(SELECT @rownum:=0) r
+		WHERE 
+						BOARD_DELFLAG = 'N'
+                        AND BOARD_TITLE LIKE CONCAT('%', #{keyword}, '%')
+						OR BOARD_CONTENT LIKE CONCAT('%', #{keyword}, '%')
+						OR USER_ID LIKE CONCAT('%', #{keyword}, '%')
+		ORDER BY                   
+						NO DESC, BOARD_NO DESC
+		LIMIT 
+						#{pageStart}, #{perPageNum}
+	]]>
+</select>
+
+<select id="selectCountSearchList" parameterType="String" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	BOARD_NO,
+  	 				 	BOARD_TITLE,
+   					 	BOARD_CONTENT,
+  					  	USER_ID,
+  					  	BOARD_DELFLAG
+		FROM 
+						MEET_BOARD,
+						(SELECT @rownum:=0) r
+   		WHERE
+       				    BOARD_DELFLAG = 'N'
+                        AND BOARD_TITLE LIKE CONCAT('%', #{keyword}, '%')
+						OR BOARD_CONTENT LIKE CONCAT('%', #{keyword}, '%')
+						OR USER_ID LIKE CONCAT('%', #{keyword}, '%')
+	]]>
+</select>
+
+<select id="selectBoardDetail" parameterType="Meet_Us.board.vo.BoardVo" resultType="Meet_Us.board.vo.BoardVo">
 	SELECT 
 						BOARD_NO,
 						BOARD_TITLE,
 						BOARD_CONTENT,
-						DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTD,
+						DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTDATE,
 						DATE_FORMAT(BOARD_MODIFYDATE, '%Y-%m-%d') AS BOARD_MODIFYDATE,
 						BOARD_VIEWCOUNT,
 						USER_ID,
@@ -39,24 +127,44 @@
 	WHERE 
 						BOARD_DELFLAG = 'N'
 	AND 
-						BOARD_NO= #{board_no}
+						BOARD_NO = #{board_no}
 </select>
 
-<update id="selectBoardDelete" parameterType="int">
+<update id="deleteBoard" parameterType="int">
 	UPDATE 
 						MEET_BOARD 
 	SET 
-						BOARD_DELFLAG="Y" 
+						BOARD_DELFLAG = "Y" 
 	WHERE 
 						BOARD_NO = #{board_no}
 </update>
 
-<insert id="selectBoardInsert" >
+<insert id="insertBoard" parameterType="Meet_Us.board.vo.BoardVo">
 	INSERT INTO 
-						MEET_BOARD(USER_ID , BOARD_TITLE,BOARD_CONTENT) 
+						MEET_BOARD(USER_ID , BOARD_TITLE, BOARD_CONTENT) 
 	VALUES 
-						(#{user_id} , #{board_title} , #{board_content})
+						("jodummy" , #{board_title} , #{board_content})
 
 </insert>
+
+<update id="ModifyBoard" parameterType="Meet_Us.board.vo.BoardVo">
+	UPDATE 
+						MEET_BOARD 
+	SET 
+						BOARD_TITLE = #{board_title} , 
+						BOARD_CONTENT = #{board_content} , 
+						BOARD_MODIFYDATE = NOW() 
+	WHERE 
+						BOARD_NO = #{board_no}; 
+</update>
+
+<update id="IncreaseBoardViewCount" parameterType="Meet_Us.board.vo.BoardVo">
+	UPDATE 
+						MEET_BOARD 
+	SET 
+						BOARD_VIEWCOUNT = BOARD_VIEWCOUNT + 1 
+	WHERE 
+						BOARD_NO = #{board_no};
+</update>
 
 </mapper>
