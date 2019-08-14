@@ -323,6 +323,9 @@
 	
 	function centerView_click(){ 
 		
+	if(names.length < 2){
+		swal("아차!", "저장된 주소가 너무 적습니다.", "error");
+	}else{
 	document.getElementById('CenterPlaceKeyword').innerHTML='	<span class="icon icon-search" onclick="CenterPlaceKeyword()" style="cursor: pointer;"></span> <input type="text" id="CenterPlaceKeywordId" class="form-control" placeholder="Category Keyword" onkeydown="JavaScript:Enter_Check_keyword()" >';
 	
 	removeMarker();
@@ -424,11 +427,15 @@
 				}
 			
 		}
+	}
 
 
  
 <!-- largeCenter_click 이벤트 ----------------------------------------------------------------------------------------------------------------> 
- 	function largeCenter_click(){ 
+ 	function largeCenter_click(){
+ 		if(names.length < 2){
+ 			swal("아차!", "저장된 주소가 너무 적습니다.", "error");
+ 		}else{
 		removeMarker();
 		
 		map.setCenter(new kakao.maps.LatLng(RcenterY, RcenterX));
@@ -482,6 +489,7 @@
 				        }
 				    }    
 				}
+ 	 	}
  	}
  	
  	
@@ -520,7 +528,7 @@
  	    }
 
  	     else if (status === kakao.maps.services.Status.ZERO_RESULT) {
- 	    	swal("헛!", "검색결과가 없어요.", "error");
+ 	    	
 	    }
 	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
      		map.setBounds(bounds);
