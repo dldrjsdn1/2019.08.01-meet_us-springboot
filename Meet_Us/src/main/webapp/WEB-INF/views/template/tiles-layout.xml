@@ -17,7 +17,7 @@
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/MeeterDetail.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
-	
+	 
 	<!-- MeeterMain 페이지-->
 	<definition name="bootstrap.MeeterMain" extends="defaultLayout"> 
 		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
