@@ -5,7 +5,7 @@
 
 <mapper namespace="Meet_Us.userTeam.dao.UserTeamMapper">
 
-<!-- 	아이디 중복 체크 -->
+	<!--아이디 중복 체크 -->
 	<select id="userIdCheck" parameterType="String" resultType="int">
 	SELECT 
 				COUNT(*) 
@@ -27,6 +27,7 @@
 	<insert id="userInsert" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
 	INSERT INTO 
 	MEET_USER(
+				USER_KAKAOID,
 				USER_ID,
 				USER_PASSWORD,
 				USER_EMAIL,
@@ -35,6 +36,8 @@
 				USER_GENDER,
 				USER_DEFAULTADDRESS) 
 	VALUES(
+				
+				#{user_kakaoId},
 				#{user_id},
 				#{user_password},
 				#{user_email},

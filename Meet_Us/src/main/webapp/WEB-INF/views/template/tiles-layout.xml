@@ -53,12 +53,20 @@
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
 	
-	<!-- Notice Modify 페이지-->
+	<!-- 사용자 회원가입 페이지-->
 	<definition name="bootstrap.UserInert" extends="defaultLayout"> 
 		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/UserInsert.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
 	
-
+	<!-- 사용자 로그인 페이지-->
+	<definition name="bootstrap.Login" extends="defaultLayout"> 
+		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
+		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/Login.jsp" />
+		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+	</definition>
+	
+	
+	
 </tiles-definitions>

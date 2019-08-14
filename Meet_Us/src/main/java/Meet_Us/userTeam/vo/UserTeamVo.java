@@ -1,7 +1,7 @@
 package Meet_Us.userTeam.vo;
 
 public class UserTeamVo {
-
+	private int user_kakaoId;
 	private String user_id;
 	private String user_password;
 	private String user_email;
