@@ -40,7 +40,7 @@
     .hAddr {position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .title {font-weight:bold;display:block;}
-	</style>
+	</style> 
 
  </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
