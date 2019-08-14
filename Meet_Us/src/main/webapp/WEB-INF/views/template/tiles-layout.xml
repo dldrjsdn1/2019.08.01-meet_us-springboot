@@ -55,6 +55,9 @@
 	
 	<!-- Notice Modify 페이지-->
 	<definition name="bootstrap.UserInert" extends="defaultLayout"> 
+	
+	<!-- Map 페이지-->
+	<definition name="bootstrap.Map" extends="defaultLayout"> 
 		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/UserInsert.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
