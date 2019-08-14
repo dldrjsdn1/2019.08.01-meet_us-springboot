@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
 	  
 	  <section id="home-section" class="hero">
 	  	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
