@@ -46,7 +46,7 @@
 	<section class="ftco-section">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 ftco-animate">
+			<div class="col-lg-8-1 ftco-animate">
 				<!-- Á¦¸ñ -->
 				<h2 class="mb-3">${detail.board_title }</h2>
 
