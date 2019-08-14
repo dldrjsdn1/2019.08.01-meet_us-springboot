@@ -64,7 +64,7 @@
     <section class="ftco-section">
       <div class="container">
 		<div class="row">
-			<div class="col-lg-8 ftco-animate">
+			<div class="col-lg-8 ftco-animate" style="flex:0 0 66.66667%; max-width: 66.66667%;">
 <!-- 			<div class="map_wrap"> -->
 				<div id="map"></div>
 					<div id="centerInfoDiv">
