@@ -163,12 +163,12 @@
                                        $('#id_check').text('공백이 있으면 안되요 :(');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
-                                    } else if (user_id.length < 4) {
-                                       $('#id_check').text('아이디 길이가 너무 짧아요 :(');
+                                    } else if (user_id.length < 5) {
+                                       $('#id_check').text('아이디 길이가 너무 짧아요, 5~15글자  :( ');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
-                                    } else if (user_id.length > 8) {
-                                       $('#id_check').text('아이디 길이가 너무 길어요 :(');
+                                    } else if (user_id.length > 16) {
+                                       $('#id_check').text('아이디 길이가 너무 길어요, 5~15글자 :( ');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
                                     } else {
