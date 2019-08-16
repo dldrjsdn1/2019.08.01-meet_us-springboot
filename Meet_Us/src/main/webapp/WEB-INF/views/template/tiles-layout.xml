@@ -67,6 +67,10 @@
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
 	
+		<!-- 사용자 로그인 페이지-->
+	<definition name="bootstrap.selectSocial" extends="defaultLayout"> 
+		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/selectSocial.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

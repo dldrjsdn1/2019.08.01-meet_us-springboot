@@ -12,6 +12,7 @@ public interface UserTeamService {
 	// 아이디 중복 체크
 	public int emailIsCheck(String user_email);
 
+	//회원가입
 	public int userInsert(UserTeamVo vo);
 
 }

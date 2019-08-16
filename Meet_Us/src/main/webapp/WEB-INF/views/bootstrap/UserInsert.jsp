@@ -32,7 +32,6 @@
       </div>
    </div>
    </section>
-
    <div class="container">
       <!-- END comment-list -->
          <div class="comment-form-wrap pt-5">
@@ -70,8 +69,7 @@
             <!--이메일 -->
             <div class="form-group">
                <label for="user_email">이메일</label> 
-               <input type="text" class="form-control" id="user_email" name="user_email" placeholder="@email.com" required>
-               <div class="check_font" id="email_check"></div>
+               <input type="text" class="form-control" id="user_email" name="user_email" value="${user_email }" readonly="readonly">
             </div>
 
             <div class="form-group">
@@ -112,6 +110,8 @@
                 <input type="text" class="form-control" style="top: 5px;" placeholder="도로명 주소" name="user_defaultAddress" id="user_defaultAddress"  readonly="readonly" />
             </div>
 
+
+			<input type="hidden" value="${user_kakaoImg }" name="user_kakaoImg" id="user_kakaoImg">
             <div class="form-group">
                <input type="button" value="Post Comment" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
             </div>
@@ -153,7 +153,7 @@
                               url : '${pageContext.request.contextPath}/idIsCheck?user_id='+user_id,
                               type : 'GET',
                               success : function(data) {
-                                 if (data == 1) {
+                                 if (data == 1) { 
                                     // 1 : 아이디가 중복되는 문구
                                     $("#id_check").text("사용중인 아이디입니다 :p");
                                     $("#id_check").css("color","red");
@@ -260,47 +260,7 @@
                      $("#reg_submit").attr("disabled", true);
                   }
                });
-
-   $("#user_email").blur(function() {
-                  let user_email = $('#user_email').val();
-                  let exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-                  if (exptext.test(user_email)) {
-                     $.ajax({
-                              //controller 확인 주소
-                              url : '${pageContext.request.contextPath}/emailIsCheck?user_email='+ user_email,
-                              type : 'GET',
-                              success : function(data) {
-                                 if (data == 1) {
-                                    // 1 : 아이디가 중복되는 문구
-                                    $("#email_check").text("사용중인 아이디입니다 :p");
-                                    $("#email_check").css("color","red");
-                                    $("#reg_submit").attr("disabled", true);
-                                 } else {
-                                    if (user_email.length != user_email.replace(/\s/gi, "").length) {
-                                       $('#email_check').text('공백이 있으면 안되요 :(');
-                                       $('#email_check').css('color', 'red');
-                                       $("#reg_submit").attr("disabled", true);
-                                    } else {
-                                       $("#email_check").text("사용 가능하십니다 :)");
-                                       $('#email_check').css('color', 'blue');
-                                       $("#reg_submit").attr("disabled", true);
-                                       signCheck++;
-                                    }
-                                 }
-                              },
-                              error : function() {
-                                 console.log("실패");
-                              }
-                           });
-                  } else {
-                     $("#email_check").text("형식을 맞춰주세요 aaaaa@gmail.com  :(");
-                     $('#email_check').css('color', 'red');
-                     $("#reg_submit").attr("disabled", true);
-                  }
-               });
-                     
-            
-                     
+                                       
                function execPostCode() {
                      new daum.Postcode({
                          oncomplete: function(data) {
@@ -346,13 +306,13 @@
                      }).open();
                  }
                
-               
-               function userSubmit(){
-                  var form = document.userinput;
-                  if(signCheck==5){
-                     form.submit();
-                  }
-               }
+
+function userSubmit(){
+   var form = document.userinput;
+   if(signCheck==4){
+      form.submit();
+   }
+}
 </script>
 
 </html>

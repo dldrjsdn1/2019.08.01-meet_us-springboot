@@ -27,24 +27,25 @@
 	<insert id="userInsert" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
 	INSERT INTO 
 	MEET_USER(
-				USER_KAKAOID,
 				USER_ID,
 				USER_PASSWORD,
 				USER_EMAIL,
 				USER_NAME,
 				USER_AGE,
 				USER_GENDER,
-				USER_DEFAULTADDRESS) 
+				USER_DEFAULTADDRESS,
+				USER_KAKAOIMG) 
 	VALUES(
 				
-				#{user_kakaoId},
 				#{user_id},
 				#{user_password},
 				#{user_email},
 				#{user_name},
 				DATE_FORMAT(now(), '%Y') - #{user_age} +1,
 				#{user_gender},
-				#{user_defaultAddress})
+				#{user_defaultAddress},
+				#{user_kakaoImg}
+				)
 	</insert>
 	
 	

@@ -53,7 +53,7 @@ public class KakaoAPI {
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
+			System.out.println("response body1 : " + result);
 
 			// Gson 라이브러리에 포함된 클래스로 JSON파싱 객체 생성
 			JsonParser parser = new JsonParser();
@@ -99,7 +99,7 @@ public class KakaoAPI {
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-			System.out.println("response body : " + result);
+			System.out.println("response body2 : " + result);
 
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
@@ -108,10 +108,15 @@ public class KakaoAPI {
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
 			try {
+				//큰 이미지
+				
 				String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-				String email = kakao_account.getAsJsonObject().get("email").getAsString();
 				userInfo.put("nickname", nickname);
-				userInfo.put("email", email);
+				String user_email = kakao_account.getAsJsonObject().get("email").getAsString();
+				userInfo.put("user_email",user_email);
+				String user_kakaoImg = properties.getAsJsonObject().get("profile_image").getAsString();
+				userInfo.put("user_kakaoImg",user_kakaoImg);
+				
 			} catch (Exception e) {
 			}
 

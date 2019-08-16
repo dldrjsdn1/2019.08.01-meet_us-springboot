@@ -69,24 +69,9 @@
                   </div>
                </div>
                <div class="form-group" style="text-align: center;">
-                  <a href="#">회원가입&nbsp&nbsp&nbsp|</a>
+                  <a onclick="selectS()">회원가입&nbsp&nbsp&nbsp|</a>
                   <a href="#">&nbsp&nbsp아이디 찾기&nbsp&nbsp&nbsp|</a>
                   <a href="#">&nbsp&nbsp비밀번호 찾기</a>
-                
-                  
-<!--        네이티브 앱 키 Tooltip  26f41a7b71ca942c324e791fded62756 재발급 -->
-<!-- 		REST API 키 Tooltip  51842c99904f5e62277ee17ee6d97da2 재발급 -->
-<!-- 		JavaScript 키 Tooltip  b6164a1e476a98c774b246adb6bdf93d 재발급 -->
-<!-- 		Admin 키 Tooltip  49ca4e0a99911e8ef472225612af95e4 -->
- 				<c:if test="${userId eq null}">
-      				  <a href="https://kauth.kakao.com/oauth/authorize?client_id=51842c99904f5e62277ee17ee6d97da2&redirect_uri=http://localhost:8087/kakaoLogin&response_type=code"> 
-            		  	<img src="/img/kakao_account_login_btn_medium_wide_ov.png">
-       				 </a>
-    			</c:if>
-			    <c:if test="${userId ne null}">
-			       <h1>로그인 성공입니다</h1>
-        		   <input type="button" value="로그아웃" onclick="location.href='/logout'">
-			    </c:if>
                </div>
             </form>
          </div>
@@ -98,4 +83,11 @@
    <h3 class="mb-5">&nbsp</h3>   
 
 </body>
+<script type="text/javascript">
+	function selectS(){
+		let req = window.open("${pageContext.request.contextPath}bootstrap/selectSocial", "selectSocial", "width=500,height=600");
+
+	}
+</script>
+
 </html>
