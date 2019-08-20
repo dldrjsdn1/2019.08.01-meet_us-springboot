@@ -18,8 +18,11 @@ if(request.getProtocol().equals("HTTP/1.1"))
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+    .jg{font-family: 'Jeju Gothic', sans-serif;};
+    </style>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
