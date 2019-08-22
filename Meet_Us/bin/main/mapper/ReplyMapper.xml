@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="Meet_Us.board.dao.ReplyMapper">
+  
+    
+    <select id="listReply" resultType="Meet_Us.board.vo.ReplyVo">
+    
+    SELECT 
+  							REPLY_NO,
+  							MEET_BOARD.BOARD_NO,
+  							MEET_BOARD.USER_ID,
+  							REPLY_MEMO,
+  							REPLY_DELFLAG,
+  							DATE_FORMAT(REPLY_INSERTDATE, '%Y-%m-%d %H:%i') AS REPLY_INSERTDATE,
+  							DATE_FORMAT(REPLY_MODIFYDATE, '%Y-%m-%d %H:%i') AS REPLY_MODIFYDATE
+  	FROM 
+  							MEET_REPLY
+  	INNER JOIN 				
+  							MEET_BOARD
+ 	ON 						
+  							MEET_REPLY.BOARD_NO = MEET_BOARD.BOARD_NO
+  							
+  	WHERE 				
+							REPLY_DELFLAG = 'N' 
+	AND 
+							MEET_BOARD.BOARD_NO = #{board_no}
+  	ORDER BY 
+							REPLY_INSERTDATE DESC, REPLY_NO DESC
+  	
+    </select>
+    
+    <insert id="insertReply" parameterType="Meet_Us.board.vo.ReplyVo">
+    
+    INSERT INTO 
+    						MEET_REPLY (USER_ID, BOARD_NO, REPLY_MEMO, REPLY_INSERTDATE, REPLY_MODIFYDATE) 
+    VALUES 
+<!--     						("yujin", 1, "asdasd", NOW(), NOW()); -->
+    						("yujin", #{board_no}, #{reply_memo}, NOW(), NOW());
+    </insert>
+    
+    <update id="deleteReply" parameterType="int">
+    
+    UPDATE              
+    						MEET_REPLY 
+    SET                 
+    						REPLY_DELFLAG = "Y" 
+    WHERE               
+    						REPLY_NO = #{reply_no}
+    
+    </update>
+    
+    <update id="updateReply" parameterType="Meet_Us.board.vo.ReplyVo">
+    
+    UPDATE            
+    						MEET_REPLY
+    SET               
+                      		REPLY_MEMO=#{reply_memo},
+                      		REPLY_MODIFYDATE= NOW()
+    WHERE             
+    						REPLY_NO = #{reply_no};
+    </update>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </mapper>

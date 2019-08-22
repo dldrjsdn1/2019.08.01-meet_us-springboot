@@ -1,6 +1,6 @@
 </html><%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -53,13 +53,14 @@
 
 				<div class="form-group">
 					<label for="message">Notice</label>
-					<textarea name="board_content" id="board_content" cols="30" rows="10"
-						class="form-control"></textarea> <%-- <c:out value="${content}" /> --%>
-						
+					<textarea name="board_content" id="board_content" cols="30"
+						rows="10" class="form-control"></textarea>
+					<%-- <c:out value="${content}" /> --%>
+
 				</div>
 				<div class="form-group">
 					<input type="submit" value="Post Comment"
-						class="btn py-3 px-4 btn-primary" >
+						class="btn py-3 px-4 btn-primary">
 				</div>
 			</form>
 

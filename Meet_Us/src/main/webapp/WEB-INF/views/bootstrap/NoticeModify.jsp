@@ -8,9 +8,23 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		brToLn('${modify.board_content}');
+	});
+
+	function brToLn(brString) {
+		var lnString = brString.split('<br>').join("\r\n");
+		$('[name=board_content]').val(lnString);
+		return lnString;
+	}
+</script>
+
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
-
 
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/bg_4.jpg');"
@@ -36,7 +50,7 @@
 
 	<section>
 	<div class="container">
-		<!-- 		<div class="row"> -->
+		<!-- <div class="row"> -->
 
 		<!-- END comment-list -->
 
@@ -54,7 +68,7 @@
 				<div class="form-group">
 					<label for="message">Notice</label>
 					<textarea name="board_content" id="board_content" cols="30"
-						rows="10" class="form-control">${modify.board_content }</textarea>
+						rows="10" class="form-control"></textarea>
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="board_no" id="board_no"

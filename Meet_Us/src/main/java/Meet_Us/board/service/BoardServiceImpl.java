@@ -53,11 +53,16 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int insertBoard(BoardVo vo) throws Exception {
+		/* 입력할 때, 개행을 <br/>로 교체 해줌 */
+		vo.setBoard_content(vo.getBoard_content().replace("\r\n", "<br>"));
+
 		return mapper.insertBoard(vo);
 	}
 
 	@Override
 	public int ModifyBoard(BoardVo vo) throws Exception {
+		/* 수정 후 등록할 때, 개행을 <br/>로 교체 해줌 */
+		vo.setBoard_content(vo.getBoard_content().replace("\r\n", "<br>"));
 		return mapper.ModifyBoard(vo);
 	}
 

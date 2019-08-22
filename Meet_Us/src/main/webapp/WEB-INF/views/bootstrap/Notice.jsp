@@ -21,12 +21,12 @@
 	}
 	function enterCheck(keyword) {
 		let test = keyword.value();
-        if (event.keyCode == 13) {
-           //SearchPlace();
-    		alert(test);
-    		location.href = "/NoticeDetail?board_no=" + board_no;
-        }
-     }
+		if (event.keyCode == 13) {
+			//SearchPlace();
+			alert(1);
+			location.href = "/NoticeDetail?board_no=" + board_no;
+		}
+	}
 </script>
 
 <body data-spy="scroll" data-target=".site-navbar-target"
@@ -70,8 +70,10 @@
 		<div class="sidebar-box">
 			<form action="/NoticeSearchList" class="search-form">
 				<div class="form-group">
-					<span class="icon icon-search"></span> 
-					<input type="text" id = "keyword" name = "keyword" class="form-control" onkeydown="JavaScript:enterCheck()" placeholder="Type a keyword and hit enter">
+					<span class="icon icon-search"></span> <input type="text"
+						id="keyword" name="keyword" class="form-control"
+						onkeydown="JavaScript:enterCheck()" required
+						placeholder="Type a keyword and hit enter">
 				</div>
 			</form>
 		</div>
@@ -81,41 +83,52 @@
 				<div class="block-27">
 					<ul>
 						<c:choose>
-							<c:when test="${pageCriteria.keyword == null}"> <!-- 전체 리스트 출력 시 -->
+							<c:when test="${pageCriteria.keyword == null}">
+								<!-- 전체 리스트 출력 시 -->
 								<c:if test="${pageMaker.prev }">
-									<li><a href='<c:url value="/Notice?page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
+									<li><a
+										href='<c:url value="/Notice?page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
 								</c:if>
-								<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
 									<c:choose>
-    	  								<c:when test="${idx == pageCriteria.page}"> 
-											<li class="active"><a href='<c:url value="/Notice?page=${idx }"/>'>${idx }</a></li>
-       		 							</c:when>         
-        								<c:otherwise>
+										<c:when test="${idx == pageCriteria.page}">
+											<li class="active"><a
+												href='<c:url value="/Notice?page=${idx }"/>'>${idx }</a></li>
+										</c:when>
+										<c:otherwise>
 											<li><a href='<c:url value="/Notice?page=${idx }"/>'>${idx }</a></li>
-         								</c:otherwise>
-    								</c:choose>	
+										</c:otherwise>
+									</c:choose>
 								</c:forEach>
 								<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-									<li><a href='<c:url value="/Notice?page=${pageMaker.endPage+1 }"/>'>&gt;</a></li>
+									<li><a
+										href='<c:url value="/Notice?page=${pageMaker.endPage+1 }"/>'>&gt;</a></li>
 								</c:if>
 							</c:when>
-							
-							<c:otherwise> <!-- 검색된 키워드로 리스트 출력 시 -->
+
+							<c:otherwise>
+								<!-- 검색된 키워드로 리스트 출력 시 -->
 								<c:if test="${pageMaker.prev }">
-									<li><a href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
+									<li><a
+										href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
 								</c:if>
-								<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+								<c:forEach begin="${pageMaker.startPage }"
+									end="${pageMaker.endPage }" var="idx">
 									<c:choose>
-    	  								<c:when test="${idx == pageCriteria.page}"> 
-											<li class="active"><a href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
-       		 							</c:when>         
-        								<c:otherwise>
-											<li><a href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
-         								</c:otherwise>
-    								</c:choose>	
+										<c:when test="${idx == pageCriteria.page}">
+											<li class="active"><a
+												href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a
+												href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
+										</c:otherwise>
+									</c:choose>
 								</c:forEach>
 								<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-									<li><a href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.endPage+1 }"/>'>&gt;</a></li>
+									<li><a
+										href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.endPage+1 }"/>'>&gt;</a></li>
 								</c:if>
 							</c:otherwise>
 						</c:choose>
@@ -123,10 +136,7 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
