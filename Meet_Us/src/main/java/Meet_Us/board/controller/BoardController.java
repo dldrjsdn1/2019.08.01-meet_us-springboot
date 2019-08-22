@@ -122,7 +122,6 @@ public class BoardController {
 	@ResponseBody
 	public int ReplyCount(ReplyVo reVo) throws Exception {
 		List<ReplyVo> rs = replyService.listReply(reVo.getBoard_no());
-		System.out.println(rs.size() + "asdasd");
 		reVo.setReply_count(rs.size());
 
 		return rs.size();
