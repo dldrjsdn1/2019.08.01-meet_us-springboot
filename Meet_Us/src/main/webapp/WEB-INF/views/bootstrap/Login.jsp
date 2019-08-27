@@ -69,7 +69,8 @@
                   </div>
                </div>
                <div class="form-group" style="text-align: center;">
-                  <a onclick="selectS()">회원가입&nbsp&nbsp&nbsp|</a>
+<!--                   <a onclick="selectS()">회원가입&nbsp&nbsp&nbsp|</a> -->
+				  <a href ="../selectSocial">회원가입&nbsp&nbsp&nbsp|</a>
                   <a href="#">&nbsp&nbsp아이디 찾기&nbsp&nbsp&nbsp|</a>
                   <a href="#">&nbsp&nbsp비밀번호 찾기</a>
                </div>
@@ -85,7 +86,7 @@
 </body>
 <script type="text/javascript">
 	function selectS(){
-		let req = window.open("${pageContext.request.contextPath}bootstrap/selectSocial", "selectSocial", "width=500,height=600");
+		location.href="${pageContext.request.contextPath}bootstrap/selectSocial";
 
 	}
 </script>

@@ -104,20 +104,25 @@ public class KakaoAPI {
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 
-			JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
-			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-
+			
 			try {
-				//큰 이미지
+				String id = element.getAsJsonObject().get("id").getAsString();
+				userInfo.put("id", id);
+				JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
+				JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+				
+			
 				
 				String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 				userInfo.put("nickname", nickname);
+			
 				String user_email = kakao_account.getAsJsonObject().get("email").getAsString();
 				userInfo.put("user_email",user_email);
 				String user_kakaoImg = properties.getAsJsonObject().get("profile_image").getAsString();
 				userInfo.put("user_kakaoImg",user_kakaoImg);
 				
 			} catch (Exception e) {
+				System.err.println("error getUserInfo");
 			}
 
 		} catch (IOException e) {

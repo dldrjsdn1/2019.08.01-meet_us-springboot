@@ -13,6 +13,14 @@ public interface UserTeamService {
 	public int emailIsCheck(String user_email);
 
 	//회원가입
-	public int userInsert(UserTeamVo vo);
+	public int userInsert(UserTeamVo vo) throws Exception;
 
+	//고유 id 확인
+	public int seqlIsCheck(int user_seq);
+	
+	//id값 자동 삽입 기능
+	public int userIdMin();
+	
+	
+	
 }
