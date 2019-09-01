@@ -62,4 +62,14 @@ public class UserTeamServiceImp implements UserTeamService {
 		return mapper.userIdMin();
 	}
 
+	@Override
+	public int emailConfirm(UserTeamVo vo) {
+		return mapper.emailConfirm(vo);
+	}
+
+	@Override
+	public void updateEmailConfirm(String user_email) {
+		mapper.updateEmailConfirm(user_email);
+	}
+
 }

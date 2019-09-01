@@ -43,5 +43,14 @@
 	     <c:if test="${key eq 3}">
 	  	  <h1>이미 가입된 아이디 입니다.</h1>
 	    </c:if>
+	    
+	     <c:if test="${key eq 99}">
+	  	  <h1>이메일 인증이 완료된 사용자입니다.</h1>
+	  	  <h1>${user_email}</h1>
+	    </c:if>
+	    
+	     <c:if test="${key eq 66}">
+	  	  <h1>잘못됨 방식에 접근입니다.</h1>
+	    </c:if>
 </body>
 </html>

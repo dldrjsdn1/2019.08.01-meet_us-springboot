@@ -95,9 +95,11 @@ public class UserTeamController {
 		return "bootstrap.selectSocial";
 	}
 
-	@RequestMapping(value = "/SuccessPage", method ={RequestMethod.GET, RequestMethod.POST})
-	public String SuccessPage(UserTeamVo vo, @RequestParam("key") String key, Model model, BindingResult bindingResult,HttpServletRequest req) throws Exception {
-		vo.setUser_defaultAddress(vo.getUser_defaultAddress().substring(0, vo.getUser_defaultAddress().lastIndexOf("(") - 1));
+	@RequestMapping(value = "/SuccessPage", method = { RequestMethod.GET, RequestMethod.POST })
+	public String SuccessPage(UserTeamVo vo, @RequestParam("key") String key, Model model, BindingResult bindingResult,
+			HttpServletRequest req) throws Exception {
+		vo.setUser_defaultAddress(
+				vo.getUser_defaultAddress().substring(0, vo.getUser_defaultAddress().lastIndexOf("(") - 1));
 		System.out.println("1. vo : " + vo.toString());
 		if (Integer.parseInt(key) == 1) {
 			vo.setUser_seq(service.userIdMin());
@@ -105,16 +107,24 @@ public class UserTeamController {
 			System.out.println(service.userInsert(vo));
 			model.addAttribute("key", key);
 			return "bootstrap.SuccessPage";
-		} else if(Integer.parseInt(key)==99){
-			System.out.println("주인님 도비는 이제  권한을 얻을거에요 , 여기에 넣어주세요");
-			return "bootstrap.SuccessPage";
-		}else {
+		} else {
 			service.userInsert(vo);
 			model.addAttribute("key", key);
 			return "bootstrap.SuccessPage";
 		}
 	}
-	
-	
-	
+
+	@RequestMapping(value = "/emailConfirm", method ={RequestMethod.GET, RequestMethod.POST})
+	public String emailConfirm(@RequestParam("key") String key,UserTeamVo vo, Model model) throws Exception {
+		if(service.emailConfirm(vo)==1) {
+			model.addAttribute("key", key);
+			model.addAttribute("user_email", vo.getUser_email());
+			service.updateEmailConfirm(vo.getUser_email());
+			return "bootstrap.SuccessPage";
+		}else {
+			model.addAttribute("key", 66);
+			return "bootstrap.SuccessPage";
+		}
+	}
+
 }
