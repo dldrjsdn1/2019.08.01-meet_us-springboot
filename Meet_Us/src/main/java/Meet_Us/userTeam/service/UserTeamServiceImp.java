@@ -72,4 +72,8 @@ public class UserTeamServiceImp implements UserTeamService {
 		mapper.updateEmailConfirm(user_email);
 	}
 
+	@Override
+	public String SeachUserId(UserTeamVo vo) {
+		return mapper.SeachUserId(vo);
+	}
 }

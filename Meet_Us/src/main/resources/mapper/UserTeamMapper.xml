@@ -81,14 +81,24 @@
 	
 	<!-- 	이메일 인증이 성공하면 수정하는 로직 -->
 	<update id="updateEmailConfirm" parameterType="String">
-		UPDATE 
-					MEET_USER 
-		SET 
-					USER_AUTHORITY="Y" 
-		WHERE 		
-					USER_EMAIL=#{user_email}
+	UPDATE 
+				MEET_USER 
+	SET 
+				USER_AUTHORITY="Y" 
+	WHERE 		
+				USER_EMAIL=#{user_email}
 	</update>
 	
-	
+	<!-- 	회원 아이디 찾기 -->
+	<select id="SeachUserId" parameterType="Meet_Us.userTeam.vo.UserTeamVo" resultType="String">	
+	SELECT 
+				USER_ID
+	FROM 
+				MEET_USER
+	WHERE 
+				USER_NAME=#{user_name}
+	AND 
+				USER_EMAIL=#{user_email}
+	</select>
 
 </mapper>

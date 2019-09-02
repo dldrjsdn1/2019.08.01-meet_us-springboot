@@ -28,4 +28,7 @@ public interface UserTeamMapper {
 	//이메일 인증이 성공하면 계정 활성화
 	public void updateEmailConfirm(String user_email);
 	
+	//아이디 찾기
+	public String SeachUserId(UserTeamVo vo);
+
 }

@@ -25,7 +25,6 @@
             <h1 class="mb-3 bread">Sign Up</h1>
             <p class="breadcrumbs">
                <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a>
-               </span> <span class="mr-2"> <a href="../Notice">Sign Up <i class="ion-ios-arrow-forward"></i></a>
                </span>
             </p>
          </div>

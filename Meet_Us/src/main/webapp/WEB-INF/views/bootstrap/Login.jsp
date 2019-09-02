@@ -25,8 +25,7 @@
 				<h1 class="mb-3 bread">Login</h1>
 				<p class="breadcrumbs">
 					<span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a>
-					</span> <span class="mr-2"> <a href="../Notice">Sign Up <i class="ion-ios-arrow-forward"></i></a>
-					</span>
+					</span> 
 				</p>
 			</div>
 		</div>
@@ -71,8 +70,8 @@
                <div class="form-group" style="text-align: center;">
 <!--                   <a onclick="selectS()">회원가입&nbsp&nbsp&nbsp|</a> -->
 				  <a href ="../selectSocial">회원가입&nbsp&nbsp&nbsp|</a>
-                  <a href="#">&nbsp&nbsp아이디 찾기&nbsp&nbsp&nbsp|</a>
-                  <a href="#">&nbsp&nbsp비밀번호 찾기</a>
+                  <a href="../IdSearch">&nbsp&nbsp아이디 찾기&nbsp&nbsp&nbsp|</a>
+                  <a href="../PasswordSearch">&nbsp&nbsp비밀번호 찾기</a>
                </div>
             </form>
          </div>

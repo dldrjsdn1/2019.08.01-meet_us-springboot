@@ -25,17 +25,17 @@
             <h1 class="mb-3 bread">Sign Up</h1>
             <p class="breadcrumbs">
                <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a>
-               </span> <span class="mr-2"> <a href="../Notice">Sign Up <i class="ion-ios-arrow-forward"></i></a>
                </span>
             </p>
          </div>
       </div>
    </div>
    </section>
-   <div class="container">
+   
+   
+   <div class="container" style='width:50%'>
       <!-- END comment-list -->
          <div class="comment-form-wrap pt-5">
-         <h3 class="mb-5">Sign Up</h3>
       
          <!-- form -->
          <form action="${pageContext.request.contextPath}/SuccessPage" method="post" class="p-5 bg-light" name="userinput">
@@ -65,19 +65,14 @@
                <input type="password" class="form-control" id="user_passwordConfig" name="user_passwordConfig" placeholder="password">
                <div class="check_font" id="password_check"></div>
             </div>
- 			<c:if test="${key eq 1}">
-            <!--이메일 -->
+            
             <div class="form-group">
             
                <label for="user_email">이메일</label> 
-               <!--일반 회원가입 -->
-              
                		<input type="text" class="form-control" id="user_email" name="user_email" placeholder="aaaa@aaaa.com">
                		<div class="check_font" id="email_check"></div>
-              
-			<!--카카오 회원 가입 -->
             </div>
- 			</c:if>
+ 		
  			
             <div class="form-group">
                <label for="user_age">생일년도</label>
@@ -123,7 +118,7 @@
            	 	<input type="hidden" value="${user_seq }" name="user_seq" id="user_seq">
 			</c:if>
             <div class="form-group">
-               <input type="button" value="Post Comment" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
+               <input type="button" value="insertUser" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
             </div>
             
 

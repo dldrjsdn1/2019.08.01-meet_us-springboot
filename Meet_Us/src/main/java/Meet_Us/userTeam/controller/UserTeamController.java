@@ -80,6 +80,15 @@ public class UserTeamController {
 		System.out.println(vo.getUser_id());
 		return service.userIdCheck(vo.getUser_id());
 	}
+	
+	// id 찾기
+	@RequestMapping(value = "/SeachUserId", method = RequestMethod.GET)
+	@ResponseBody
+	public String SeachUserId(UserTeamVo vo) {
+		System.out.println(vo.toString());
+		return service.SeachUserId(vo);
+	}
+	
 
 	// 이메일 중복 체크
 	@RequestMapping(value = "/emailIsCheck", method = RequestMethod.GET)
@@ -98,16 +107,18 @@ public class UserTeamController {
 	@RequestMapping(value = "/SuccessPage", method = { RequestMethod.GET, RequestMethod.POST })
 	public String SuccessPage(UserTeamVo vo, @RequestParam("key") String key, Model model, BindingResult bindingResult,
 			HttpServletRequest req) throws Exception {
-		vo.setUser_defaultAddress(
-				vo.getUser_defaultAddress().substring(0, vo.getUser_defaultAddress().lastIndexOf("(") - 1));
+		vo.setUser_defaultAddress(vo.getUser_defaultAddress().substring(0, vo.getUser_defaultAddress().lastIndexOf("(") - 1));
 		System.out.println("1. vo : " + vo.toString());
 		if (Integer.parseInt(key) == 1) {
 			vo.setUser_seq(service.userIdMin());
 			vo.setUser_authority(new TempKey().getKey(20, true));
-			System.out.println(service.userInsert(vo));
+		
+			service.userInsert(vo);
 			model.addAttribute("key", key);
 			return "bootstrap.SuccessPage";
 		} else {
+			vo.setUser_authority("Y");
+			System.out.println("2. vo : " +vo.toString());
 			service.userInsert(vo);
 			model.addAttribute("key", key);
 			return "bootstrap.SuccessPage";
@@ -125,6 +136,20 @@ public class UserTeamController {
 			model.addAttribute("key", 66);
 			return "bootstrap.SuccessPage";
 		}
+	}
+	
+	@RequestMapping(value = "/IdSearch")
+	public String EmailSearch(Model model) {
+		System.out.println("이메일 찾기");
+		model.addAttribute("check","id");
+		return "bootstrap.UserSearch";
+	}
+	
+	@RequestMapping(value = "/PasswordSearch")
+	public String PasswordSearch(Model model) {
+		System.out.println("비번 찾기");
+		model.addAttribute("check","password");
+		return "bootstrap.UserSearch";
 	}
 
 }
