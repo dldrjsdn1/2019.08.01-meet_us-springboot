@@ -1,6 +1,5 @@
 package Meet_Us.userTeam.service;
 
-
 import Meet_Us.userTeam.vo.UserTeamVo;
 
 public interface UserTeamService {
@@ -28,5 +27,8 @@ public interface UserTeamService {
 
 	// 아이디 찾기
 	public String SeachUserId(UserTeamVo vo);
+
+	// 비밀번호 찾기
+	public int SeachUserPw(UserTeamVo vo) throws Exception;
 
 }

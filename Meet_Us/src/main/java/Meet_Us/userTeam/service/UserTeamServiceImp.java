@@ -2,6 +2,8 @@ package Meet_Us.userTeam.service;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -34,7 +36,7 @@ public class UserTeamServiceImp implements UserTeamService {
 	public int userInsert(UserTeamVo vo) throws Exception{
 		if(vo.getUser_email()!=null) {
 		MailHandler sendMail = new MailHandler(mailSender);
-		 sendMail.setSubject("Meet_us  서비스 이메일 인증]");
+		 sendMail.setSubject("[Meet_us  서비스 이메일 인증]");
 	        sendMail.setText(
 	                new StringBuffer().append("<h1>메일인증</h1>")
 	                					.append("<a href='http://localhost:8087/emailConfirm?user_email=")
@@ -75,5 +77,29 @@ public class UserTeamServiceImp implements UserTeamService {
 	@Override
 	public String SeachUserId(UserTeamVo vo) {
 		return mapper.SeachUserId(vo);
+	}
+
+	@Override
+	public int SeachUserPw(UserTeamVo vo) throws Exception {
+		if(mapper.SeachUserPw(vo) == 1) {
+		MailHandler sendMail = new MailHandler(mailSender);
+		 sendMail.setSubject("[Meet_us 서비스 이메일 인증]");
+	        sendMail.setText(
+	                new StringBuffer().append("<h1>메일인증</h1>")
+	                					.append("<a href='http://localhost:8087/emailConfirm?user_email=")
+	                					.append(vo.getUser_email())
+	                					.append("&user_authority=")
+	                					.append(vo.getUser_authority())
+	                					.append("&key=99")
+	                					.append("' target='_blank'>이메일 인증 확인</a>").toString());
+	        
+	        sendMail.setFrom("jodummy158@gmail.com", "Meet_us ");
+	        sendMail.setTo(vo.getUser_email());
+	        sendMail.send();
+	        return 1;  
+		}else {
+			
+			return 0;
+		}
 	}
 }
