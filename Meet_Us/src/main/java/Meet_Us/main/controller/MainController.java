@@ -1,6 +1,6 @@
 package Meet_Us.main.controller;
 
-import java.text.DateFormat;
+import java.text.DateFormat; 
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -23,20 +23,11 @@ public class MainController {
 	@Autowired
 	private MainMapper mapper;
 
-	// @RequestMapping(value = "/", method = RequestMethod.GET)
-	// public String home(Locale locale, Model model) {
-	//
-	// Date date = new Date();
-	// DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,
-	// DateFormat.LONG, locale);
-	//
-	// String formattedDate = dateFormat.format(date);
-	//
-	// model.addAttribute("serverTime", formattedDate);
-	//
-	// return "index";
-	// }
-
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String notification_test() throws Exception {
+		return "bootstrap.notification_test";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String Home() throws Exception {
 		return "bootstrap.Home";

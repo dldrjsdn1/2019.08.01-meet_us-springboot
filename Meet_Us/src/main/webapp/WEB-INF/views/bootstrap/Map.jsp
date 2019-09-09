@@ -56,7 +56,7 @@
 
 			<div class="col-lg-4 sidebar ftco-animate">
 				<div class="sidebar-box">
-					<form action="#" class="search-form">
+					<form action="#" class="search-form" onkeypress="return event.keyCode != 13;">
 						<div class="form-group">
 							<span class="icon icon-search" onclick="SearchPlace()" style="cursor: pointer;"></span> <input type="text" id="SearchPlaceId"
 								class="form-control" placeholder="Place Searching" onkeydown="JavaScript:Enter_Check()" >

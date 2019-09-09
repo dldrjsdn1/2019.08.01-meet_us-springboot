@@ -4,6 +4,13 @@
 <tiles-definitions>
    <definition name="defaultLayout" template="/WEB-INF/views/template/defaultTemplate.jsp" />
 
+	<!-- notification_test 페이지-->
+   <definition name="bootstrap.notification_test" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/notification_test.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
    <!-- Main 페이지-->
    <definition name="bootstrap.Home" extends="defaultLayout"> 
       <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />

@@ -1,5 +1,7 @@
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp' // 이클립스에서 구동하고 배포하기위해 플러그인 설치합니다.
+//apply plugin: 'eclipse-wtp' // 이클립스에서 구동하고 배포하기위해 플러그인 설치합니다.
+apply plugin: 'idea'
+
 apply plugin: 'war'
   
 sourceCompatibility = 1.8   // 자바 버전입니다.
@@ -9,11 +11,19 @@ version = '1.0'
 jar {
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
-                   'Implementation-Version': version
+                   'Implementation-Version': version,
+                   'Main-Class': 'Meet_Us.Index'
     }
 }
- 
-eclipse {
+
+war { 
+	manifest {
+		attributes 'Main-Class': 'Meet_Us.Index'
+	}
+	}
+
+
+/* eclipse {
     // 빌드하고나면 프로젝트정보도 같이 지워지는데, Gradle프로젝트임을 인식시켜줍니다.
     project.natures "org.springsource.ide.eclipse.gradle.core.nature"
     wtp {
@@ -22,7 +32,7 @@ eclipse {
             facet name: 'jst.java', version: '1.8'
         }
     }
-}
+} */
  
 repositories {
     mavenCentral()
