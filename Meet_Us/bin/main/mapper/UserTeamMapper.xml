@@ -100,5 +100,20 @@
 	AND 
 				USER_EMAIL=#{user_email}
 	</select>
+	
+	<!-- 	비밀번호 조회 -->
+	<select id="SeachUserPw" parameterType="Meet_Us.userTeam.vo.UserTeamVo" resultType="int">
+	SELECT 
+				COUNT(USER_SEQ)
+	FROM        
+				MEET_USER
+	where
+				USER_ID=#{user_id}
+	AND
+				USER_EMAIL=#{user_email}
+	AND			
+				USER_NAME=#{user_name}
+	</select>
+	
 
 </mapper>

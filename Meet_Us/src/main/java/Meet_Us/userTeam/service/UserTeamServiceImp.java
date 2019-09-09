@@ -81,21 +81,19 @@ public class UserTeamServiceImp implements UserTeamService {
 
 	@Override
 	public int SeachUserPw(UserTeamVo vo) throws Exception {
+		String result = new TempKey().getKey(9, true);
 		if(mapper.SeachUserPw(vo) == 1) {
-		MailHandler sendMail = new MailHandler(mailSender);
-		 sendMail.setSubject("[Meet_us 서비스 이메일 인증]");
-	        sendMail.setText(
+			MailHandler sendMail = new MailHandler(mailSender);
+			sendMail.setSubject("[Meet_us 서비스 이메일 인증]");
+	        	sendMail.setText(
 	                new StringBuffer().append("<h1>메일인증</h1>")
-	                					.append("<a href='http://localhost:8087/emailConfirm?user_email=")
-	                					.append(vo.getUser_email())
-	                					.append("&user_authority=")
-	                					.append(vo.getUser_authority())
-	                					.append("&key=99")
-	                					.append("' target='_blank'>이메일 인증 확인</a>").toString());
-	        
-	        sendMail.setFrom("jodummy158@gmail.com", "Meet_us ");
+	                					.append("<a href='localhost:8087/Login")
+	                					.append("' target='_blank'>Login</a>")
+	                					.append("<h1>"+result+"</h1>").toString());
+	        sendMail.setFrom("jodummy158@gmail.com", "Meet_us");
 	        sendMail.setTo(vo.getUser_email());
 	        sendMail.send();
+	        
 	        return 1;  
 		}else {
 			

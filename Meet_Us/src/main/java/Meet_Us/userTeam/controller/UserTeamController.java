@@ -89,6 +89,14 @@ public class UserTeamController {
 		return service.SeachUserId(vo);
 	}
 	
+	// pw 찾기
+	@RequestMapping(value = "/SeachUserPw", method = RequestMethod.GET)
+	@ResponseBody
+	public int SeachUserPw(UserTeamVo vo) throws Exception {
+		System.out.println(vo.toString());
+		return service.SeachUserPw(vo);
+	}
+	
 
 	// 이메일 중복 체크
 	@RequestMapping(value = "/emailIsCheck", method = RequestMethod.GET)
