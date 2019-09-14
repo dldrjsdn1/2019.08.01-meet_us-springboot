@@ -67,4 +67,9 @@ public class MainController {
 	public String Map() throws Exception{
       return "bootstrap.Map";
 	}
+	
+	@RequestMapping(value = "/Developers", method = RequestMethod.GET)
+	public String Developers() throws Exception{
+      return "bootstrap.Developers";
+	}
 }

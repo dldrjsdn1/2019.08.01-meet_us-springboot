@@ -33,7 +33,7 @@
 	data-offset="300">
 
 	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/destination-single.jpg');"
+		style="background-image: url('resources/images/notice.jpg');"
 		data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container">
@@ -43,7 +43,7 @@
 				<h1 class="mb-3 bread">Notice</h1>
 				<p class="breadcrumbs">
 					<span class="mr-2"><a href="../">Home <i
-							class="ion-ios-arrow-forward"></i></a></span> <span>Notice<i
+							class="ion-ios-arrow-forward"></i></a></span> <span>Notice <i
 						class="ion-ios-arrow-forward"></i></span>
 				</p>
 			</div>

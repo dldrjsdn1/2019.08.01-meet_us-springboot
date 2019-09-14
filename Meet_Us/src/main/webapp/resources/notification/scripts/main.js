@@ -63,6 +63,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   pushButton.textContent = 'Push Not Supported';
 }
 
+// 사용자가 현재 구독한 상태인지 확인하는 함수
 function initialiseUI() {
   pushButton.addEventListener('click', function() {
   pushButton.disabled = true;
@@ -88,11 +89,12 @@ function initialiseUI() {
   });
 }
 
+// 사용자가 구독한 상태이면 버튼의 상태를 활성화 하고 텍스트를 변경함
 function updateBtn() {
   if (isSubscribed) {
-    pushButton.textContent = 'Disable Push Messaging';
+    pushButton.textContent = '푸시 메세지를 사용할 수 없음';
   } else {
-    pushButton.textContent = 'Enable Push Messaging';
+    pushButton.textContent = '푸시 메시지를 사용할 수 있음';
   }
 
   pushButton.disabled = false;

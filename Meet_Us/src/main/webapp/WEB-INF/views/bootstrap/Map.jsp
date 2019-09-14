@@ -27,7 +27,7 @@
  </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
-	  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+	  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/place.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
@@ -35,7 +35,7 @@
             <h1 class="mb-3 bread">Map</h1>
             <p class="breadcrumbs">
 					<span class="mr-2"><a href="../">Home <i
-							class="ion-ios-arrow-forward"></i></a></span> <span>Map<i
+							class="ion-ios-arrow-forward"></i></a></span> <span>Map <i
 						class="ion-ios-arrow-forward"></i></span>
 				</p>
           </div>
@@ -66,8 +66,10 @@
 					</form>
 				</div>
 				<div class="sidebar-box ftco-animate">
+				<div id="meetingPlaceStyleId" style="margin-bottom:5%;">
 					<h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">Meeting Place</p></h3>
 					<p id="meetingPlaceAddressId" style="font-size:80%;"></p>
+				</div>
 					<ul class="categories" id="Location">
 						<li id="Location0"></li>
 						<li id="Location1"></li>
@@ -586,8 +588,11 @@
  			    swal(MeetingPlace, MeetingPlace+"가(이) Meeting Place로 선정되었습니다.", {
  			      icon: "success",
  			    });
- 			   document.getElementById('meetingPlaceId').innerHTML = MeetingPlace;
- 			  document.getElementById('meetingPlaceAddressId').innerHTML = address;
+//  			  document.getElementById('meetingPlaceId').innerHTML = MeetingPlace;
+//  			  document.getElementById('meetingPlaceAddressId').innerHTML = address;
+ 			  document.getElementById('meetingPlaceStyleId').innerHTML = '<div style="margin-bottom:0; border-style:solid; border-color:#e2c0bb; border-width:4px; padding:5px;"><h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">' +MeetingPlace+ '</p></h3><p id="meetingPlaceAddressId" style="font-size:80%; margin-bottom:0;">'+address+'</p></div>';
+ 			 
+ 			
  			   
  			   
  			  } 

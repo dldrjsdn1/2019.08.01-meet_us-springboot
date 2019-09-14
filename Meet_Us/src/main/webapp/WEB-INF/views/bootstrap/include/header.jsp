@@ -20,9 +20,11 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="../" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="../Map" class="nav-link"><span>Map</span></a></li>
-	          <li class="nav-item"><a href="../MeeterMain" class="nav-link"><span>Meeter</span></a></li>
+	          <li class="nav-item"><a href="../MeeterMain" class="nav-link"><span>Meeting</span></a></li>
 	          <li class="nav-item"><a href="../Notice" class="nav-link"><span>Notice</span></a></li>
-	          <li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li>
+	          <li class="nav-item"><a href="../Developers" class="nav-link"><span>Developers</span></a></li>
+	          <li class="nav-item"><a href="../Login" class="nav-link"><span><strong>Login</strong></span></a></li>
+	          
 	        </ul>
 	      </div>
 	    </div>

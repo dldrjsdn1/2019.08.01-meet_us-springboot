@@ -23,6 +23,10 @@
       <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
         Enable Push Messaging
       </button>
+      
+        <button onclick="test()">
+        test
+      </button>
     </p>
     <section class="subscription-details js-subscription-details is-invisible">
       <p>Once you've subscribed your user, you'd send their subscription to your
@@ -32,10 +36,20 @@
       into the <a href="https://web-push-codelab.glitch.me//">Push Companion
       Site</a> and it'll send a push message for you, using the application
       server keys on the site - so make sure they match.</p>
-      <pre><code class="js-subscription-json"></code></pre>
+      <pre id="test"><code class="js-subscription-json"></code></pre>
+      
     </section>
   </main>
-
+  <script>
+  var userdata = document.ElementById('test').value;
+  const subscriptionDetails =
+	    document.querySelector('.js-subscription-details').value;
+  function test(){
+	  alert(subscription);
+  }
+  
+  
+  </script>
   <script src="/resources/notification/scripts/main.js"></script>
   
   <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>

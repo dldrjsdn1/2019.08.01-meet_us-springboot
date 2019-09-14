@@ -80,5 +80,12 @@
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/Map.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
+	
+	<!-- Developers 페이지-->
+	<definition name="bootstrap.Developers" extends="defaultLayout"> 
+		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
+		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/Developers.jsp" />
+		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+	</definition>
 
 </tiles-definitions>

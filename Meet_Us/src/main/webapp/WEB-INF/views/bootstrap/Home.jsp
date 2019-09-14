@@ -24,7 +24,7 @@
 	        <div class="container-fluid p-0">
 	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/bg_1.jpg);">
+	          		<div class="img" style="background-image:url(resources/images/place.jpg);">
 	          			<div class="overlay"></div>
 	          		</div>
 	          		<div class="bg-primary">
@@ -33,11 +33,11 @@
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading pl-5"></span>
-			            <h1 class="mb-4 mt-3">Explore Your Travel Destinations like never before</h1>
-			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+		          		<span class="subheading pl-5">place</span>
+			            <h1 class="jg">만남 장소를 찾아보세요</h1>
+			            <p>고민은 그만! 중간 지점을 찾아 모두가 인정할 합리적인 만남 장소를 찾도록 도와줍니다.</p>
 			            
-			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p>
+			            <p><a href="../Map" class="btn btn-primary px-5 py-3 mt-3">Place Search  <span class="ion-ios-arrow-forward"></span></a></p>
 		            </div>
 		          </div>
 	        	</div>
@@ -49,18 +49,18 @@
 	        <div class="container-fluid p-0">
 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/bg_2.jpg);">
+	          		<div class="img" style="background-image:url(resources/images/meeting.jpg);">
 	          			<div class="overlay"></div>
 	          		</div>
 	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Meeting</span></div>
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading pl-5">Discover Africa</span>
-			            <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1>
-			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+		          		<span class="subheading pl-5">Meeting</span>
+			            <h1 class="jg">새로운 만남을 기대하세요</span></h1>
+			            <p>자신이 원하는 모임을 만들어 사람들을 모으거나, 만들어진 모임에 참여할 수 있습니다.</p>
 			            
-			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p>
+			            <p><a href="../MeeterMain" class="btn btn-primary px-5 py-3 mt-3">Meeting Search <span class="ion-ios-arrow-forward"></span></a></p>
 		            </div>
 		          </div>
 	        	</div>
@@ -74,9 +74,9 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <span class="subheading">Blog</span>
-            <h2 class="mb-4">Our Blog</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <span class="subheading"><p class="jg">우리 만날까요?</p></span>
+            <h2 class="mb-4">Meeting</h2>
+            <p class="jg">현재 만남을 원하는 사람들이 당신을 찾고 있습니다. <br>당신은 어떤 만남을 원하나요?</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -162,104 +162,28 @@
       </div>
     </section>
 		
+    <section class="ftco-intro img" id="destination-section" style="background-image: url(resources/images/happy_meeting.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-9 text-center">
+						<h2>Our Story</h2>
+						<p class="jg">만남은 즐거우셨나요? 그럼 이제 자랑할 일만 남았군요.</p>
+						<p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Go Story</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-
-    <section class="ftco-section testimony-section">
-    	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob" alt="Colorlib Free Template">
-    	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob-2" alt="Colorlib Free Template">
-      <div class="container">
-        <div class="row justify-content-center pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Read testimonials</span>
-            <h2 class="mb-4">What Client Says</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   
 
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <span class="subheading">Contact</span>
+            <span class="subheading"><p class="jg">궁금해요</p></span>
             <h2 class="mb-4">Contact Me</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <p class="jg">여러분의 궁금한 점이나 불편한 점을 알려주세요. <br>언제든 해결해 드립니다.</p>
           </div>
         </div>
 
@@ -283,55 +207,6 @@
               </div>
             </form>
           
-          </div>
-
-          <div class="col-md-5 d-flex">
-          	<div class="row d-flex contact-info mb-5">
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-map-signs"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Address</h3>
-				            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-phone2"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Contact Number</h3>
-				            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-paper-plane"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Email Address</h3>
-				            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-globe"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Website</h3>
-				            <p><a href="#">yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		        </div>
           </div>
         </div>
       </div>
