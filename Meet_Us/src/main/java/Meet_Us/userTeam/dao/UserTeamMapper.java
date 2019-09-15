@@ -32,5 +32,8 @@ public interface UserTeamMapper {
 
 	// 비밀번호 찾기
 	public int SeachUserPw(UserTeamVo vo);
+	
+	//비밀번호 업데이트
+	public int UpdateUserPw(UserTeamVo vo);
 
 }

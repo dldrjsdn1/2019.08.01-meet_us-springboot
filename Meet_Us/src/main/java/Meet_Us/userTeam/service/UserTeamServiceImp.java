@@ -82,6 +82,7 @@ public class UserTeamServiceImp implements UserTeamService {
 	@Override
 	public int SeachUserPw(UserTeamVo vo) throws Exception {
 		String result = new TempKey().getKey(9, true);
+		vo.setUser_password(result);
 		if(mapper.SeachUserPw(vo) == 1) {
 			MailHandler sendMail = new MailHandler(mailSender);
 			sendMail.setSubject("[Meet_us 서비스 이메일 인증]");
@@ -93,10 +94,10 @@ public class UserTeamServiceImp implements UserTeamService {
 	        sendMail.setFrom("jodummy158@gmail.com", "Meet_us");
 	        sendMail.setTo(vo.getUser_email());
 	        sendMail.send();
-	        
+	        System.out.println(vo.toString());
+	        mapper.UpdateUserPw(vo);
 	        return 1;  
 		}else {
-			
 			return 0;
 		}
 	}

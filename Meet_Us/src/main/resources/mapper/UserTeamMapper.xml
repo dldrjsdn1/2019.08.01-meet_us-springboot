@@ -99,9 +99,11 @@
 				USER_NAME=#{user_name}
 	AND 
 				USER_EMAIL=#{user_email}
+	AND			
+				USER_AUTHORITY='Y'
 	</select>
 	
-	<!-- 	비밀번호 조회 -->
+	<!-- 	회원 비밀번호 찾기 -->
 	<select id="SeachUserPw" parameterType="Meet_Us.userTeam.vo.UserTeamVo" resultType="int">
 	SELECT 
 				COUNT(USER_SEQ)
@@ -113,7 +115,23 @@
 				USER_EMAIL=#{user_email}
 	AND			
 				USER_NAME=#{user_name}
+	AND			
+				USER_AUTHORITY='Y'
 	</select>
 	
+	
+	<!-- 	비밀번호 업데이트 -->
+	<update id="UpdateUserPw" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
+	UPDATE 
+				MEET_USER 
+	SET 		
+				USER_PASSWORD= #{user_password}
+	WHERE 
+				USER_EMAIL= #{user_email}
+	AND 
+				USER_ID= #{user_id}
+	AND 
+				USER_NAME= #{user_name}
+	</update>
 
 </mapper>
