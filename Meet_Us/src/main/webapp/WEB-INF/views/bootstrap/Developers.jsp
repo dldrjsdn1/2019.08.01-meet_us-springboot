@@ -34,13 +34,16 @@
       <div class="container">
         <div class="row justify-content-center pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Read testimonials</span>
-            <h2 class="mb-4">What Client Says</h2>
+          	<span class="subheading">Meet Us Developers</span>
+            <h2 class="mb-4">Team JunSeoHo</h2>
           </div>
-        </div>
+        </div> 
+        
+<!--         조준서 -->
         <div class="row ftco-animate justify-content-center">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel ftco-owl">
+            
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
@@ -55,6 +58,8 @@
                   </div>
                 </div>
               </div>
+              
+<!--               이건우 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/person_2.jpg)">
@@ -69,6 +74,8 @@
                   </div>
                 </div>
               </div>
+              
+<!--               박웅기 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
@@ -83,6 +90,8 @@
                   </div>
                 </div>
               </div>
+              
+<!--               서유진 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
@@ -97,20 +106,23 @@
                   </div>
                 </div>
               </div>
+              
+<!--               이치수 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
+                  <div class="user-img" style="background-image: url(resources/images/chichi.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
                   </div>
                   <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
+                    <p class="mb-4">I learned a lot of invisible things. I learned that what is invisible makes what is seen. Thank you for learning a lot.</p>
+                    <p class="name">이치수</p>
+                    <span class="position">Front - HTML & CSS & DISIGN</span>
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

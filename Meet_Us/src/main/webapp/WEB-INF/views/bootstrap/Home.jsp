@@ -75,8 +75,8 @@
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <span class="subheading"><p class="jg">우리 만날까요?</p></span>
-            <h2 class="mb-4">Meeting</h2>
-            <p class="jg">현재 만남을 원하는 사람들이 당신을 찾고 있습니다. <br>당신은 어떤 만남을 원하나요?</p>
+            <h2 class="mb-4">Meet Us</h2>
+            <p class="jg">현재 새로운 만남을 기대하는 사람들이 당신을 찾고 있습니다. <br>당신은 어떤 만남을 원하나요?</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -167,9 +167,9 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-9 text-center">
-						<h2>Our Story</h2>
-						<p class="jg">만남은 즐거우셨나요? 그럼 이제 자랑할 일만 남았군요.</p>
-						<p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Go Story</a></p>
+						<h2>Create Meeting</h2>
+						<p class="jg">마음에 드는 모임이 없었나요? 그럼 직접 사람들을 모아보세요!</p>
+						<p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Create</a></p>
 					</div>
 				</div>
 			</div>
@@ -177,7 +177,7 @@
 
    
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class="ftco-section contact-section" id="contact-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">

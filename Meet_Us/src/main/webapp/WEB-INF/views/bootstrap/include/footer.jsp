@@ -67,7 +67,7 @@
           <div class="col-md-12 text-center">
 	
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This WebService is made with by <a href="https://github.com/jodummy" target="_blank">jodummy</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This WebService is made with by <a href="https://github.com/jodummy" target="_blank">JunSeoHo</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
