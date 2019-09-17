@@ -54,7 +54,7 @@
                   <div class="text px-4 pb-5">
                     <p class="mb-4">안녕하세요, 개발자를 지망하는 학생입니다. 아직 부족하고 미숙한 점도 많지만 열심히 만들었습니다.재밋게 사용해주시고 부족하거나 지적사항들 지적 환영합니다. 사용해 주셔서 감사합니다.<br><a href="https://github.com/jodummy" style="color:white;">https://github.com/jodummy</a></p>
                     <p class="name">조준서</p>
-                    <span class="position">FrontEnd & BackEnd & Planner</span>
+                    <span class="position">BackEnd & Planner</span>
                   </div>
                 </div>
               </div>

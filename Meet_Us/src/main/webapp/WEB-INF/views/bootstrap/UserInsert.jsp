@@ -16,7 +16,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
    <div class="overlay"></div>
    <div class="container">
       <div
@@ -34,10 +34,22 @@
    </div>
    </section>
    
+   	<section class="ftco-section" style="padding: 2em 0;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate">
+				<span class="subheading">Meet Us</span>
+					<p class="jg" style="font-size:30px;">회원가입</p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</div>
+	</section>
    
-   <div class="container" style='width:50%'>
+   
+   <div class="container" style="max-width:900px; margin-bottom:1rem;">
       <!-- END comment-list -->
-         <div class="comment-form-wrap pt-5">
+         <div class="comment-form-wrap">
       
          <!-- form -->
          <form action="${pageContext.request.contextPath}/SuccessPage" method="post" class="p-5 bg-light" name="userinput">
@@ -120,11 +132,9 @@
            	 	<input type="hidden" value="${user_seq }" name="user_seq" id="user_seq">
 			</c:if>
             <div class="form-group">
-               <input type="button" value="insertUser" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
+               <input type="button" value="회원가입" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
+               <input type="button" value="취소" class="btn py-3 px-4 btn-primary" onclick="cencle_click()" style="margin:10px;">
             </div>
-            
-
-        
          </form>
       </div>
    </div>
@@ -133,6 +143,22 @@
    
 
 </body>
+<script>
+function cencle_click(){
+	swal({
+		  title: "회원가입을 그만둘까요?",
+		  text: "취소하게 되면 현재까지 적었던 내용은 삭제됩니다.",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+		  if (willDelete) {
+		    location.href="../selectSocial";
+		  }
+		});
+}
+</script>
 
 <script>
 let signCheck=0;
@@ -393,7 +419,7 @@ function userSubmit(){
 	
 	for(var i=0; i<ckeckValue; i++) {
 	    if(signList[i] != true){
-	    	alert("확인해 주세요");
+	    	swal("한번더 자세히","잘못된 정보가 있습니다.","error");
 	    	return;
 	    }
 	}

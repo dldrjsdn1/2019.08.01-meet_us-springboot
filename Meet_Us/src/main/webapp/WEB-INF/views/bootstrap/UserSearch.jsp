@@ -41,9 +41,21 @@
    </div>
    </section>
    
+   	<section class="ftco-section" style="padding: 2em 0;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate">
+				<span class="subheading">Meet Us</span>
+				<p class="jg" style="font-size: 30px;">ID & Password Search</p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</div>
+	</section>
    
-	<div class="container" style='width:50%'>
-         <div class="comment-form-wrap pt-5">
+   
+	<div class="container" style='max-width:900px; margin-bottom:1rem;'>
+         <div class="comment-form-wrap">
       
          <!-- form -->
          <form action="${pageContext.request.contextPath}/SuccessPage" method="post" class="p-5 bg-light" name="">
@@ -76,7 +88,7 @@
             
              <div class="form-group">
                 <input type="button" value="찾기" id="checkButton" class="btn py-3 px-4 btn-primary">
-                <input type="button" value="로그인" class="btn py-3 px-4 btn-primary" onclick="">
+                <input type="button" value="로그인" class="btn py-3 px-4 btn-primary" onclick="location.href='../Login'" style="margin:10px;">
             </div>
          </form>
       </div>
@@ -97,11 +109,11 @@ $("#checkButton").click(function() {
 // 	alert(user_id===undefined);
 	
 	if (user_name.length == 0) {
-	    $("#name_check").text("공백은 안되요 :(");
+	    $("#name_check").text("공백은 안돼요 :(");
 	    $('#name_check').css('color', 'red');
 	    $("#reg_submit").attr("disabled", true);
 	 }else if (patton.test(user_name)) {
-         $("#name_check").text("특수문자 안되요 :(");
+         $("#name_check").text("특수문자 안돼요 :(");
          $('#name_check').css('color', 'red');
          $("#reg_submit").attr("disabled", true);
       }else{
@@ -110,7 +122,7 @@ $("#checkButton").click(function() {
       }
 	
 	if (user_email.length == 0) {
-	    $("#email_check").text("공백은 안되요 :(");
+	    $("#email_check").text("공백은 안돼요 :(");
 	    $('#email_check').css('color', 'red');
 	    $("#reg_submit").attr("disabled", true);
 	 }else if(!emailCheck.test(user_email)){
@@ -128,18 +140,18 @@ $("#checkButton").click(function() {
          type : 'GET',
          success : function(data) {
 			if(data.length==0){
-				alert("아이디가 없습니다");
+ 				swal("ㅠㅠ", "찾으시는 계정이 존재하지 않아요.", "error");
 			}else{
 				let dataChange="";
 				for(var i=0; i<data.length; i++) {
-					if(i<2){
+					if(i<3){
 						dataChange+=data.substring(i,i+1);
 					}else{
 						dataChange+="*";
 					}
 					
 				}
-				alert(dataChange);
+				swal("찾으시는 ID는 ", dataChange+" 입니다");
 				
 			}
          },
@@ -166,11 +178,11 @@ $("#checkButton").click(function() {
 	         url : '${pageContext.request.contextPath}/SeachUserPw?user_email='+user_email+'&user_name='+user_name+'&user_id='+user_id,
 	         type : 'GET',
 	         success : function(data) {
-	        	 alert(data);
+// 	        	 alert(data);
 				if(data==0){
-					alert("아이디가 없습니다");
+					swal("ㅠㅠ", "아이디가 존재하지 않습니다.",'error')
 				}else{
-					alert("비밀번호 전송하였습니다.");
+					swal("전송완료", "비밀번호를 전송해드렸습니다.",'success')
 				}
 	         },
 	         error : function() {

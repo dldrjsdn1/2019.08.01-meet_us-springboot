@@ -39,10 +39,7 @@
           <div class="row justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
              <span class="subheading">Meet Us</span>
-            <h2 class="mb-4"><p class="jg">회원가입</p></h2>
-<!--             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p> -->
-<!--           <img src="resources/images/kakaoLogin.png"> -->
-<!--           <p><a href="../MeeterMain" class="btn btn-primary px-5 py-3 mt-3">일반 회원가입<span class="ion-ios-arrow-forward"></span></a></p> -->
+            <p class="jg" style="font-size:30px; margin-bottom:50px;">회원가입</p>
 				<div class="col-md-6 col-lg-4-login ftco-animate" style="float:left;">
 					<div class="project" style="overflow: inherit;">
 						<div class="img">

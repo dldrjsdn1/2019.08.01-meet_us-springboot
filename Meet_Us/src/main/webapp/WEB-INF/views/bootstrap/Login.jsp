@@ -31,19 +31,32 @@
       </div>
    </div>
    </section>
-	 <section>
-   		<div class="container">
 
-      <div class="comment-form-wrap pt-5">
+	<section class="ftco-section" style="padding: 2em 0;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate">
+				<span class="subheading">Meet Us</span>
+				<p class="jg" style="font-size: 30px;">로그인</p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</div>
+	</section>
+
+
+	<section>
+   		<div class="container">
+      <div class="comment-form-wrap">
          
-         <div class="col-md-12 p-5">
+         <div class="col-md-12 ">
             <form action="#" class="search-property-1">
                <div class="col-lg align-items-end" >
                   <div class="form-group">
                      <div class="form-field"style="text-align: center; padding-bottom:10px;">
-                        <div class="icon">
-                           <span class="ion-ios-search"></span>
-                        </div>
+<!--                         <div class="icon"> -->
+<!--                            <span class="ion-ios-search"></span> -->
+<!--                         </div> -->
                         <input type="text" style="width: 300px; display: inline;" class="form-control" placeholder="ID">
                      </div>
                   </div>
@@ -51,9 +64,9 @@
                <div class="col-lg align-items-end">
                   <div class="form-group">
                      <div class="form-field" style="text-align: center;">
-                        <div class="icon">
-                           <span class="ion-ios-calendar"></span>
-                        </div>
+<!--                         <div class="icon"> -->
+<!--                            <span class="ion-ios-calendar"></span> -->
+<!--                         </div> -->
                         <input type="text" style="width: 300px; display: inline;" class="form-control checkin_date" placeholder="Password">
                      </div>
                   </div>
