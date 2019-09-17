@@ -8781,7 +8781,7 @@ h1, h2, h3, h4, h5,
   margin-bottom: 50px; }
   .project .img {
     position: relative;
-    overflow: hidden;
+/*     overflow: hidden; */
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;

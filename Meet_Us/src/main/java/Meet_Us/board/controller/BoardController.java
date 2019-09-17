@@ -35,7 +35,7 @@ public class BoardController {
 		pageMaker.setCri(cri);
 		
 		List<Map<String, Object>> noticeCount = service.selectCountBoardList();
-		pageMaker.setTotalCount(noticeCount.size()); // ÃÑ °Ô½Ã±Û ¼ö¸¦ Äõ¸®¹®À¸·Î ¼¼¾î¼­ ¸®½ºÆ®·Î ¹Þ¾Æ¿ÂµÚ ±× »çÀÌÁî¸¦ °³¼ö·Î »ç¿ë
+		pageMaker.setTotalCount(noticeCount.size()); 
 		
 		List<BoardVo> list = service.selectBoardPageList(cri);
 		model.addAttribute("pageCriteria", cri);
@@ -51,7 +51,7 @@ public class BoardController {
 		pageMaker.setCri(cri);
 
 		List<Map<String, Object>> noticeCount = service.selectCountSearchList(cri.getKeyword());
-		pageMaker.setTotalCount(noticeCount.size()); // ÃÑ °Ô½Ã±Û ¼ö¸¦ Äõ¸®¹®À¸·Î ¼¼¾î¼­ ¸®½ºÆ®·Î ¹Þ¾Æ¿ÂµÚ ±× »çÀÌÁî¸¦ °³¼ö·Î »ç¿ë
+		pageMaker.setTotalCount(noticeCount.size()); 
 		
 		List<BoardVo> list = service.selectSearchPageList(cri);
 		model.addAttribute("pageCriteria", cri);
@@ -71,6 +71,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/NoticeDelete", method = RequestMethod.GET)
 	public String NoticeDelete(Model model, BoardVo vo) throws Exception {
+		service.deleteBoard(vo.getBoard_no());
 		model.addAttribute("list", service.selectBoardList());
 
 		return "bootstrap.Notice";
@@ -84,8 +85,9 @@ public class BoardController {
 
 	@RequestMapping(value = "/NoticeInsertProcess", method = RequestMethod.GET)
 	public String NoticeInsertProcess(Model model, BoardVo vo) throws Exception {
+		String description = vo.getBoard_content();
+		vo.setBoard_content(description.replace("\r\n", "<br>")); // ì¤„ë°”ê¿ˆ ì²˜ë¦¬
 		service.insertBoard(vo);
-
 		return "redirect:/Notice";
 	}
 
@@ -98,8 +100,9 @@ public class BoardController {
 
 	@RequestMapping(value = "/NoticeModifyProcess", method = RequestMethod.GET)
 	public String NoticeModifyProcess(Model model, BoardVo vo) throws Exception {
+		String description = vo.getBoard_content();
+		vo.setBoard_content(description.replace("\r\n", "<br>")); // ì¤„ë°”ê¿ˆ ì²˜ë¦¬
 		service.ModifyBoard(vo);
-
 		model.addAttribute("detail", service.selectBoardDetail(vo.getBoard_no()));
 
 		return "bootstrap.NoticeDetail";

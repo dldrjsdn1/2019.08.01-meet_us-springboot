@@ -67,13 +67,6 @@
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
    
-   <!-- 사용자 정보 확인 페이지페이지 카카오 로그인 -->
-   <definition name="bootstrap.Login" extends="defaultLayout"> 
-      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
-      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/Login.jsp" />
-      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
-   </definition>
-   
    	<!-- Map 페이지-->
 	<definition name="bootstrap.Map" extends="defaultLayout"> 
 		<put-attribute name="header"		value="/WEB-INF/views/bootstrap/include/header.jsp" />
@@ -87,5 +80,40 @@
 		<put-attribute name="body"			value="/WEB-INF/views/bootstrap/Developers.jsp" />
 		<put-attribute name="footer"		value="/WEB-INF/views/bootstrap/include/footer.jsp" />
 	</definition>
+	
+   <!-- 사용자 회원가입 페이지-->
+   <definition name="bootstrap.UserInsert" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserInsert.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+   <!-- 사용자 로그인 페이지-->
+   <definition name="bootstrap.Login" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/Login.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+    <!-- selectSocial 페이지-->
+   <definition name="bootstrap.selectSocial" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/selectSocial.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   	
+	<!--메일 인증 넘어가기-->
+    <definition name="bootstrap.SuccessPage" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/SuccessPage.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+	<!--사용자 정보 찾기 시스템 -->
+    <definition name="bootstrap.UserSearch" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSearch.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
 
 </tiles-definitions>

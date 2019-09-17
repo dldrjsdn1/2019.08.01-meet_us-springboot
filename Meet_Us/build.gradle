@@ -23,16 +23,6 @@ war {
 	}
 
 
-/* eclipse {
-    // 빌드하고나면 프로젝트정보도 같이 지워지는데, Gradle프로젝트임을 인식시켜줍니다.
-    project.natures "org.springsource.ide.eclipse.gradle.core.nature"
-    wtp {
-        facet {
-            facet name: 'jst.web', version: '3.1'
-            facet name: 'jst.java', version: '1.8'
-        }
-    }
-} */
  
 repositories {
     mavenCentral()
@@ -64,9 +54,22 @@ dependencies {
 
     compile("org.mybatis:mybatis:3.4.5")
 
+	// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+	
+	//이메일 인증 방식
+	// https://mvnrepository.com/artifact/javax.mail/mail
+	compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+	
+	// https://mvnrepository.com/artifact/org.springframework/spring-context-support
+	compile group: 'org.springframework', name: 'spring-context-support', version: '4.1.6.RELEASE'
+	
+	 compile("org.springframework.boot:spring-boot-starter-mail")
+ 
+	[compileJava, compileTestJava]*.options*.encoding = 'UTF-8' // 인코딩 UTF-8로 통일.
 }
  
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8' // 인코딩 UTF-8로 통일.
+
  
 test {
     systemProperties 'property': 'value'

@@ -48,13 +48,13 @@
 			<form action="/NoticeInsertProcess" class="p-5 bg-light">
 				<div class="form-group">
 					<label for="name">Title</label> <input type="text"
-						class="form-control" name="board_title" id="board_title">
+						class="form-control" name="board_title" id="board_title" required>
 				</div>
 
 				<div class="form-group">
 					<label for="message">Notice</label>
 					<textarea name="board_content" id="board_content" cols="30" rows="10"
-						class="form-control"></textarea> <%-- <c:out value="${content}" /> --%>
+						class="form-control" required></textarea> <%-- <c:out value="${content}" /> --%>
 						
 				</div>
 				<div class="form-group">

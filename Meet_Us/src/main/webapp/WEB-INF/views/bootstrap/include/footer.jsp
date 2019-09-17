@@ -57,7 +57,7 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">서울특별시 구로구 항동 7-5, KOR</span></li>
 <!-- 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li> -->
-	                <li><span class="icon icon-envelope"></span><span class="text">cogys@naver.com</span></li>
+	                <li><span class="icon icon-envelope"></span><span class="text">dldrjsdn1@naver.com</span></li>
 	              </ul>
 	            </div>
             </div>

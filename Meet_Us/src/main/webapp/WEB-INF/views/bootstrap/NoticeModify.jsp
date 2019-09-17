@@ -8,8 +8,17 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target"
-	data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<!-- Áß¹Ù²Þ ÅÂ±× º¯È¯ Ã³¸® -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var description = '${modify.board_content}';
+			result = description.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
+			$('#board_content').val(result);
+		});
+	</script>
 
 
 	<section class="hero-wrap hero-wrap-2"
@@ -42,7 +51,7 @@
 
 		<div class="comment-form-wrap pt-5">
 			<h3 class="mb-5">Notice Modify</h3>
-
+			<hr>
 			<!-- Æû -->
 			<form action="/NoticeModifyProcess" class="p-5 bg-light">
 				<div class="form-group">
@@ -54,7 +63,7 @@
 				<div class="form-group">
 					<label for="message">Notice</label>
 					<textarea name="board_content" id="board_content" cols="30"
-						rows="10" class="form-control">${modify.board_content }</textarea>
+						rows="10" class="form-control"></textarea>
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="board_no" id="board_no"
