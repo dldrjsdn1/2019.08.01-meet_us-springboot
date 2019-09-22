@@ -154,7 +154,7 @@ function cencle_click(){
 		})
 		.then((willDelete) => {
 		  if (willDelete) {
-		    location.href="../selectSocial";
+		    location.href="../Login";
 		  }
 		});
 }

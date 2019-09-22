@@ -68,7 +68,7 @@
                     </span>
                   </div>
                   <div class="text px-4 pb-5">
-                    <p class="mb-4">웹 백엔드 개발자를 지망하는 학생입니다. 아직 기술과 경험이 많이 부족하지만 새로운 프로젝트를 할 때마다 느끼는 설렘을 원동력으로 열심히 배우고 있습니다. 저희 만든 웹을 보러와 주셔서 감사합니다.<br><a href="https://github.com/dldrjsdn1" style="color:white;">https://github.com/dldrjsdn1</a></p>
+                    <p class="mb-4">웹 백엔드 개발자를 지망하는 학생입니다. 아직 기술과 경험이 많이 부족하지만 새로운 프로젝트를 할 때마다 느끼는 설렘을 원동력으로 열심히 배우고 있습니다. 저희가 만든 웹을 보러와 주셔서 감사합니다.<br><a href="https://github.com/dldrjsdn1" style="color:white;">https://github.com/dldrjsdn1</a></p>
                     <p class="name">이건우</p>
                     <span class="position">FrontEnd & BackEnd</span>
                   </div>
@@ -94,15 +94,15 @@
 <!--               서유진 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
+                  <div class="user-img" style="background-image: url(resources/images/seo.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
                   </div>
                   <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">안녕하세요, 웹개발자를 희망하는 서유진입니다. 첫 프로젝트라 많이 부족하지만 팀원들과 협력하여 열심히 개발하였습니다. 저희 사이트에 방문해주셔서 감사합니다. 많은 이용 부탁드립니다.<br><a href="https://github.com/seoyujin0731" style="color:white;">https://github.com/seoyujin0731</a></p>
                     <p class="name">서유진</p>
-                    <span class="position">Artist</span>
+                    <span class="position">Front & BackEnd</span>
                   </div>
                 </div>
               </div>

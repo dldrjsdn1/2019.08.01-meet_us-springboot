@@ -167,4 +167,49 @@
 						BOARD_NO = #{board_no};
 </update>
 
+	<insert id="fileInsert" parameterType="Meet_Us.board.vo.FileVo">
+		INSERT INTO
+		NOTICE_BOARD_FILE (UP_SEQ, FILE_NAME, FILE_REAL_NAME, FILE_PATH)
+		VALUES (#{seq},#{fileName},#{fileRealName},#{filePath})
+	</insert>
+	
+	<select id="fileDetail" parameterType="int" resultType="Meet_Us.board.vo.FileVo">
+		SELECT * FROM NOTICE_BOARD_FILE WHERE UP_SEQ=#{seq} AND DELFLAG = 'N';
+	</select>
+	
+	<select id="fileDownload" parameterType="map" resultType="Meet_Us.board.vo.FileVo">
+		SELECT * FROM NOTICE_BOARD_FILE WHERE UP_SEQ=#{upSeq} AND SEQ=#{seq} AND DELFLAG = 'N';
+	</select>
+	
+	<update id="fileDelete" parameterType="map" >
+		UPDATE
+			NOTICE_BOARD_FILE
+		SET
+			DELFLAG = 'Y'
+			,LAST_DT = now()
+		WHERE 
+			UP_SEQ=#{upSeq} 
+			AND SEQ=#{seq};
+	</update>
+	
+	<update id="fileDeleteAll" parameterType="Integer" >
+		UPDATE
+			NOTICE_BOARD_FILE
+		SET
+			DELFLAG = 'Y'
+			,LAST_DT = now()
+		WHERE 
+			UP_SEQ=#{seq}
+	</update>
+	
+	<update id="fileDownloadCnt" parameterType="Integer" >
+		UPDATE
+			NOTICE_BOARD_FILE
+		SET
+			DOWN_CNT = DOWN_CNT + 1
+		WHERE 
+			UP_SEQ=#{upSeq} 
+			AND SEQ=#{seq};
+	</update>
+
 </mapper>

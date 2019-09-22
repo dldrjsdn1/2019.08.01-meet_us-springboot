@@ -22,6 +22,7 @@
     .hAddr {position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .title {font-weight:bold;display:block;}
+    
 	</style> 
 
  </head>
@@ -66,7 +67,7 @@
 					</form>
 				</div>
 				<div class="sidebar-box ftco-animate">
-				<div id="meetingPlaceStyleId" style="margin-bottom:5%;">
+				<div id="meetingPlaceStyleId" style="margin-bottom:5%;" >
 					<h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">Meeting Place</p></h3>
 					<p id="meetingPlaceAddressId" style="font-size:80%;"></p>
 				</div>
@@ -551,7 +552,7 @@
 									content += '    <span class="tel">'
 											+ place.phone + '</span>';
 											
-									content += '<button type="button" onclick="meetingPlaceSave_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+","+"'"+ place.road_address_name +"'"+');" class="btn btn-success btn-sm" style="margin-left:9.5%; margin-top:10px;">Meeting Place</button>'
+									content += '<button type="button" onclick="meetingPlaceSave_click('+"'"+ place.place_name +"'"+","+"'"+ place.y+"'"+","+"'"+ place.x+"'"+","+"'"+ place.road_address_name +"'"+","+"'"+place.place_url+"'"+');" class="btn btn-success btn-sm" style="margin-left:9.5%; margin-top:10px;">Meeting Place</button>'
 											+ '<button type="button" onclick="close_window();" class="btn btn-dark btn-sm" style="margin-left:5%; margin-top:10px;">닫기</button>'
 											+ '</div>'
 											+ '<div class="after"></div>';
@@ -571,11 +572,12 @@
 	var MeetingX;
 	var MeetingAd
 	
- 	function meetingPlaceSave_click(placeName, y, x, address){
+ 	function meetingPlaceSave_click(placeName, y, x, address, url){
  		 MeetingPlace = placeName;
  		 MeetingY = y;
  		 MeetingX = x;
- 		MeetingAd = address;
+ 		 MeetingAd = address;
+ 		 MeetingURL = url;
  		 
  		swal({
  			  title: MeetingPlace,
@@ -590,7 +592,7 @@
  			    });
 //  			  document.getElementById('meetingPlaceId').innerHTML = MeetingPlace;
 //  			  document.getElementById('meetingPlaceAddressId').innerHTML = address;
- 			  document.getElementById('meetingPlaceStyleId').innerHTML = '<div style="margin-bottom:0; border-style:solid; border-color:#e2c0bb; border-width:4px; padding:5px;"><h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">' +MeetingPlace+ '</p></h3><p id="meetingPlaceAddressId" style="font-size:80%; margin-bottom:0;">'+address+'</p></div>';
+ 			  document.getElementById('meetingPlaceStyleId').innerHTML = '<div style="margin-bottom:0; border-style:solid; border-color:#e2c0bb; border-width:4px; padding:5px;"><h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">' +MeetingPlace+ '</p></h3><p id="meetingPlaceAddressId" style="font-size:80%; margin-bottom:0;">'+address+'</p><button type="button" onclick="urlSave();" class="btn btn-dark btn-sm" style="width:100%; margin-top:10px; background-color:#e2c0bb; border-color:#e2c0bb;">URL 복사</button></div>';
  			 
  			
  			   
@@ -599,7 +601,21 @@
  			});
  	}
 
- 	
+	<!-- Meeting Place 클릭시 클립보드에 url 복사 -->
+	 src="//code.jquery.com/jquery-3.2.1.min.js"
+		function copyToClipboard(val) {
+		  var t = document.createElement("textarea");
+		  document.body.appendChild(t);
+		  t.value = val;
+		  t.select();
+		  document.execCommand('copy');
+		  document.body.removeChild(t);
+		}
+		function urlSave() {
+		  copyToClipboard(MeetingURL);
+		  swal("클립보드 복사 완료");
+		};
+		
 <!--  	reset 버튼 클릭 이벤트 -->
  	function reset_click(){
  		location.reload();

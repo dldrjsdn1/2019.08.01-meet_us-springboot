@@ -1,5 +1,6 @@
 package Meet_Us.board.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import Meet_Us.board.dao.BoardMapper;
 import Meet_Us.board.vo.BoardVo;
+import Meet_Us.board.vo.FileVo;
 import Meet_Us.board.vo.PageCriteria;
 
 @Service
@@ -64,6 +66,43 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int IncreaseBoardViewCount(BoardVo vo) throws Exception {
 		return mapper.IncreaseBoardViewCount(vo);
+	}
+	
+//	첨부파일 관련
+	//파일 업로드 
+	@Override
+	public void fileInsert(FileVo file) throws Exception {
+		mapper.fileInsert(file);
+	}
+	
+	//파일 리스트
+	@Override
+	public List<FileVo> fileDetail(int seq) throws Exception {
+		return mapper.fileDetail(seq);
+	}
+	//파일 다운로드
+	@Override
+	public FileVo fileDownload(int upSeq, int seq) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("upSeq", upSeq);
+		map.put("seq", seq);
+		return mapper.fileDownload(map);
+	}
+	//파일 삭제
+	@Override
+	public void fileDelete(int upSeq, int seq) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("upSeq", upSeq);
+		map.put("seq", seq);
+		mapper.fileDelete(map);
+	}
+	//파일 다운로드 회수 증가
+	@Override
+	public void fileDownloadCnt(int upSeq, int seq) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("upSeq", upSeq);
+		map.put("seq", seq);
+		mapper.fileDownloadCnt(map);
 	}
 
 }

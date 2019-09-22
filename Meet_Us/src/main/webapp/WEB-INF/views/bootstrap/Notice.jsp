@@ -62,17 +62,17 @@
 		<!-- 		</div> -->
 
 <!-- 관리자 페이지로 이전 -->
-<!-- 		<div class="tag-widget post-tag-container mb-5 mt-5"> -->
-<!-- 			<div class="tagcloud"> -->
-<!-- 				<a href="../NoticeInsert" class="tag-cloud-link">공지사항 추가</a> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="tag-widget post-tag-container mb-5 mt-5">
+			<div class="tagcloud">
+				<a href="../NoticeInsert" class="tag-cloud-link">공지사항 추가</a>
+			</div>
+		</div>
 
 <!-- 		<div class="sidebar-box"> -->
 			<form action="/NoticeSearchList" class="search-form" style="margin:2rem;">
 				<div class="form-group">
 					<span class="icon icon-search"></span> 
-					<input type="text" id = "keyword" name = "keyword" class="form-control" onkeydown="JavaScript:enterCheck()" placeholder="Type a keyword and hit enter">
+					<input type="text" id = "keyword" name = "keyword" class="form-control" onkeydown="JavaScript:enterCheck()" placeholder="제목 or 본문 검색">
 				</div>
 			</form>
 <!-- 		</div> -->

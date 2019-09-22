@@ -1,5 +1,6 @@
 </html><%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -54,7 +55,23 @@
 				<hr>
 				<!-- 郴侩 -->
 				<p class="mb-3">${detail.board_content }</p>
-<%-- 				<button onclick="contentWithline('${detail.board_content }')">asdasd</button> --%>
+<!-- 				梅何颇老 汽 -->
+				<c:choose>
+					<c:when test="${!empty files}">
+							<hr>
+							<div class="form-group">
+								梅何颇老 促款肺靛
+								<label>梅何颇老</label>
+								<c:forEach var="files" varStatus="i" items="${files }">
+									<p>
+										<a href="../board/fileDown/${files.upSeq}/${files.seq}">${files.fileRealName}</a>
+									</p>
+								</c:forEach>
+							</div>
+					</c:when>
+				</c:choose>
+
+
 				<div class="tag-widget post-tag-container mb-5 mt-5">
 					<div class="tagcloud">
 						<a href="../Notice" class="tag-cloud-link">File Add</a>
