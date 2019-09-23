@@ -12,7 +12,7 @@
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 	  
-	  <section class="hero-wrap" style="background-image: url('resources/images/destination-single.jpg');" data-stellar-background-ratio="0.5">
+	  <section class="hero-wrap" style="background-image: url('resources/images/meeting.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start">

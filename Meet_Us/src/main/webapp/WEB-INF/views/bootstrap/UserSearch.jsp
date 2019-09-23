@@ -16,7 +16,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
    <div class="overlay"></div>
    <div class="container">
       <div
@@ -31,19 +31,31 @@
             	<h1 class="mb-3 bread">Password Search</h1>
             </c:if>
             
-            <p class="breadcrumbs">
-               <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a>
-               </span> <span class="mr-2"> <a href="../Login">Login <i class="ion-ios-arrow-forward"></i></a>
-               </span>
+           <p class="breadcrumbs">
+               <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a></span>
+               <span class="mr-2"> <a href="../Login">Login <i class="ion-ios-arrow-forward"></i></a></span>
+               <span class="mr-2"> ID & Password Search <i class="ion-ios-arrow-forward"></i></span>
             </p>
          </div>
       </div>
    </div>
    </section>
    
+   	<section class="ftco-section" style="padding: 2em 0;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate">
+				<span class="subheading">Meet Us</span>
+				<p class="jg" style="font-size: 30px;">ID & Password Search</p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</div>
+	</section>
    
-	<div class="container" style='width:50%'>
-         <div class="comment-form-wrap pt-5">
+   
+	<div class="container" style='max-width:900px; margin-bottom:1rem;'>
+         <div class="comment-form-wrap">
       
          <!-- form -->
          <form action="${pageContext.request.contextPath}/SuccessPage" method="post" class="p-5 bg-light" name="">
@@ -52,7 +64,7 @@
             <!--아이디 -->
             <div class="form-group">
                <label for="user_id">아이디</label> 
-               <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID">
+               <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID" required>
                <div class="check_font" id="id_check"></div>
             </div>
 		 </c:if>
@@ -61,22 +73,22 @@
             <!--번호 안들어가게 수정 -->
             <div class="form-group">
                <label for="user_name">이름</label> 
-               <input type="text" class="form-control" id="user_name" name="user_name" placeholder="name" >
+               <input type="text" class="form-control" id="user_name" name="user_name" placeholder="name" required>
                <div class="check_font" id="name_check"></div>
             </div>
 
             <!--이메일 -->
             <div class="form-group">
                <label for="user_email">이메일</label> 
-               <input type="text" class="form-control" id="user_email" name="user_email" placeholder="email">
+               <input type="text" class="form-control" id="user_email" name="user_email" placeholder="email" required>
                <div class="check_font" id="email_check"></div>
             </div>
             
             <br/>
             
              <div class="form-group">
-                <input type="button" value="찾기" id="checkButton" class="btn py-3 px-4 btn-primary">
-                <input type="button" value="로그인" class="btn py-3 px-4 btn-primary" onclick="">
+                <input type="submit" value="찾기" id="checkButton" class="btn py-3 px-4 btn-primary">
+                <input type="button" value="로그인" class="btn py-3 px-4 btn-primary" onclick="location.href='../Login'" style="margin:10px;">
             </div>
          </form>
       </div>
@@ -86,9 +98,7 @@
 
 </body>
 <script type="text/javascript">
-
 $("#checkButton").click(function() {
-
 	let user_id = $('#user_id').val();
 	let user_name = $('#user_name').val();
 	let user_email = $('#user_email').val();
@@ -99,11 +109,11 @@ $("#checkButton").click(function() {
 // 	alert(user_id===undefined);
 	
 	if (user_name.length == 0) {
-	    $("#name_check").text("공백은 안되요 :(");
+	    $("#name_check").text("공백은 안돼요 :(");
 	    $('#name_check').css('color', 'red');
 	    $("#reg_submit").attr("disabled", true);
 	 }else if (patton.test(user_name)) {
-         $("#name_check").text("특수문자 안되요 :(");
+         $("#name_check").text("특수문자 안돼요 :(");
          $('#name_check').css('color', 'red');
          $("#reg_submit").attr("disabled", true);
       }else{
@@ -112,7 +122,7 @@ $("#checkButton").click(function() {
       }
 	
 	if (user_email.length == 0) {
-	    $("#email_check").text("공백은 안되요 :(");
+	    $("#email_check").text("공백은 안돼요 :(");
 	    $('#email_check').css('color', 'red');
 	    $("#reg_submit").attr("disabled", true);
 	 }else if(!emailCheck.test(user_email)){
@@ -130,18 +140,18 @@ $("#checkButton").click(function() {
          type : 'GET',
          success : function(data) {
 			if(data.length==0){
-				alert("아이디가 없습니다");
+ 				swal("ㅠㅠ", "찾으시는 계정이 존재하지 않아요.", "error");
 			}else{
 				let dataChange="";
 				for(var i=0; i<data.length; i++) {
-					if(i<2){
+					if(i<3){
 						dataChange+=data.substring(i,i+1);
 					}else{
 						dataChange+="*";
 					}
 					
 				}
-				alert(dataChange);
+				swal("찾으시는 ID는 ", dataChange+" 입니다");
 				
 			}
          },
@@ -168,11 +178,11 @@ $("#checkButton").click(function() {
 	         url : '${pageContext.request.contextPath}/SeachUserPw?user_email='+user_email+'&user_name='+user_name+'&user_id='+user_id,
 	         type : 'GET',
 	         success : function(data) {
-	        	 alert(data);
+// 	        	 alert(data);
 				if(data==0){
-					alert("아이디가 없습니다");
+					swal("ㅠㅠ", "아이디가 존재하지 않습니다.",'error')
 				}else{
-					alert("비밀번호 전송하였습니다.");
+					swal("전송완료", "비밀번호를 전송해드렸습니다.",'success')
 				}
 	         },
 	         error : function() {

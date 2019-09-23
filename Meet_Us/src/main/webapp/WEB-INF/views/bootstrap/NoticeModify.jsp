@@ -8,12 +8,21 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target"
-	data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+<!-- Áß¹Ù²Þ ÅÂ±× º¯È¯ Ã³¸® -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var description = '${modify.board_content}';
+			result = description.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
+			$('#board_content').val(result);
+		});
+	</script>
 
 
 	<section class="hero-wrap hero-wrap-2"
-		style="background-image: url('resources/images/bg_4.jpg');"
+		style="background-image: url('resources/images/notice.jpg');"
 		data-stellar-background-ratio="0.5">
 	<div class="overlay"></div>
 	<div class="container">
@@ -22,7 +31,12 @@
 			<div class="col-md-9 ftco-animate pb-4">
 				<h1 class="mb-3 bread">Notice</h1>
 				<p class="breadcrumbs">
-<p class="breadcrumbs"><span class="mr-2"><a href="../">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="../Notice">Notice <i class="ion-ios-arrow-forward"></i></a></span> <span>Notice Modify<i class="ion-ios-arrow-forward"></i></span></p>
+				<p class="breadcrumbs">
+					<span class="mr-2"><a href="../">Home <i
+							class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
+						href="../Notice">Notice <i class="ion-ios-arrow-forward"></i></a></span>
+					<span>Notice Modify<i class="ion-ios-arrow-forward"></i></span>
+				</p>
 				</p>
 			</div>
 		</div>
@@ -31,42 +45,44 @@
 
 	<section>
 	<div class="container">
-<!-- 		<div class="row"> -->
+		<!-- 		<div class="row"> -->
 
-			<!-- END comment-list -->
+		<!-- END comment-list -->
 
-			<div class="comment-form-wrap pt-5">
-				<h3 class="mb-5">Notice Modify</h3>
-				<form action="#" class="p-5 bg-light">
-					<div class="form-group">
-						<label for="name">Title</label> <input type="text"
-							class="form-control" id="name">
-					</div>
+		<div class="comment-form-wrap pt-5">
+			<h3 class="mb-5">Notice Modify</h3>
+			<hr>
+			<!-- Æû -->
+			<form action="/NoticeModifyProcess" class="p-5 bg-light">
+				<div class="form-group">
+					<label for="name">Title</label> <input type="text"
+						class="form-control" name="board_title" id="board_title"
+						value="${modify.board_title }">
+				</div>
 
-					<div class="form-group">
-						<label for="message">Notice</label>
-						<textarea name="" id="message" cols="30" rows="10"
-							class="form-control"></textarea>
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Post Comment"
-							class="btn py-3 px-4 btn-primary">
-					</div>
+				<div class="form-group">
+					<label for="message">Notice</label>
+					<textarea name="board_content" id="board_content" cols="30"
+						rows="10" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					<input type="hidden" name="board_no" id="board_no"
+						value="${modify.board_no}" /> <input type="submit"
+						value="Post Comment" class="btn py-3 px-4 btn-primary">
+				</div>
+			</form>
 
-				</form>
-			</div>
 		</div>
-<!-- 	</div> -->
-	</section>
+	</div>
+	<!-- 	</div> --> </section>
 
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-		<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke="#eeeeee" />
-		<circle class="path" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+		<svg class="circular" width="48px" height="48px"> <circle
+			class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
+			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
 </body>

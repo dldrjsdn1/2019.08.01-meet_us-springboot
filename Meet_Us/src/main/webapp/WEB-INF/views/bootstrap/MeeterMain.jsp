@@ -11,13 +11,13 @@
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
-	  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/destination-single.jpg');" data-stellar-background-ratio="0.5">
+	  <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/meeting.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-4">
-            <h1 class="mb-3 bread">Discover New Place</h1>
-             <p class="breadcrumbs"><span class="mr-2"><a href="../">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Meeter <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Meeting</h1>
+             <p class="breadcrumbs"><span class="mr-2"><a href="../">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Meeting <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>

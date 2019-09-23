@@ -1,23 +1,69 @@
 package Meet_Us.userTeam.vo;
 
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+
 public class UserTeamVo {
 
-	private int user_seq;
-	private String user_id;
+	private String user_seq; 
+	private String user_id; 
 	private String user_password;
 	private String user_email;
-	private String user_name;
+	private String user_name; 
 	private int user_age;
 	private char user_gender;
 	private String user_defaultAddress;
 	private String user_authority;
 	private String user_kakaoImg;
 
-	public int getUser_seq() {
+	private boolean isAccountNonExpired;
+
+	private boolean isAccountNonLocked;
+
+	private boolean isCredentialsNonExpired;
+
+	private boolean isEnabled;
+
+	private Collection<? extends GrantedAuthority> authorities;
+
+	public boolean isAccountNonExpired() {
+		return isAccountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean isAccountNonExpired) {
+		this.isAccountNonExpired = isAccountNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return isAccountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean isAccountNonLocked) {
+		this.isAccountNonLocked = isAccountNonLocked;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return isCredentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean isCredentialsNonExpired) {
+		this.isCredentialsNonExpired = isCredentialsNonExpired;
+	}
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public String getUser_seq() {
 		return user_seq;
 	}
 
-	public void setUser_seq(int user_seq) {
+	public void setUser_seq(String user_seq) {
 		this.user_seq = user_seq;
 	}
 
@@ -91,6 +137,14 @@ public class UserTeamVo {
 
 	public void setUser_kakaoImg(String user_kakaoImg) {
 		this.user_kakaoImg = user_kakaoImg;
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
 
 	@Override

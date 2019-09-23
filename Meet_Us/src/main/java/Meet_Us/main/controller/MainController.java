@@ -1,5 +1,6 @@
 package Meet_Us.main.controller;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
@@ -17,58 +18,59 @@ import Meet_Us.main.vo.MainVo;
 
 @Controller
 @EnableAutoConfiguration
-@RequestMapping(value="/*", produces="text/plain;charset=UTF-8")
+@RequestMapping(value = "/*", produces = "text/plain;charset=UTF-8")
 public class MainController {
 
 	@Autowired
 	private MainMapper mapper;
 
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String home(Locale locale, Model model) {
-//
-//		Date date = new Date();
-//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-//
-//		String formattedDate = dateFormat.format(date);
-//
-//		model.addAttribute("serverTime", formattedDate);
-//
-//		return "index";
-//	}
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String notification_test() throws Exception {
+		return "bootstrap.notification_test";
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String Home() throws Exception{
-      return "bootstrap.Home";
-  }
-	
-	@RequestMapping(value = "/MeeterMain", method = RequestMethod.GET)
-	public String MeeterMain() throws Exception{
-      return "bootstrap.MeeterMain";
-  }
-	
-	@RequestMapping(value = "/MeeterDetail", method = RequestMethod.GET)
-	public String MeeterDetail() throws Exception{
-      return "bootstrap.MeeterDetail";
-  }
-	
-	@RequestMapping(value = "/Notice", method = RequestMethod.GET)
-	public String Notice() throws Exception{
-      return "bootstrap.Notice";
-  }
-	
-	@RequestMapping(value = "/NoticeDetail", method = RequestMethod.GET)
-	public String NoticeDetail() throws Exception{
-      return "bootstrap.NoticeDetail";
-  }
-	
-	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
-	public String NoticeInsert() throws Exception{
-      return "bootstrap.NoticeInsert";
-  }
-	
-	@RequestMapping(value = "/NoticeModify", method = RequestMethod.GET)
-	public String NoticeModify() throws Exception{
-      return "bootstrap.NoticeModify";
-  }
+	public String Home() throws Exception {
+		return "bootstrap.Home";
+	}
 
+	@RequestMapping(value = "/MeeterMain", method = RequestMethod.GET)
+	public String MeeterMain() throws Exception {
+		return "bootstrap.MeeterMain";
+	}
+
+	@RequestMapping(value = "/MeeterDetail", method = RequestMethod.GET)
+	public String MeeterDetail() throws Exception {
+		return "bootstrap.MeeterDetail";
+	}
+
+	@RequestMapping(value = "/Notice", method = RequestMethod.GET)
+	public String Notice() throws Exception {
+		return "bootstrap.Notice";
+	}
+
+	@RequestMapping(value = "/NoticeDetail", method = RequestMethod.GET)
+	public String NoticeDetail() throws Exception {
+		return "bootstrap.NoticeDetail";
+	}
+
+	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
+	public String NoticeInsert() throws Exception {
+		return "bootstrap.NoticeInsert";
+	}
+
+	@RequestMapping(value = "/NoticeModify", method = RequestMethod.GET)
+	public String NoticeModify() throws Exception {
+		return "bootstrap.NoticeModify";
+	}
+
+	@RequestMapping(value = "/Map", method = RequestMethod.GET)
+	public String Map() throws Exception {
+		return "bootstrap.Map";
+	}
+
+	@RequestMapping(value = "/Developers", method = RequestMethod.GET)
+	public String Developers() throws Exception {
+		return "bootstrap.Developers";
+	}
 }

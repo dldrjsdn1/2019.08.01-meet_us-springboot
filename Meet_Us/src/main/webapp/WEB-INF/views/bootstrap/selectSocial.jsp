@@ -16,7 +16,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
    <div class="overlay"></div>
    <div class="container">
       <div
@@ -24,7 +24,9 @@
          <div class="col-md-9 ftco-animate pb-4">
             <h1 class="mb-3 bread">Sign Up</h1>
             <p class="breadcrumbs">
-               <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a>
+               <span class="mr-2"> <a href="../">Home <i class="ion-ios-arrow-forward"></i></a></span>
+               <span class="mr-2"> <a href="../Login">Login <i class="ion-ios-arrow-forward"></i></a>
+               <span class="mr-2"> Sign Up <i class="ion-ios-arrow-forward"></i>
                </span>
             </p>
          </div>
@@ -37,38 +39,59 @@
           <div class="row justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
              <span class="subheading">Meet Us</span>
-            <h2 class="mb-4"><p class="jg">회원가입</p></h2>
-<!--             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p> -->
-          </div>
+            <p class="jg" style="font-size:30px; margin-bottom:50px;">회원가입</p>
+				<div class="col-md-6 col-lg-4-login ftco-animate" style="float:left;">
+					<div class="project" style="overflow: inherit;">
+						<div class="img">
+							<a
+								href="https://kauth.kakao.com/oauth/authorize?client_id=51842c99904f5e62277ee17ee6d97da2&redirect_uri=http://localhost:8087/kakaoLogin&response_type=code">
+								<img src="resources/images/kakaoimage.png" class="img-fluid"
+								alt="Colorlib Template"
+								style="max-width: 200px;">
+							</a>
+						</div>
+						<a href="https://kauth.kakao.com/oauth/authorize?client_id=51842c99904f5e62277ee17ee6d97da2&redirect_uri=http://localhost:8087/kakaoLogin&response_type=code" class="btn btn-primary" style="margin-top:2rem;"><p class="jg" style="margin:0;">kakao 회원가입</p></a>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-lg-4-login ftco-animate" style="float:left;">
+					<div class="project" style="overflow: inherit;">
+						<div class="img">
+							<a href="../signUp"><img src="resources/images/login.jpg"
+								class="img-fluid" alt="Colorlib Template"
+								style="max-width: 200px; border-radius: 50px 50px 50px 50px;"></a>
+						</div>
+						<a href="../signUp" class="btn btn-primary" style="margin-top:2rem;"><p class="jg" style="margin:0;">일반 회원가입</p></a>
+					</div>
+				</div>
+
+			</div>
         </div>
           <div class="row">
           
-             <div class="col-md-6 col-lg-4-login ftco-animate">
-                <div class="project" style="overflow:inherit;">
-                   <div class="img">
-                      <a href="https://kauth.kakao.com/oauth/authorize?client_id=51842c99904f5e62277ee17ee6d97da2&redirect_uri=http://localhost:8087/kakaoLogin&response_type=code">
-                      <img src="resources/images/kakaoimage.png" class="img-fluid" alt="Colorlib Template" style="max-width: 60%;margin-left: 20%;"></a>
-                   </div>
-                   <div class="text">
-                      <h4 class="price" style="font-size:20px; left:10%;border-radius:10px;">카카오톡 회원가입</h4>
-                   </div>
-                </div>
-             </div>
+<!--              <div class="col-md-6 col-lg-4-login ftco-animate"> -->
+<!--                 <div class="project" style="overflow:inherit;"> -->
+<!--                    <div class="img"> -->
+<!--                       <a href="https://kauth.kakao.com/oauth/authorize?client_id=51842c99904f5e62277ee17ee6d97da2&redirect_uri=http://localhost:8087/kakaoLogin&response_type=code"> -->
+<!--                       <img src="resources/images/kakaoimage.png" class="img-fluid" alt="Colorlib Template" style="max-width: 200px; margin-left: 6.5rem;"></a> -->
+<!--                    </div> -->
+<!--                    <div class="text"> -->
+<!--                       <h4 class="price" style="font-size:20px; left:10%;border-radius:10px;">카카오톡 회원가입</h4> -->
+<!--                    </div> -->
+<!--                 </div> -->
+<!--              </div> -->
              
-             <div class="col-md-6 col-lg-4-login ftco-animate">
-                <div class="project" style="overflow:inherit;">
-                   <div class="img">
-                      <a href="../signUp"><img src="resources/images/login.jpg" class="img-fluid" alt="Colorlib Template" style="max-width: 60%;margin-left: 20%;border-radius: 50px 50px 50px 50px;"></a>
-                   </div>
-                   <div class="text">
-                      <h4 class="price" style="font-size:20px; left:10%;border-radius:10px;">일반 회원가입</h4>
-                   </div>
-                </div>
-             </div>
-
-
-
-
+<!--              <div class="col-md-6 col-lg-4-login ftco-animate"> -->
+<!--                 <div class="project" style="overflow:inherit;"> -->
+<!--                    <div class="img"> -->
+<!--                       <a href="../signUp"><img src="resources/images/login.jpg" class="img-fluid" alt="Colorlib Template" style="max-width: 200px; margin-left: 6.5rem;border-radius: 50px 50px 50px 50px;"></a> -->
+<!--                    </div> -->
+<!--                    <div class="text"> -->
+<!--                       <h4 class="price" style="font-size:20px; left:10%;border-radius:10px;">일반 회원가입</h4> -->
+<!--                    </div> -->
+<!--                 </div> -->
+<!--              </div> -->
+             
           </div>
        </div>
     </section>

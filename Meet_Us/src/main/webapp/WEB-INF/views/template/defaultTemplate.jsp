@@ -18,11 +18,11 @@ if(request.getProtocol().equals("HTTP/1.1"))
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	 <style>
-   	 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
     .jg{font-family: 'Jeju Gothic', sans-serif;};
-    </style>	
+    </style>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -58,7 +58,7 @@ if(request.getProtocol().equals("HTTP/1.1"))
   <!-- loader -->
 <%--   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div> --%>
 
-
+ 
   <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
   <script src="<c:url value="/resources/js/jquery-migrate-3.0.1.min.js"/>"></script>
   <script src="<c:url value="/resources/js/popper.min.js"/>"></script>
@@ -71,9 +71,9 @@ if(request.getProtocol().equals("HTTP/1.1"))
   <script src="<c:url value="/resources/js/aos.js"/>"></script>
   <script src="<c:url value="/resources/js/jquery.animateNumber.min.js"/>"></script>
   <script src="<c:url value="/resources/js/scrollax.min.js"/>"></script>
-<%--   <script src="<c:url value="/resources/js/google-map.js"/>"></script> --%>
-  
   <script src="<c:url value="/resources/js/main.js"/>"></script>
-	
+  
+<!--   SweetAlert alert css  -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</body>
 </html>

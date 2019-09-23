@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import = "java.util.Enumeration" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -15,17 +18,36 @@
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
-
+ 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="../" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="../MeeterMain" class="nav-link"><span>Meeter</span></a></li>
+	          <li class="nav-item"><a href="../Map" class="nav-link"><span>Map</span></a></li>
+	          <li class="nav-item"><a href="../MeeterMain" class="nav-link"><span>Meeting</span></a></li>
 	          <li class="nav-item"><a href="../Notice" class="nav-link"><span>Notice</span></a></li>
-	          <li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li>
+	          <li class="nav-item"><a href="../Developers" class="nav-link"><span>Developers</span></a></li>
+<!-- 	          <li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li> -->
+	          
+	          <sec:authorize access="isAnonymous()">
+				<li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li>
+			  </sec:authorize>
+			  
+			  <sec:authorize access="isAuthenticated()">
+			  <br/>
+   				  <li class="nav-item"><form action="/logout" method="POST">
+       			 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+       			 <button type="submit" style="background-color:transparent;  border:0px transparent solid;"><span>Logout</span></button>
+   				 </form></li>
+			  </sec:authorize>
+	        
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
 
 </body>
+<script type="text/javascript">
+
+</script>
 </html>
+

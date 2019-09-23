@@ -13,30 +13,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
 	  
 	  <section id="home-section" class="hero">
 	  	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-3.svg" class="svg-blob" alt="Colorlib Free Template">
 		  <div class="home-slider owl-carousel">
+	      
+	      
 	      <div class="slider-item">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/bg_1.jpg);">
+	          		<div class="img" style="background-image:url(resources/images/place.jpg);">
 	          			<div class="overlay"></div>
 	          		</div>
 	          		<div class="bg-primary">
-		          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_1-1.jpg);">Greece</span></div>
+		          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_1-1.jpg);">Place</span></div>
 	          		</div>
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading pl-5">Discover Greece</span>
-			            <h1 class="mb-4 mt-3">Explore Your Travel Destinations like never before</h1>
-			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+		          		<span class="subheading pl-5">place</span>
+			            <h1 class="jg">만남 장소를 찾아보세요</h1>
+			            <p>고민은 그만! 중간 지점을 찾아 모두가 인정할 합리적인 만남 장소를 찾도록 도와줍니다.</p>
 			            
-			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p>
+			            <p><a href="../Map" class="btn btn-primary px-5 py-3 mt-3">Place Search  <span class="ion-ios-arrow-forward"></span></a></p>
 		            </div>
 		          </div>
 	        	</div>
@@ -48,18 +49,18 @@
 	        <div class="container-fluid p-0">
 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/bg_2.jpg);">
+	          		<div class="img" style="background-image:url(resources/images/meeting.jpg);">
 	          			<div class="overlay"></div>
 	          		</div>
-	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Africa</span></div>
+	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Meeting</span></div>
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
-		          		<span class="subheading pl-5">Discover Africa</span>
-			            <h1 class="mb-4 mt-3">Never Stop Exploring</span></h1>
-			            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+		          		<span class="subheading pl-5">Meeting</span>
+			            <h1 class="jg">새로운 만남을 기대하세요</span></h1>
+			            <p>자신이 원하는 모임을 만들어 사람들을 모으거나, 만들어진 모임에 참여할 수 있습니다.</p>
 			            
-			            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Discover <span class="ion-ios-arrow-forward"></span></a></p>
+			            <p><a href="../MeeterMain" class="btn btn-primary px-5 py-3 mt-3">Meeting Search <span class="ion-ios-arrow-forward"></span></a></p>
 		            </div>
 		          </div>
 	        	</div>
@@ -68,96 +69,14 @@
 	    </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt">
-    	<div class="container">
-    		<div class="row justify-content-center pb-0 pb-mb-5 pt-5 pt-md-0">
-          <div class="col-md-12 heading-section ftco-animate">
-          	<span class="subheading">Sexy &amp; Healthy</span>
-            <h2 class="mb-4">Where do you want to go?</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-          </div>
-        </div>
-	    	<div class="row">
-					<div class="col-md-12">
-						<div class="search-wrap-1 ftco-animate p-4">
-							<form action="#" class="search-property-1">
-		        		<div class="row">
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Destination</label>
-		          				<div class="form-field">
-		          					<div class="icon"><span class="ion-ios-search"></span></div>
-				                <input type="text" class="form-control" placeholder="Search place">
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Check-in date</label>
-		        					<div class="form-field">
-		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
-				                <input type="text" class="form-control checkin_date" placeholder="Check In Date">
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Check-out date</label>
-		        					<div class="form-field">
-		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
-				                <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Price Limit</label>
-		        					<div class="form-field">
-		          					<div class="select-wrap">
-		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                      <select name="" id="" class="form-control">
-		                        <option value="">$5,000</option>
-		                        <option value="">$10,000</option>
-		                        <option value="">$50,000</option>
-		                        <option value="">$100,000</option>
-		                        <option value="">$200,000</option>
-		                        <option value="">$300,000</option>
-		                        <option value="">$400,000</option>
-		                        <option value="">$500,000</option>
-		                        <option value="">$600,000</option>
-		                        <option value="">$700,000</option>
-		                        <option value="">$800,000</option>
-		                        <option value="">$900,000</option>
-		                        <option value="">$1,000,000</option>
-		                        <option value="">$2,000,000</option>
-		                      </select>
-		                    </div>
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-self-end">
-		        				<div class="form-group">
-		        					<div class="form-field">
-				                <input type="submit" value="Search" class="form-control btn btn-primary">
-				              </div>
-			              </div>
-		        			</div>
-		        		</div>
-		        	</form>
-		        </div>
-					</div>
-	    	</div>
-	    </div>
-    </section>
-    
     
      <section class="ftco-section bg-light" id="blog-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <span class="subheading">Blog</span>
-            <h2 class="mb-4">Our Blog</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <span class="subheading"><p class="jg">우리 만날까요?</p></span>
+            <h2 class="mb-4">Meet Us</h2>
+            <p class="jg">현재 새로운 만남을 기대하는 사람들이 당신을 찾고 있습니다. <br>당신은 어떤 만남을 원하나요?</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -243,104 +162,28 @@
       </div>
     </section>
 		
+    <section class="ftco-intro img" id="destination-section" style="background-image: url(resources/images/happy_meeting.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-9 text-center">
+						<h2>Create Meeting</h2>
+						<p class="jg">마음에 드는 모임이 없었나요? <br>그럼 직접 사람들을 모아보세요!</p>
+						<p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Create</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
 
+   
 
-    <section class="ftco-section testimony-section">
-    	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob" alt="Colorlib Free Template">
-    	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob-2" alt="Colorlib Free Template">
-      <div class="container">
-        <div class="row justify-content-center pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Read testimonials</span>
-            <h2 class="mb-4">What Client Says</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate justify-content-center">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Jeff Freshman</p>
-                    <span class="position">Artist</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class="ftco-section contact-section" id="contact-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <span class="subheading">Contact</span>
+            <span class="subheading"><p class="jg">궁금해요</p></span>
             <h2 class="mb-4">Contact Me</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <p class="jg">여러분의 궁금한 점이나 불편한 점을 알려주세요. <br>언제든 해결해 드립니다.</p>
           </div>
         </div>
 
@@ -364,55 +207,6 @@
               </div>
             </form>
           
-          </div>
-
-          <div class="col-md-5 d-flex">
-          	<div class="row d-flex contact-info mb-5">
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-map-signs"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Address</h3>
-				            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-phone2"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Contact Number</h3>
-				            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-paper-plane"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Email Address</h3>
-				            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-globe"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Website</h3>
-				            <p><a href="#">yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		        </div>
           </div>
         </div>
       </div>
