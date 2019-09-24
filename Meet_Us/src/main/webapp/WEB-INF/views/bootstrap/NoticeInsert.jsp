@@ -45,7 +45,7 @@
 			<h3 class="mb-5">Notice Insert</h3>
 
 			<!-- Æû -->
-			<form action="/NoticeInsertProcess" class="p-5 bg-light" enctype="multipart/form-data">
+			<form action="/NoticeInsertProcess" class="p-5 bg-light" enctype="multipart/form-data" method="post" >
 				<div class="form-group">
 					<label for="name">Title</label> <input type="text"
 						class="form-control" name="board_title" id="board_title" required>
@@ -58,39 +58,21 @@
 						
 				</div>
 				
-<!-- 				Ã·ºÎÆÄÀÏ Æû -->
+<!-- 		  	Ã·ºÎÆÄÀÏ Æû -->
 				<div class="form-group">
 					<label for="message">File Add</label>
 					<div class="card">
 						<div id="fileDiv">
 							<div class="form-group" style="margin: 20px;">
-								<input type="file" multiple="multiple" name="files"
-									class="form-control-file">
+								<input type="file" multiple="multiple" name="files" id="files" class="form-control-file" />
 							</div>
 						</div>
 					</div>
 				</div>
 				
-				
-<!-- 				<div class="col-lg-13"> -->
-<!-- 					<div class="card"> -->
-<!-- 						<div class="card-body"> -->
-<!-- 							<h4 class="card-title">Ã·ºÎÆÄÀÏ Ãß°¡</h4> -->
-<!-- 							<div class="basic-form"> -->
-<!-- 								<div id="fileDiv"> -->
-<!-- 									<div class="form-group"> -->
-<!-- 										<input type="file" multiple="multiple" name="files" class="form-control-file"> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-				
 				<div class="form-group">
-					<input type="submit" value="Post Comment"
-						class="btn py-3 px-4 btn-primary" >
-						<input type="button" value="Back" class="btn py-3 px-4 btn-primary" onclick="cencle_click()" style="margin:10px;">
+					<input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary" >
+					<input type="button" value="Back" class="btn py-3 px-4 btn-primary" onclick="cencle_click()" style="margin:10px;">
 				</div>
 			</form>
 
@@ -107,10 +89,11 @@
 			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 	
-	<script>
+<script>
 function cencle_click(){
 	location.href="../Notice";
 }
+
 </script>
 
 </body>

@@ -82,27 +82,32 @@ public class BoardServiceImpl implements BoardService {
 	}
 	//파일 다운로드
 	@Override
-	public FileVo fileDownload(int upSeq, int seq) throws Exception {
+	public FileVo fileDownload(int up_Seq, int seq) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("upSeq", upSeq);
+		map.put("up_Seq", up_Seq);
 		map.put("seq", seq);
 		return mapper.fileDownload(map);
 	}
 	//파일 삭제
 	@Override
-	public void fileDelete(int upSeq, int seq) throws Exception {
+	public void fileDelete(int up_Seq, int seq) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("upSeq", upSeq);
+		map.put("up_Seq", up_Seq);
 		map.put("seq", seq);
 		mapper.fileDelete(map);
 	}
 	//파일 다운로드 회수 증가
 	@Override
-	public void fileDownloadCnt(int upSeq, int seq) throws Exception {
+	public void fileDownloadCnt(int up_Seq, int seq) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("upSeq", upSeq);
+		map.put("up_Seq", up_Seq);
 		map.put("seq", seq);
 		mapper.fileDownloadCnt(map);
+	}
+	//첨부파일 upSeq
+	@Override
+	public int latelyBoard() throws Exception {
+		return mapper.latelyBoard();
 	}
 
 }

@@ -37,11 +37,14 @@ public interface BoardService {
 	public List<FileVo> fileDetail(int seq) throws Exception;
 	
 	//파일 다운로드
-	public FileVo fileDownload(int upSeq, int seq) throws Exception;
+	public FileVo fileDownload(int up_Seq, int seq) throws Exception;
 	
 	//파일 삭제
-	public void fileDelete(int upSeq, int seq) throws Exception;
+	public void fileDelete(int up_Seq, int seq) throws Exception;
 	
 	//파일 다운로드 회수 증가
-	public void fileDownloadCnt(int upSeq, int seq) throws Exception;
+	public void fileDownloadCnt(int up_Seq, int seq) throws Exception;
+	
+	//첨부파일 upSeq
+	public int latelyBoard() throws Exception;
 }

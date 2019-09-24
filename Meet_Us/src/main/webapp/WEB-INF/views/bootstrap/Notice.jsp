@@ -50,6 +50,18 @@
 		</div>
 	</div>
 	</section>
+	
+		<section class="ftco-section" style="padding: 2em 0;">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate">
+				<span class="subheading">Meet Us</span>
+				<p class="jg" style="font-size: 30px;">공지사항</p>
+			</div>
+		</div>
+		<div class="row"></div>
+	</div>
+	</section>
 
 	<div class="sidebar-box ftco-animate">
 		<!--       <h3 class="heading-sidebar">Notice</h3> -->

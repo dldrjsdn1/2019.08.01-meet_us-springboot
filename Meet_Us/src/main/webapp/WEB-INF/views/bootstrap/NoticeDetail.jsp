@@ -61,10 +61,10 @@
 							<hr>
 							<div class="form-group">
 								梅何颇老 促款肺靛
-								<label>梅何颇老</label>
+<!-- 								<label>梅何颇老</label> -->
 								<c:forEach var="files" varStatus="i" items="${files }">
 									<p>
-										<a href="../board/fileDown/${files.upSeq}/${files.seq}">${files.fileRealName}</a>
+										<a href="../fileDown/${files.up_Seq}/${files.seq}">${files.file_Real_Name}</a>
 									</p>
 								</c:forEach>
 							</div>

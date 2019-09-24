@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class FileVo {
 	 private int seq;
-	 private int upSeq;
-	 private String fileName;
-	 private String fileRealName;
-	 private String filePath;
-	 private int downCnt;
-	 private Date crtDt;
-	 private Date lastDt;
-	 private  String delFlag;
+	 private int up_Seq;
+	 private String file_Name;
+	 private String file_Real_Name;
+	 private String file_Path;
+	 private int down_Cnt;
+	 private Date crt_Dt;
+	 private Date last_Dt;
+	 private String delFlag;
 	 
 	public int getSeq() {
 		return seq;
@@ -19,47 +19,48 @@ public class FileVo {
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
-	public int getUpSeq() {
-		return upSeq;
+	
+	public int getUp_Seq() {
+		return up_Seq;
 	}
-	public void setUpSeq(int upSeq) {
-		this.upSeq = upSeq;
+	public void setUp_Seq(int up_Seq) {
+		this.up_Seq = up_Seq;
 	}
-	public String getFileName() {
-		return fileName;
+	public String getFile_Name() {
+		return file_Name;
 	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFile_Name(String file_Name) {
+		this.file_Name = file_Name;
 	}
-	public String getFileRealName() {
-		return fileRealName;
+	public String getFile_Real_Name() {
+		return file_Real_Name;
 	}
-	public void setFileRealName(String fileRealName) {
-		this.fileRealName = fileRealName;
+	public void setFile_Real_Name(String file_Real_Name) {
+		this.file_Real_Name = file_Real_Name;
 	}
-	public String getFilePath() {
-		return filePath;
+	public String getFile_Path() {
+		return file_Path;
 	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setFile_Path(String file_Path) {
+		this.file_Path = file_Path;
 	}
-	public int getDownCnt() {
-		return downCnt;
+	public int getDown_Cnt() {
+		return down_Cnt;
 	}
-	public void setDownCnt(int downCnt) {
-		this.downCnt = downCnt;
+	public void setDown_Cnt(int down_Cnt) {
+		this.down_Cnt = down_Cnt;
 	}
-	public Date getCrtDt() {
-		return crtDt;
+	public Date getCrt_Dt() {
+		return crt_Dt;
 	}
-	public void setCrtDt(Date crtDt) {
-		this.crtDt = crtDt;
+	public void setCrt_Dt(Date crt_Dt) {
+		this.crt_Dt = crt_Dt;
 	}
 	public Date getLastDt() {
-		return lastDt;
+		return last_Dt;
 	}
-	public void setLastDt(Date lastDt) {
-		this.lastDt = lastDt;
+	public void setLas_tDt(Date las_tDt) {
+		this.last_Dt = las_tDt;
 	}
 	public String getDelFlag() {
 		return delFlag;
@@ -67,4 +68,12 @@ public class FileVo {
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
 	}
+	@Override
+	public String toString() {
+		return "FileVo [seq=" + seq + ", up_Seq=" + up_Seq + ", file_Name=" + file_Name + ", file_Real_Name="
+				+ file_Real_Name + ", file_Path=" + file_Path + ", down_Cnt=" + down_Cnt + ", crt_Dt=" + crt_Dt
+				+ ", las_tDt=" + last_Dt + ", delFlag=" + delFlag + "]";
+	}
+	
+
 }

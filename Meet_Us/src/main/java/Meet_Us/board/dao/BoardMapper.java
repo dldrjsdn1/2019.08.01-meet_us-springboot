@@ -52,4 +52,7 @@ public interface BoardMapper {
 //	public void fileDownloadCnt(int upSeq, int seq) throws Exception;
 	public void fileDownloadCnt(HashMap<String, Integer> map);
 	
+	//첨부파일 upSeq
+	public int latelyBoard() throws Exception;
+	
 }

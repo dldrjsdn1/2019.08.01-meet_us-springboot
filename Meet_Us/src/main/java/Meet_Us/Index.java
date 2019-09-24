@@ -12,6 +12,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
@@ -61,6 +63,28 @@ public class Index extends SpringBootServletInitializer{
 		resolver.setViewClass(TilesView.class);
 		return resolver;
 	}
+	
+//	@Bean
+//	public MultipartConfigElement multipartConfigElement() {
+//	    MultipartConfigFactory factory = new MultipartConfigFactory();
+//
+//	    factory.setMaxFileSize(1024);
+//	    factory.setMaxRequestSize(1024);
+//
+//	    return factory.createMultipartConfig();
+//	}
+//
+//	@Bean
+//	public MultipartResolver multipartResolver() {
+//	    return new StandardServletMultipartResolver();
+//	}
+	
+//	@Bean
+//	public MultipartResolver multipartResolver() {
+//	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//	    multipartResolver.setMaxUploadSize(10485760); // 1024 * 1024 * 10
+//	    return multipartResolver;
+//	}
  
 }
 
