@@ -1,4 +1,4 @@
-package Meet_Us.board.vo;
+package Meet_Us.meeter.vo;
 
 public class PageCriteria {
 	private int page; 
@@ -11,7 +11,7 @@ public class PageCriteria {
 
 	public PageCriteria() {
 		this.page = 1;
-		this.perPageNum = 10;
+		this.perPageNum = 6;
 		this.keyword = null; 
 	}
 

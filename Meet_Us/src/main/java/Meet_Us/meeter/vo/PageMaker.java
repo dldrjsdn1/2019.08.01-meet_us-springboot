@@ -1,4 +1,4 @@
-package Meet_Us.board.vo;
+package Meet_Us.meeter.vo;
 
 public class PageMaker {
 

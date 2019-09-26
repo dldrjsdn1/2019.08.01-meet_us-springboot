@@ -54,7 +54,7 @@
                   <div class="text px-4 pb-5">
                     <p class="mb-4">안녕하세요, 개발자를 지망하는 학생입니다. 아직 부족하고 미숙한 점도 많지만 열심히 만들었습니다.재밋게 사용해주시고 부족하거나 지적사항들 지적 환영합니다. 사용해 주셔서 감사합니다.<br><a href="https://github.com/jodummy" style="color:white;">https://github.com/jodummy</a></p>
                     <p class="name">조준서</p>
-                    <span class="position">BackEnd & Planner</span>
+                    <span class="position">BackEnd</span>
                   </div>
                 </div>
               </div>
@@ -78,15 +78,15 @@
 <!--               박웅기 -->
               <div class="item">
                 <div class="testimony-wrap text-center py-4 pb-5">
-                  <div class="user-img" style="background-image: url(resources/images/person_3.jpg)">
+                  <div class="user-img" style="background-image: url(resources/images/park.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
                   </div>
                   <div class="text px-4 pb-5">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="mb-4">안녕하세요. 한창 배우고 있는 학생입니다. 아직 부족한 부분은 많지만 점점 발전해서 멋진 성과 이뤄보려고 합니다. 부족하거나 개선이 필요한 부분은 언제든지 저희에게 말씀해주세요. 감사합니다.</p>
                     <p class="name">박웅기</p>
-                    <span class="position">Artist</span>
+                    <span class="position">BackEnd</span>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
                   <div class="text px-4 pb-5">
                     <p class="mb-4">안녕하세요, 웹개발자를 희망하는 서유진입니다. 첫 프로젝트라 많이 부족하지만 팀원들과 협력하여 열심히 개발하였습니다. 저희 사이트에 방문해주셔서 감사합니다. 많은 이용 부탁드립니다.<br><a href="https://github.com/seoyujin0731" style="color:white;">https://github.com/seoyujin0731</a></p>
                     <p class="name">서유진</p>
-                    <span class="position">Front & BackEnd</span>
+                    <span class="position">BackEnd</span>
                   </div>
                 </div>
               </div>
@@ -118,7 +118,7 @@
                   <div class="text px-4 pb-5">
                     <p class="mb-4">I learned a lot of invisible things. I learned that what is invisible makes what is seen. Thank you for learning a lot.</p>
                     <p class="name">이치수</p>
-                    <span class="position">FrontEnd</span>
+                    <span class="position">Design</span>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 package Meet_Us.board.controller;
 
-import java.io.File;
+import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -96,7 +96,7 @@ public class BoardController {
 		service.deleteBoard(vo.getBoard_no());
 		model.addAttribute("list", service.selectBoardList());
 
-		return "bootstrap.Notice";
+		return "redirect:/Notice";
 	}
 
 	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
