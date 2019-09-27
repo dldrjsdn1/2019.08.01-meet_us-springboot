@@ -18,4 +18,4 @@ public interface MeeterMapper {
 	public List<Map<String, Object>> selectCountMeeterList() throws Exception;
 	
 	public MeeterVo selectMeeterDetail(MeeterVo meeterVo) throws Exception;
-}
+} 

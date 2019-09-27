@@ -41,9 +41,8 @@ public interface BoardMapper {
 	public List<FileVo> fileDetail(int seq) throws Exception;
 	
 	//파일 다운로드
-//	public FileVo fileDownload(int upSeq, int seq) throws Exception;
-	public FileVo fileDownload(HashMap<String, Integer> map);
-	
+	public String downloadFileName(HashMap<String, String> map);
+	 
 	//파일 삭제
 //	public void fileDelete(int upSeq, int seq) throws Exception;
 	public void fileDelete(HashMap<String, Integer> map);

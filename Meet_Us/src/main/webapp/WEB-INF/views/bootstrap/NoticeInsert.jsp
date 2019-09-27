@@ -42,7 +42,7 @@
 		<!-- END comment-list -->
 
 		<div class="comment-form-wrap pt-5">
-			<h3 class="mb-5">Notice Insert</h3>
+			<h3 class="mb-5">Notice Insert</h3> 
 
 			<!-- Æû -->
 			<form action="/NoticeInsertProcess" class="p-5 bg-light" enctype="multipart/form-data" method="post" >

@@ -12,7 +12,7 @@ public class BoardVo {
 	private String user_id;
 	private String board_delflag;
 
-	public int getNo() {
+	public int getNo() { 
 		return no;
 	}
 

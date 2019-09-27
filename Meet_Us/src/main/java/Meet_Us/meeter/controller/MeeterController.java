@@ -25,7 +25,7 @@ public class MeeterController {
 	@RequestMapping(value = "/MeeterMain", method = RequestMethod.GET)
 	public String MeeterMain(Model model, PageCriteria cri) throws Exception {
 		PageMaker pageMaker = new PageMaker();
-		cri.setPerPageNum(6); 
+		cri.setPerPageNum(6);  
 		pageMaker.setCri(cri);
 		
 		List<Map<String, Object>> meeterCount = service.selectCountMeeterList();

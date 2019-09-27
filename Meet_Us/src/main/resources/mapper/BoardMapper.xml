@@ -177,8 +177,17 @@
 		SELECT * FROM NOTICE_BOARD_FILE WHERE UP_SEQ=#{seq} AND DELFLAG = 'N'
 	</select>
 	
-	<select id="fileDownload" parameterType="map" resultType="Meet_Us.board.vo.FileVo">
-		SELECT * FROM NOTICE_BOARD_FILE WHERE UP_SEQ=#{up_Seq} AND SEQ=#{seq} AND DELFLAG = 'N'
+	<select id="downloadFileName" parameterType="map" resultType="String">
+		SELECT 
+			FILE_REAL_NAME 
+		FROM 
+			NOTICE_BOARD_FILE 
+		WHERE 
+			UP_SEQ=#{up_Seq} 
+		AND 
+			SEQ=#{seq} 
+		AND 
+			DELFLAG = 'N'
 	</select>
 	
 	<update id="fileDelete" parameterType="map" >
@@ -200,7 +209,7 @@
 			,LAST_DT = now()
 		WHERE 
 			UP_SEQ=#{seq}
-	</update>
+	</update> 
 	
 	<update id="fileDownloadCnt" parameterType="Integer" >
 		UPDATE

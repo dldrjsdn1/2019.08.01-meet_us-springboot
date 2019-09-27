@@ -8627,7 +8627,7 @@ h1, h2, h3, h4, h5,
   background: #232931; }
 
 .btn {
-  cursor: pointer;
+  cursor: pointer; 
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;

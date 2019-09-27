@@ -22,7 +22,7 @@ public class MeeterVo {
 	public int getMeeter_board_no() {
 		return meeter_board_no;
 	}
-
+ 
 	public void setMeeter_board_no(int meeter_board_no) {
 		this.meeter_board_no = meeter_board_no;
 	}

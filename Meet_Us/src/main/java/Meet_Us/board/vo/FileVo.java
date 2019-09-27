@@ -13,7 +13,7 @@ public class FileVo {
 	 private Date last_Dt;
 	 private String delFlag;
 	 
-	public int getSeq() {
+	public int getSeq() { 
 		return seq;
 	}
 	public void setSeq(int seq) {

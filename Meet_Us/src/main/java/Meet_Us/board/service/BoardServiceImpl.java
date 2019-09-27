@@ -82,11 +82,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 	//파일 다운로드
 	@Override
-	public FileVo fileDownload(int up_Seq, int seq) throws Exception {
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
+	public String downloadFileName(String up_Seq, String seq) throws Exception {
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("up_Seq", up_Seq);
 		map.put("seq", seq);
-		return mapper.fileDownload(map);
+		return mapper.downloadFileName(map);
 	}
 	//파일 삭제
 	@Override
@@ -108,6 +108,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int latelyBoard() throws Exception {
 		return mapper.latelyBoard();
-	}
+	}  
 
 }

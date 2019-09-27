@@ -29,7 +29,7 @@ public class PageCriteria {
 	public int getPerPageNum() {
 		return perPageNum;
 	}
-
+ 
 	public void setPerPageNum(int pageCount) {
 		int cnt = this.perPageNum;
 		if (pageCount != cnt)
