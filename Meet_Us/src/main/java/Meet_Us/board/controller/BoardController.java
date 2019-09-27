@@ -288,7 +288,7 @@ public class BoardController {
 	    private String fileDelete(@PathVariable String up_Seq , @PathVariable String seq
 //	    		, RedirectAttributes redirectAttributes
 	    		,Model model
-	    		) throws Exception{
+	    		) throws Exception{ 
 		
 			service.fileDelete(Integer.parseInt(up_Seq), Integer.parseInt(seq));
 //	        redirectAttributes.addAttribute("seq", up_Seq);
