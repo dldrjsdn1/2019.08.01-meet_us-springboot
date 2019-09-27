@@ -63,7 +63,7 @@
 	</div>
 	</section>
 
-	<div class="sidebar-box ftco-animate">
+	<div class="sidebar-box ftco-animate" style="padding-left:10%; padding-right:10%;">
 		<!--       <h3 class="heading-sidebar">Notice</h3> -->
 		<ul class="categories">
 			<c:forEach var="list" varStatus="i" items="${list }">

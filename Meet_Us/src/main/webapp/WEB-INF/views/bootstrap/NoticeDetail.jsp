@@ -50,8 +50,8 @@
 			<div class="col-lg-8-1 ftco-animate">
 				<!-- 力格 -->
 				
-				<h7 class="float-right" style="font-size:11px;"><br>累己老 : ${ detail.board_insertdate} <br>荐沥老 : ${ detail.board_modifydate}</h7>
-				<h2 class="jg" style="margin-bottom:0;"><strong>${detail.board_title }</strong></h2>
+				<h7 class="float-right" style="font-size:11px;">累己老 : ${ detail.board_insertdate}<br>荐沥老 : ${ detail.board_modifydate}</h7>
+				<h2 class="jg" style="margin-bottom:0; font-size:22px;"><strong>${detail.board_title }</strong></h2>
 				<hr>
 				<!-- 郴侩 -->
 				<p class="mb-3">${detail.board_content }</p>
