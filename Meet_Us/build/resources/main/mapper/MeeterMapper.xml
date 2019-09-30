@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Meet_Us.meeter.dao.MeeterMapper">
+  
+<select id="selectMeeterTestList" parameterType="Meet_Us.meeter.vo.MeeterVo" resultType="Meet_Us.meeter.vo.MeeterVo" >
+	<![CDATA[
+		SELECT
+						MEETER_BOARD_NO,
+						WRITER,
+						TITLE,
+						CONTENTS,
+						BOARD_WRITE_DATE,
+						BOARD_MODIFY_DATE,
+						TOTAL_MEMBER,
+						CURRENT_MEMBER,
+						MEETING_PLACE,
+						MEETING_DATE,
+						METTING_PURPOSE,
+						LIMIT_AREA,
+						LIMIT_AGE,
+						LIMIT_GENDER 
+		FROM 
+	               		MEETER_BOARD
+		WHERE 
+	               		MEETER_BOARD_DELFLAG = 'N'
+		ORDER BY
+				   		MEETER_BOARD_NO DESC
+	]]>
+</select>
+       
+<select id="selectMeeterList" parameterType="hashmap" resultType="Meet_Us.meeter.vo.MeeterVo" >
+	<![CDATA[
+		SELECT
+						MEETER_BOARD_NO,
+						WRITER,
+						TITLE,
+						CONTENTS,
+						BOARD_WRITE_DATE,
+						BOARD_MODIFY_DATE,
+						TOTAL_MEMBER,
+						CURRENT_MEMBER,
+						MEETING_PLACE,
+						MEETING_DATE,
+						METTING_PURPOSE,
+						LIMIT_AREA,
+						LIMIT_AGE,
+						LIMIT_GENDER 
+		FROM 
+	               		MEETER_BOARD
+		WHERE 
+	               		MEETER_BOARD_DELFLAG = 'N'
+		ORDER BY
+				   		MEETER_BOARD_NO DESC
+		LIMIT 
+						#{pageStart}, #{perPageNum}
+	]]>
+</select>
+
+<select id="selectCountMeeterList" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No,
+   					 	MEETER_BOARD_NO,
+  					  	MEETER_BOARD_DELFLAG
+		FROM 
+						MEETER_BOARD,
+						(SELECT @rownum:=0) r
+   		WHERE
+       				    MEETER_BOARD_DELFLAG = 'N'
+	]]>
+</select>
+
+<select id="selectMeeterDetail" parameterType="Meet_Us.meeter.vo.MeeterVo" resultType="Meet_Us.meeter.vo.MeeterVo">
+	<![CDATA[
+		SELECT 
+						MEETER_BOARD_NO, 
+						WRITER, 
+						TITLE, 
+						CONTENTS, 
+						BOARD_WRITE_DATE, 
+						BOARD_MODIFY_DATE, 
+						TOTAL_MEMBER, 
+						CURRENT_MEMBER, 
+						MEETING_PLACE, 
+						MEETING_DATE, 
+						METTING_PURPOSE, 
+						LIMIT_AREA, 
+						LIMIT_AGE, 
+						LIMIT_GENDER ,  
+						MEETER_BOARD_DELFLAG
+		FROM 
+						MEETER_BOARD,
+		  				(SELECT @rownum:=0) r
+		WHERE 
+						MEETER_BOARD_DELFLAG = 'N'
+		AND 
+						MEETER_BOARD_NO = 35;
+	]]>
+</select>
+	
+</mapper>

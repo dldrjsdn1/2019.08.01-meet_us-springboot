@@ -44,7 +44,7 @@
 				<div class="row">
 
 					<c:forEach var="list" varStatus="i" items="${list }">
-						<div class="col-md-6 col-lg-4 ftco-animate">
+						<div class="col-md-6-1 col-lg-4 ftco-animate">
 							<div class="project">
 								<div class="img">
 <!-- 									<div class="vr"> -->
@@ -90,16 +90,16 @@
 										</div>
 									</div>
 								</div>
-								<a href="images/destination-1.jpg"
-									class="icon image-popup d-flex justify-content-center align-items-center">
-									<span class="icon-expand"></span>
-								</a>
+<!-- 								<a href="images/destination-1.jpg" -->
+<!-- 									class="icon image-popup d-flex justify-content-center align-items-center"> -->
+<!-- 									<span class="icon-expand"></span> -->
+<!-- 								</a> -->
 							</div>
 						</div>
 					</c:forEach>
 
 				</div>
-				<div class="row mt-5">
+				<div class="row mt-5" style="margin-bottom:3rem;">
 					<div class="col text-center">
 						<div class="block-27">
 							<ul>
