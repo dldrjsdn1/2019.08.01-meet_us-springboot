@@ -88,8 +88,12 @@
                      <div class="form-field">
                         <input type="submit" style="width: 40%; display: inline;" value="Login" class="form-control btn btn-primary" >
                      </div>
+                        <c:if test="${param.error != null}"> 
+               			<p style="color:red;">아이디와 비밀번호가 잘못되었습니다.</p>
+                		</c:if>
                   </div>
                </div>
+              
                <div class="form-group" style="text-align: center;">
               <a href ="../selectSocial">회원가입&nbsp&nbsp&nbsp|</a>
                   <a href="../IdSearch">&nbsp&nbsp아이디 찾기&nbsp&nbsp&nbsp|</a>

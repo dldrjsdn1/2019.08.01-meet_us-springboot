@@ -34,6 +34,21 @@ public class UserTeamController {
    @Autowired
    private KakaoAPI kakao;
    
+   @RequestMapping(value = "/UserSetting", method ={ RequestMethod.GET, RequestMethod.POST })
+   public String UserSetting() throws Exception {
+      return "bootstrap/UserSetting";
+   }
+   
+   @RequestMapping(value = "/TeamManager", method ={ RequestMethod.GET, RequestMethod.POST })
+   public String TeamManager() throws Exception {
+      return "bootstrap/TeamManager";
+   }
+   
+   @RequestMapping(value = "/AdminManager", method ={ RequestMethod.GET, RequestMethod.POST })
+   public String AdminManager() throws Exception {
+      return "bootstrap/AdminManager";
+   }
+   
    // 로그인 jsp
    @RequestMapping(value = "/Login", method ={ RequestMethod.GET, RequestMethod.POST })
    public String Login() throws Exception {

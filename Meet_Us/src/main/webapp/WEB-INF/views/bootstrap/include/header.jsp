@@ -33,11 +33,14 @@
 			  </sec:authorize>
 			  
 			  <sec:authorize access="isAuthenticated()">
-			  <br/>
-   				  <li class="nav-item"><form action="/logout" method="POST">
-       			 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-       			 <button type="submit" style="background-color:transparent;  border:0px transparent solid;"><span>Logout</span></button>
-   				 </form></li>
+   				 	<form action="/logout" method="POST" name="logOutForm">
+       			 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+<!--        					<button type="submit" style="background-color:transparent;  border:0px transparent solid; padding:top 10px"> -->
+<!--        					</button> -->
+   				 	</form>
+   				<li class="nav-item"><a class="nav-link" onclick="location.href='/UserSetting'"><span>UserSetting</span></a></li>
+   				<li class="nav-item"><a class="nav-link" onclick="submitAtag()"><span>Logout</span></a></li>
+   				
 			  </sec:authorize>
 	        
 	        </ul>
@@ -47,7 +50,10 @@
 
 </body>
 <script type="text/javascript">
-
+	function submitAtag(){
+		 let form = document.logOutForm;
+		 form.submit();
+	}
 </script>
 </html>
 

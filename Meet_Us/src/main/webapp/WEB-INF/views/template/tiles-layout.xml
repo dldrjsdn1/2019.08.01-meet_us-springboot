@@ -115,5 +115,13 @@
       <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSearch.jsp" />
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
+   
+	<!--사용자 정보 확인 -->
+<!-- 	<definition name="bootstrap.UserSearch" extends="defaultLayout">  -->
+<!--       <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" /> -->
+<!--       <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSearch.jsp" /> -->
+<!--       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" /> -->
+<!--    </definition> -->
+   
 
 </tiles-definitions>
