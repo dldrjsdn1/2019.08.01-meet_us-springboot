@@ -169,7 +169,7 @@
 					<div class="col-md-9 text-center">
 						<h2>Create Meeting</h2>
 						<p class="jg">마음에 드는 모임이 없었나요? <br>그럼 직접 사람들을 모아보세요!</p>
-						<p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Create</a></p>
+						<p class="mb-0"><a href="../MeeterInsert" class="btn btn-white px-4 py-3">Create</a></p>
 					</div>
 				</div>
 			</div>

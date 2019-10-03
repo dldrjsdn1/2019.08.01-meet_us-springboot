@@ -861,6 +861,12 @@ pre {
     max-width: 50%; }
 }
 
+@media (min-width: 100px){
+	.lee-setting{
+		margin-left:40%;
+	}
+}
+
 @media (min-width: 768px) {
   .col-md-my {
     -ms-flex-preferred-size: 0;
@@ -8774,6 +8780,13 @@ h1, h2, h3, h4, h5,
       background: #e2c0bb !important;
       border: none !important;
       color: #fff !important; }
+/*      .form-control-leeSetting.btn { */
+/*       text-align: center; */
+/*       padding: 0 10px !important; */
+/*       font-size: 16px; */
+/*       background: #e8705e !important; */
+/*       border: none !important; */
+/*       color: #fff !important; } */
   .search-property-1 .form-group .select-wrap {
     position: relative; }
     .search-property-1 .form-group .select-wrap select {

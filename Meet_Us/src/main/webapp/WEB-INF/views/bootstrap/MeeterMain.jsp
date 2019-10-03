@@ -13,7 +13,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
@@ -36,22 +35,21 @@
 		</div>
 	</div>
 	</section>
-
+	
 	<section class="ftco-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 pr-lg-4">
 				<div class="row">
-
+					<c:if  test="${fn:length(list) == 0}">
+					<h4 class="col-md-6 col-lg-4 ftco-animate"><p class="jg" style="color:#e2c0bb; text-align: center;">검색 결과가 없습니다.</p></h4>
+					</c:if>
 					<c:forEach var="list" varStatus="i" items="${list }">
 						<div class="col-md-6-1 col-lg-4 ftco-animate">
 							<div class="project">
 								<div class="img">
-<!-- 									<div class="vr"> -->
-<!-- 										<span>Sale</span> -->
-<!-- 									</div> -->
 									<a
-										href="../MeeterDetail?meeter_board_no=${list.meeter_board_no }">
+										href="../MeeterDetail?MB_NO=${list.MB_NO }">
 										<img src="resources/images/destination-1.jpg"
 										class="img-fluid" alt="Colorlib Template">
 									</a>
@@ -59,52 +57,36 @@
 								<div class="text">
 									<h4 class="price">
 										<c:choose>
-											<c:when test="${list.current_member == list.total_member}">
-												<span class="old-price">${list.current_member }/${list.total_member}</span>
+											<c:when test="${list.MB_CURRENT_MEMBER == list.MB_MEMBER	}">
+												<span class="old-price">${list.MB_CURRENT_MEMBER }/${list.MB_MEMBER	}</span>
 											</c:when>
 											<c:otherwise>
-												${list.current_member }&nbsp/&nbsp${list.total_member }
+												${list.MB_CURRENT_MEMBER }&nbsp/&nbsp${list.MB_MEMBER }
 											</c:otherwise>
 										</c:choose>
 									</h4>
-										<c:choose>
-											<c:when test="${list.board_write_date == list.board_modify_date}">
-												<span>${list.board_write_date }</span>
-											</c:when>
-											<c:otherwise>
-												<span>${list.board_modify_date }&nbsp(수정됨)</span>
-											</c:otherwise>
-										</c:choose>
+									<h5>
+										<a href="../MeeterDetail?MB_NO=${list.MB_NO }"><p class="jg" style="margin-top:1rem; margin-bottom:0; font-size:14px;">#${list.MB_PURPOSE }<br>#${list.MB_PLACE }<br>#${list.MB_MEETING_DATE }<br>#${list.MB_MEETING_TIME }</p></a>
+									</h5>
 									<h3>
-										<a href="../MeeterDetail"><p class="jg">${list.title }</p></a>
+										<a href="../MeeterDetail?MB_NO=${list.MB_NO }"><p class="jg" style="margin-bottom:0;">${list.MB_TITLE }</p></a>
 									</h3>
-									<div class="star d-flex clearfix">
-<!-- 										<div class="mr-auto float-left"> -->
-<!-- 											<span class="ion-ios-star"></span> <span class="ion-ios-star"></span> -->
-<!-- 											<span class="ion-ios-star"></span> <span class="ion-ios-star"></span> -->
-<!-- 											<span class="ion-ios-star"></span> -->
-<!-- 										</div> -->
-										<div class="float-right">
+									
+									<div class="star d-flex clearfix" style="float:right;">
 											<span class="rate"><a href="#">조회수 :
-													${list.board_count }</a></span>
-										</div>
+													${list.MB_VIEW_COUNT }</a></span>
 									</div>
 								</div>
-<!-- 								<a href="images/destination-1.jpg" -->
-<!-- 									class="icon image-popup d-flex justify-content-center align-items-center"> -->
-<!-- 									<span class="icon-expand"></span> -->
-<!-- 								</a> -->
 							</div>
 						</div>
 					</c:forEach>
-
 				</div>
 				<div class="row mt-5" style="margin-bottom:3rem;">
 					<div class="col text-center">
 						<div class="block-27">
 							<ul>
 								<c:choose>
-									<c:when test="${pageCriteria.keyword == null}">
+									<c:when test="${pageCriteria.getPlaceKeyword() == null and pageCriteria.getPurposeKeyword() == null and pageCriteria.getDateKeyword() == null and pageCriteria.getTitleKeyword() == null}">
 										<!-- 전체 리스트 출력 시 -->
 										<c:if test="${pageMaker.prev }">
 											<li><a
@@ -133,25 +115,25 @@
 										<!-- 검색된 키워드로 리스트 출력 시 -->
 										<c:if test="${pageMaker.prev }">
 											<li><a
-												href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
+												href='<c:url value="/MeetingBoardSearchList?PlaceKeyword=${pageCriteria.getPlaceKeyword() }&PurposeKeyword=${pageCriteria.getPurposeKeyword() }&DateKeyword=${pageCriteria.getDateKeyword() }&TitleKeyword=${pageCriteria.getTitleKeyword() }&page=${pageMaker.startPage-1 }"/>'>&lt;</a></li>
 										</c:if>
 										<c:forEach begin="${pageMaker.startPage }"
-											end="${pageMaker.endPage }" var="idx">
-											<c:choose>
-												<c:when test="${idx == pageCriteria.page}">
-													<li class="active"><a
-														href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
-												</c:when>
-												<c:otherwise>
-													<li><a
-														href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${idx }"/>'>${idx }</a></li>
-												</c:otherwise>
-											</c:choose>
-										</c:forEach>
-										<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-											<li><a
-												href='<c:url value="/NoticeSearchList?keyword=${pageCriteria.keyword }&page=${pageMaker.endPage+1 }"/>'>&gt;</a></li>
-										</c:if>
+ 											end="${pageMaker.endPage }" var="idx"> 
+ 											<c:choose> 
+ 												<c:when test="${idx == pageCriteria.page}"> 
+												<li class="active"><a
+ 														href='<c:url value="/MeetingBoardSearchList?PlaceKeyword=${pageCriteria.getPlaceKeyword() }&PurposeKeyword=${pageCriteria.getPurposeKeyword() }&DateKeyword=${pageCriteria.getDateKeyword() }&TitleKeyword=${pageCriteria.getTitleKeyword() }&page=${idx }"/>'>${idx }</a></li> 
+ 												</c:when> 
+ 												<c:otherwise> 
+ 													<li><a
+ 														href='<c:url value="/MeetingBoardSearchList?PlaceKeyword=${pageCriteria.getPlaceKeyword() }&PurposeKeyword=${pageCriteria.getPurposeKeyword() }&DateKeyword=${pageCriteria.getDateKeyword() }&TitleKeyword=${pageCriteria.getTitleKeyword() }&page=${idx }"/>'>${idx }</a></li> 
+ 												</c:otherwise> 
+ 											</c:choose> 
+ 										</c:forEach> 
+ 										<c:if test="${pageMaker.next && pageMaker.endPage >0 }"> 
+ 											<li><a
+ 												href='<c:url value="/MeetingBoardSearchList?PlaceKeyword=${pageCriteria.getPlaceKeyword() }&PurposeKeyword=${pageCriteria.getPurposeKeyword() }&DateKeyword=${pageCriteria.getDateKeyword() }&TitleKeyword=${pageCriteria.getTitleKeyword() }&page=${pageMaker.endPage+1 }"/>'>&gt;</a></li> 
+ 										</c:if> 
 									</c:otherwise>
 								</c:choose>
 							</ul>
@@ -163,86 +145,52 @@
 			<div class="col-lg-3 p-4 bg-light">
 				<div class="search-wrap-1 ftco-animate">
 
-					<br> <br>
-					<h2 class="mb-3">Member Recruit</h2>
-					<form action="#" class="search-property-1">
 						<div class="row">
 							<div class="col-lg-12 align-self-end">
 								<div class="form-group">
-									<div class="form-field">
-										<input type="submit" value="Create"
-											class="form-control btn btn-primary">
+									<div class="form-field" style="margin-top:1rem; margin-bottom:2rem;">
+										<input type="button" onclick="location.href='../MeeterInsert'" value="Meeting Create" class="form-control btn btn-primary" style="background: #e8705e !important;">
 									</div>
 								</div>
 							</div>
 						</div>
-					</form>
-					<br> <br> <br> <br>
 
-					<h2 class="mb-3">Find Places</h2>
-					<form action="#" class="search-property-1">
+					<h2>Find Meeting</h2>
+					<form action="/MeetingBoardSearchList" class="search-property-1">
 						<div class="row">
 							<div class="col-lg-12 align-items-end mb-3">
 								<div class="form-group">
-									<label for="#">Destination</label>
+									<label for="PlaceKeyword">Place</label>
 									<div class="form-field">
-										<div class="icon">
-											<span class="ion-ios-search"></span>
-										</div>
-										<input type="text" class="form-control"
-											placeholder="Search place">
+										<input type="text" class="form-control" id="PlaceKeyword" name="PlaceKeyword" autocomplete="off"
+											placeholder="장소 검색">
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 align-items-end mb-3">
 								<div class="form-group">
-									<label for="#">Check-in date</label>
+									<label for="PurposeKeyword">Purpose</label>
 									<div class="form-field">
-										<div class="icon">
-											<span class="ion-ios-calendar"></span>
-										</div>
-										<input type="text" class="form-control checkin_date"
-											placeholder="Check In Date">
+										<input type="text" class="form-control checkin_date" id="PurposeKeyword" name="PurposeKeyword" autocomplete="off"
+											placeholder="(주류, 스터디, 운동, 카페 등)">
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 align-items-end mb-3">
 								<div class="form-group">
-									<label for="#">Check-out date</label>
+									<label for="DateKeyword">Date</label>
 									<div class="form-field">
-										<div class="icon">
-											<span class="ion-ios-calendar"></span>
-										</div>
-										<input type="text" class="form-control checkout_date"
-											placeholder="Check Out Date">
+										<input type="date" class="form-control checkout_date" id="DateKeyword" name="DateKeyword" autocomplete="off"
+											placeholder="날짜 검색">
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-12 align-items-end mb-3">
 								<div class="form-group">
-									<label for="#">Price Limit</label>
+									<label for="TitleKeyword">Title</label>
 									<div class="form-field">
-										<div class="select-wrap">
-											<div class="icon">
-												<span class="ion-ios-arrow-down"></span>
-											</div>
-											<select name="" id="" class="form-control">
-												<option value="">$5,000</option>
-												<option value="">$10,000</option>
-												<option value="">$50,000</option>
-												<option value="">$100,000</option>
-												<option value="">$200,000</option>
-												<option value="">$300,000</option>
-												<option value="">$400,000</option>
-												<option value="">$500,000</option>
-												<option value="">$600,000</option>
-												<option value="">$700,000</option>
-												<option value="">$800,000</option>
-												<option value="">$900,000</option>
-												<option value="">$1,000,000</option>
-												<option value="">$2,000,000</option>
-											</select>
-										</div>
+										<input type="text" class="form-control checkout_date" id="TitleKeyword" name="TitleKeyword" autocomplete="off"
+											placeholder="제목 검색">
 									</div>
 								</div>
 							</div>

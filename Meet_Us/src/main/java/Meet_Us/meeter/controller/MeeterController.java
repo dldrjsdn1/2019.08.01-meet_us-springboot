@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import Meet_Us.meeter.service.MeeterService;
-import Meet_Us.meeter.vo.MeeterVo;
+import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
 import Meet_Us.meeter.vo.PageMaker;
 
@@ -28,20 +30,39 @@ public class MeeterController {
 		cri.setPerPageNum(6);  
 		pageMaker.setCri(cri);
 		
-		List<Map<String, Object>> meeterCount = service.selectCountMeeterList();
-		System.out.println(meeterCount.size());
-		pageMaker.setTotalCount(meeterCount.size()); 
+		List<Map<String, Object>> meetingCount = service.selectCountMeetingList();
+		System.out.println(meetingCount.size());
+		System.out.println(meetingCount);
+		pageMaker.setTotalCount(meetingCount.size()); 
 
 		model.addAttribute("pageCriteria", cri);
-		model.addAttribute("list", service.selectMeeterList(cri));
+		model.addAttribute("list", service.selectMeetingList(cri));
+		model.addAttribute("pageMaker", pageMaker);
+
+		return "bootstrap.MeeterMain";
+	}
+	
+	@RequestMapping(value = "/MeetingBoardSearchList", method = RequestMethod.GET)
+	public String NoticeSearchList(Model model, PageCriteria cri) throws Exception {
+		PageMaker pageMaker = new PageMaker();
+		cri.setPerPageNum(6); 
+		pageMaker.setCri(cri);
+
+		List<Map<String, Object>> meetingCount = service.selectCountSearchMeetingList(cri);
+		pageMaker.setTotalCount(meetingCount.size()); 
+		System.out.println(meetingCount.size());
+		
+		List<MeetingBoardVo> list = service.selectSearchMeetingList(cri);
+		model.addAttribute("pageCriteria", cri);
+		model.addAttribute("list", list);
 		model.addAttribute("pageMaker", pageMaker);
 
 		return "bootstrap.MeeterMain";
 	}
 	
 	@RequestMapping(value = "/MeeterDetail", method = RequestMethod.GET)
-	public String MeeterDetail(Model model, MeeterVo meeterVo) throws Exception {
-		model.addAttribute("detail", service.selectMeeterDetail(meeterVo));
+	public String MeeterDetail(Model model, @RequestParam("MB_NO") int MB_NO) throws Exception {
+		model.addAttribute("detail", service.selectMeetingDetail(MB_NO));
 		
 		return "bootstrap.MeeterDetail";
 	}
@@ -51,4 +72,16 @@ public class MeeterController {
 		
 		return "bootstrap.MeeterInsert";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/MeeterInsertAction", method = RequestMethod.POST)
+	public void MeeterInsertAction(Model model, MeetingBoardVo meetingBoardVo) throws Exception {
+		System.out.println(meetingBoardVo);
+		
+		service.insertMeetingBoard(meetingBoardVo);
+	}
+	
+	
+	
+	
 }

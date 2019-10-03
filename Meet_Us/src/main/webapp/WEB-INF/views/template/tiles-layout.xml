@@ -32,6 +32,13 @@
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
    
+   <!-- MeetingInsert 페이지-->
+   <definition name="bootstrap.MeeterInsert" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/MeeterInsert.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
    <!-- Notice 페이지-->
    <definition name="bootstrap.Notice" extends="defaultLayout"> 
       <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />

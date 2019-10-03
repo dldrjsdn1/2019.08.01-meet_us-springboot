@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html lang="en">
 <head>
 <title>Meet Us</title>
@@ -30,55 +30,83 @@
 	<div class="container-fluid px-0 bg-light">
 		<div class="container">
 			<div class="row tour py-5">
-				<div class="col-md-my d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services text-center d-block">
+				<div class="col-md d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block " style="width:100%;">
 						<div class="icon justify-content-center align-items-center d-flex">
 							<span class="flaticon-manager"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading mb-3">${detail.total_member }&nbsp/&nbsp${detail.current_member}</h3>
+							<h3 class="heading mb-3"><p class="jg">${detail.MB_CURRENT_MEMBER }/${detail.MB_MEMBER}</p></h3>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-my d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services text-center d-block">
+				<div class="col-md d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block " style="width:100%;">
 						<div class="icon justify-content-center align-items-center d-flex">
 							<span class="flaticon-calendar"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading mb-3">날짜</h3>
+							<h3 class="heading mb-3"><p class="jg">${detail.MB_MEETING_DATE }<br>${detail.MB_MEETING_TIME }</p></h3>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-my d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services text-center d-block">
+				<div class="col-md d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block" style="width:100%;">
 						<div class="icon justify-content-center align-items-center d-flex">
 							<span class="flaticon-tour-guide"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading mb-3">목적</h3>
+							<h3 class="heading mb-3"><p class="jg">${detail.MB_PURPOSE }</p></h3>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-my d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services text-center d-block">
+				<div class="col-md d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block" style="width:100%;">
 						<div class="icon justify-content-center align-items-center d-flex">
 							<span class="flaticon-map-of-roads"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading mb-3">장소</h3>
+							<h3 class="heading mb-3"><p class="jg">${detail.MB_PLACE }</p></h3>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-my d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services text-center d-block">
+				<div class="col-md d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block" style="width:100%;">
 						<div class="icon justify-content-center align-items-center d-flex">
 							<span class="flaticon-layers"></span>
 						</div>
 						<div class="media-body">
-							<h3 class="heading mb-3">
-								<span>조건</span>
-							</h3>
+							<h3 class="heading mb-3"><p class="jg">
+							<c:set var="MB_LIMIT_AGE_MIN" value="${detail.MB_LIMIT_AGE_MIN }" />
+							<c:set var="MB_LIMIT_AGE_MAX" value="${detail.MB_LIMIT_AGE_MAX }" />
+							<c:set var="MB_LIMIT_GENDER" value="${detail.MB_LIMIT_GENDER }" />
+							<c:set var="MB_LIMIT_OTHER" value="${detail.MB_LIMIT_OTHER }" />
+							
+<%-- 							<c:choose> --%>
+							<c:if test="${MB_LIMIT_AGE_MIN ne '0'}">
+							<p class="jg">최소 나이 : ${detail.MB_LIMIT_AGE_MIN }</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_AGE_MAX ne '0'}">
+							<p class="jg">최소 나이 : ${detail.MB_LIMIT_AGE_MAX }</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_AGE_MAX eq '0' || MB_LIMIT_AGE_MIN eq '0'}">
+							<p class="jg">나이 :상관없음</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_GENDER eq 'n'}">
+							<p class="jg">성별 : 상관없음</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_GENDER eq 'f'}">
+							<p class="jg">성별 : 여자만</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_GENDER eq 'm'}">
+							<p class="jg">성별 : 남자만</p>
+							</c:if>
+							<c:if test="${MB_LIMIT_OTHER ne '미정'}">
+							<p class="jg">${detail.MB_LIMIT_OTHER }</p>
+							</c:if>
+<%-- 							</c:choose> --%>
+							
+							</p></h3>
 						</div>
 					</div>
 				</div>
@@ -88,16 +116,6 @@
 	
 	<div class="container">
 		<div class="row">
-<!-- 			<div class="col-md-12 mb-5"> -->
-<!-- 				<div class="row"> -->
-<!-- 			    <div class="col-md-12"> -->
-<!--     				<div class="day-wrap"> -->
-<!--     				<img src="resources/images/bg_1.jpg" class="img-fluid" alt="Colorlib Free Template"> -->
-<%--     					<h2 class="jg" style="padding-top:3rem;">${detail.title }</h2> --%>
-<%--     					<p>${detail.contents }</p> --%>
-<!--     				</div> -->
-<!--     			</div> -->
-    			
         	<div class="col-md-12 tour-wrap mb-5">
     				<div class="row">
     					<div class="col-md-6 d-flex ftco-animate">
@@ -105,17 +123,16 @@
     					</div>
     					<div class="col-md-6 ftco-animate">
     						<div class="text py-5">
-    							<h3 class="jg">${detail.title }</a></h3>
-    							<p class="jg">소제목소제목</p>
-    							<p class="jg">${detail.contents }</p>
+    							<h3 class="jg" style="word-break:break-all">${detail.MB_TITLE }</a></h3>
+    							<p class="jg" style="word-break:break-all">${detail.MB_CONTENTS }</p>
     						</div>
     					</div>
     				</div>
     		</div>
-    			
+    		
 <!-- 		참석 인원 영역 -->
 			<div class="col-md-12" style="margin-bottom:3rem;">
-			<h6><strong>참석 인원(3명)</strong></h6>
+			<h6><strong>참석 인원(${detail.MB_CURRENT_MEMBER })</strong></h6>
 			<p>나나나나나나나</p>
 			</div>
 				

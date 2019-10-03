@@ -4,100 +4,141 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Meet_Us.meeter.dao.MeeterMapper">
+
+<insert id="insertMeetingBoard">
+INSERT INTO MEETING_BOARD(				
+	MB_WRITER										
+    , MB_MEMBER			
+    , MB_MEETING_DATE	
+    , MB_MEETING_TIME
+    , MB_PURPOSE		
+    , MB_PLACE			
+    , MB_TITLE				
+    , MB_CONTENTS
+    , MB_LIMIT_AGE_MIN				
+    , MB_LIMIT_AGE_MAX
+    , MB_LIMIT_GENDER	
+    , MB_LIMIT_OTHER 	
+    )
+    VALUES(
+    '이건우'
+    , #{MB_MEMBER}
+    , #{MB_MEETING_DATE}
+    , #{MB_MEETING_TIME}
+    , #{MB_PURPOSE}
+    , #{MB_PLACE}
+    , #{MB_TITLE}
+    , #{MB_CONTENTS}
+    , #{MB_LIMIT_AGE_MIN}	
+    , #{MB_LIMIT_AGE_MAX}				
+    , #{MB_LIMIT_GENDER}
+    , #{MB_LIMIT_OTHER}
+)
+</insert>
   
-<select id="selectMeeterTestList" parameterType="Meet_Us.meeter.vo.MeeterVo" resultType="Meet_Us.meeter.vo.MeeterVo" >
-	<![CDATA[
-		SELECT
-						MEETER_BOARD_NO,
-						WRITER,
-						TITLE,
-						CONTENTS,
-						BOARD_WRITE_DATE,
-						BOARD_MODIFY_DATE,
-						TOTAL_MEMBER,
-						CURRENT_MEMBER,
-						MEETING_PLACE,
-						MEETING_DATE,
-						METTING_PURPOSE,
-						LIMIT_AREA,
-						LIMIT_AGE,
-						LIMIT_GENDER 
-		FROM 
-	               		MEETER_BOARD
-		WHERE 
-	               		MEETER_BOARD_DELFLAG = 'N'
-		ORDER BY
-				   		MEETER_BOARD_NO DESC
-	]]>
-</select>
+<update id="viewCountIncrease">
+     UPDATE 
+     	MEETING_BOARD 
+     SET 
+     	MB_VIEW_COUNT = MB_VIEW_COUNT+1 
+     WHERE 
+     	MB_NO = #{no}
+</update>
        
-<select id="selectMeeterList" parameterType="hashmap" resultType="Meet_Us.meeter.vo.MeeterVo" >
+<select id="selectMeetingList" parameterType="hashmap" resultType="Meet_Us.meeter.vo.MeetingBoardVo" >
 	<![CDATA[
 		SELECT
-						MEETER_BOARD_NO,
-						WRITER,
-						TITLE,
-						CONTENTS,
-						BOARD_WRITE_DATE,
-						BOARD_MODIFY_DATE,
-						TOTAL_MEMBER,
-						CURRENT_MEMBER,
-						MEETING_PLACE,
-						MEETING_DATE,
-						METTING_PURPOSE,
-						LIMIT_AREA,
-						LIMIT_AGE,
-						LIMIT_GENDER 
+						*
 		FROM 
-	               		MEETER_BOARD
+	               		MEETING_BOARD
 		WHERE 
-	               		MEETER_BOARD_DELFLAG = 'N'
+	               		MB_DELFLAG='N'
 		ORDER BY
-				   		MEETER_BOARD_NO DESC
+				   		MB_NO DESC
 		LIMIT 
 						#{pageStart}, #{perPageNum}
 	]]>
 </select>
 
-<select id="selectCountMeeterList" resultType="hashmap">
+<select id="selectCountMeetingList" resultType="hashmap">
 	<![CDATA[
 		SELECT 
     					@rownum:=@rownum+1 No,
-   					 	MEETER_BOARD_NO,
-  					  	MEETER_BOARD_DELFLAG
+   					 	MB_NO,
+  					  	MB_DELFLAG
 		FROM 
-						MEETER_BOARD,
+						MEETING_BOARD,
 						(SELECT @rownum:=0) r
    		WHERE
-       				    MEETER_BOARD_DELFLAG = 'N'
+       				    MB_DELFLAG = 'N'
 	]]>
 </select>
 
-<select id="selectMeeterDetail" parameterType="Meet_Us.meeter.vo.MeeterVo" resultType="Meet_Us.meeter.vo.MeeterVo">
+<select id="selectMeetingDetail" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
 	<![CDATA[
 		SELECT 
-						MEETER_BOARD_NO, 
-						WRITER, 
-						TITLE, 
-						CONTENTS, 
-						BOARD_WRITE_DATE, 
-						BOARD_MODIFY_DATE, 
-						TOTAL_MEMBER, 
-						CURRENT_MEMBER, 
-						MEETING_PLACE, 
-						MEETING_DATE, 
-						METTING_PURPOSE, 
-						LIMIT_AREA, 
-						LIMIT_AGE, 
-						LIMIT_GENDER ,  
-						MEETER_BOARD_DELFLAG
+						*
 		FROM 
-						MEETER_BOARD,
+						MEETING_BOARD,
 		  				(SELECT @rownum:=0) r
 		WHERE 
-						MEETER_BOARD_DELFLAG = 'N'
+						MB_DELFLAG = 'N'
 		AND 
-						MEETER_BOARD_NO = 35;
+						MB_NO = #{MB_NO}
+	]]>
+</select>
+
+<select id="selectCountSearchMeetingList" parameterType="Meet_Us.meeter.vo.PageCriteria" resultType="hashmap">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No
+                        , MB_NO
+                        , MB_VIEW_COUNT
+                        , MB_MEMBER
+                        , MB_CURRENT_MEMBER
+                        , MB_MEETING_DATE
+                        , MB_MEETING_TIME
+                        , MB_PURPOSE
+                        , MB_PLACE
+                        , MB_TITLE
+		FROM 
+						MEETING_BOARD,
+						(SELECT @rownum:=0) r
+   		WHERE
+                        MB_PLACE LIKE CONCAT('%', #{PlaceKeyword}, '%')
+						OR MB_PURPOSE LIKE CONCAT('%', #{PurposeKeyword}, '%')
+						OR MB_MEETING_DATE LIKE CONCAT('%', #{DateKeyword}, '%')
+                        OR MB_TITLE LIKE CONCAT('%', #{TitleKeyword}, '%')
+                        AND  MB_DELFLAG = 'N'
+	]]>
+</select>
+
+<select id="selectSearchMeetingList" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
+	<![CDATA[
+		SELECT 
+    					@rownum:=@rownum+1 No
+                        , MB_NO
+                        , MB_VIEW_COUNT
+                        , MB_MEMBER
+                        , MB_CURRENT_MEMBER
+                        , MB_MEETING_DATE
+                        , MB_MEETING_TIME
+                        , MB_PURPOSE
+                        , MB_PLACE
+                        , MB_TITLE
+		FROM 
+						MEETING_BOARD,
+						(SELECT @rownum:=0) r
+   		WHERE
+                        MB_PLACE LIKE CONCAT('%', #{PlaceKeyword}, '%')
+						OR MB_PURPOSE LIKE CONCAT('%', #{PurposeKeyword}, '%')
+						OR MB_MEETING_DATE LIKE CONCAT('%', #{DateKeyword}, '%')
+                        OR MB_TITLE LIKE CONCAT('%', #{TitleKeyword}, '%')
+                        AND  MB_DELFLAG = 'N'
+       	ORDER BY                   
+						NO DESC, MB_NO DESC
+		LIMIT 
+						#{pageStart}, #{perPageNum}
 	]]>
 </select>
 	
