@@ -81,6 +81,13 @@ public class MeeterController {
 		service.insertMeetingBoard(meetingBoardVo);
 	}
 	
+	@RequestMapping(value="/MeeterInsertDo", method = RequestMethod.POST)
+	@ResponseBody
+	public int MeeterInsertDo() {
+		return 1;
+	}
+	
+	
 	
 	
 	

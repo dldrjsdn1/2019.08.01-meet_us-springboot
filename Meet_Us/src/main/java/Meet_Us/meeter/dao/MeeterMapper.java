@@ -1,13 +1,14 @@
 package Meet_Us.meeter.dao;
 
-import java.util.HashMap;
-import java.util.List; 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
+import Meet_Us.meeter.vo.ReplyVO;
+
  
 @Repository
 public interface MeeterMapper {
@@ -25,5 +26,7 @@ public interface MeeterMapper {
 	public MeetingBoardVo selectMeetingDetail(int MB_NO) throws Exception;
 	
 	public void insertMeetingBoard(MeetingBoardVo meetingBoardVo) throws Exception;
+	
+	public int MeeterInsertDo(ReplyVO replyVO) throws Exception;
 
 } 

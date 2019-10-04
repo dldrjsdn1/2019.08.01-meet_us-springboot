@@ -173,111 +173,126 @@
 					<a href="#" class="btn btn-primary py-3 px-4" style="width:100%; margin-top:3rem;">참석하기</a>
 				</p>
 			</div>
-	</div>
 			
-            
-			<div class="col-md-12">
-				<div class="pt-5 mt-5">
-					<h3 class="mb-5">6 Reviews</h3>
-					<ul class="comment-list">
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="resources/images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">October 03, 2018 at 2:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-						</li>
-
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="resources/images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">October 03, 2018 at 2:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-
-							<ul class="children">
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="resources/images/person_1.jpg"
-											alt="Image placeholder">
-									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">October 03, 2018 at 2:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-
-
-									<ul class="children">
-										<li class="comment">
-											<div class="vcard bio">
-												<img src="resources/images/person_1.jpg"
-													alt="Image placeholder">
-											</div>
-											<div class="comment-body">
-												<h3>John Doe</h3>
-												<div class="meta">October 03, 2018 at 2:21pm</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-													vitae autem, eum officia, fugiat saepe enim sapiente iste
-													iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-												<p>
-													<a href="#" class="reply">Reply</a>
-												</p>
-											</div>
-
-											<ul class="children">
-												<li class="comment">
-													<div class="vcard bio">
-														<img src="resources/images/person_1.jpg"
-															alt="Image placeholder">
-													</div>
-													<div class="comment-body">
-														<h3>John Doe</h3>
-														<div class="meta">October 03, 2018 at 2:21pm</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-															elit. Pariatur quidem laborum necessitatibus, ipsam
-															impedit vitae autem, eum officia, fugiat saepe enim
-															sapiente iste iure! Quam voluptas earum impedit
-															necessitatibus, nihil?</p>
-														<p>
-															<a href="#" class="reply">Reply</a>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<hr>
+	
+<!-- 				댓글작성 칸		 -->
+			<div class="col-md-12" style="margin-top : 30px;">
+				<textarea style="width : 75%; height: 100px; float: left" id = "reply"></textarea>
+				<button class="btn btn-primary py-3 px-4" style="width:20%; height: 100px; float: right; vertical-align: middle;" onclick="InsertReply()">댓글작성</button>
 			</div>
+		</div>
+			
+			
+			<hr>
+			
+			<div class="col-md-12">
+			
+			
+			</div>
+            
+<!-- 			<div class="col-md-12"> -->
+<!-- 				<div class="pt-5 mt-5"> -->
+<!-- 					<h3 class="mb-5">6 Reviews</h3> -->
+<!-- 					<ul class="comment-list"> -->
+<!-- 						<li class="comment"> -->
+<!-- 							<div class="vcard bio"> -->
+<!-- 								<img src="resources/images/person_1.jpg" alt="Image placeholder"> -->
+<!-- 							</div> -->
+<!-- 							<div class="comment-body"> -->
+<!-- 								<h3>John Doe</h3> -->
+<!-- 								<div class="meta">October 03, 2018 at 2:21pm</div> -->
+<!-- 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. -->
+<!-- 									Pariatur quidem laborum necessitatibus, ipsam impedit vitae -->
+<!-- 									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam -->
+<!-- 									voluptas earum impedit necessitatibus, nihil?</p> -->
+<!-- 								<p> -->
+<!-- 									<a href="#" class="reply">Reply</a> -->
+<!-- 								</p> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+
+<!-- 						<li class="comment"> -->
+<!-- 							<div class="vcard bio"> -->
+<!-- 								<img src="resources/images/person_1.jpg" alt="Image placeholder"> -->
+<!-- 							</div> -->
+<!-- 							<div class="comment-body"> -->
+<!-- 								<h3>John Doe</h3> -->
+<!-- 								<div class="meta">October 03, 2018 at 2:21pm</div> -->
+<!-- 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. -->
+<!-- 									Pariatur quidem laborum necessitatibus, ipsam impedit vitae -->
+<!-- 									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam -->
+<!-- 									voluptas earum impedit necessitatibus, nihil?</p> -->
+<!-- 								<p> -->
+<!-- 									<a href="#" class="reply">Reply</a> -->
+<!-- 								</p> -->
+<!-- 							</div> -->
+
+<!-- 							<ul class="children"> -->
+<!-- 								<li class="comment"> -->
+<!-- 									<div class="vcard bio"> -->
+<!-- 										<img src="resources/images/person_1.jpg" -->
+<!-- 											alt="Image placeholder"> -->
+<!-- 									</div> -->
+<!-- 									<div class="comment-body"> -->
+<!-- 										<h3>John Doe</h3> -->
+<!-- 										<div class="meta">October 03, 2018 at 2:21pm</div> -->
+<!-- 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing -->
+<!-- 											elit. Pariatur quidem laborum necessitatibus, ipsam impedit -->
+<!-- 											vitae autem, eum officia, fugiat saepe enim sapiente iste -->
+<!-- 											iure! Quam voluptas earum impedit necessitatibus, nihil?</p> -->
+<!-- 										<p> -->
+<!-- 											<a href="#" class="reply">Reply</a> -->
+<!-- 										</p> -->
+<!-- 									</div> -->
+
+
+<!-- 									<ul class="children"> -->
+<!-- 										<li class="comment"> -->
+<!-- 											<div class="vcard bio"> -->
+<!-- 												<img src="resources/images/person_1.jpg" -->
+<!-- 													alt="Image placeholder"> -->
+<!-- 											</div> -->
+<!-- 											<div class="comment-body"> -->
+<!-- 												<h3>John Doe</h3> -->
+<!-- 												<div class="meta">October 03, 2018 at 2:21pm</div> -->
+<!-- 												<p>Lorem ipsum dolor sit amet, consectetur adipisicing -->
+<!-- 													elit. Pariatur quidem laborum necessitatibus, ipsam impedit -->
+<!-- 													vitae autem, eum officia, fugiat saepe enim sapiente iste -->
+<!-- 													iure! Quam voluptas earum impedit necessitatibus, nihil?</p> -->
+<!-- 												<p> -->
+<!-- 													<a href="#" class="reply">Reply</a> -->
+<!-- 												</p> -->
+<!-- 											</div> -->
+
+<!-- 											<ul class="children"> -->
+<!-- 												<li class="comment"> -->
+<!-- 													<div class="vcard bio"> -->
+<!-- 														<img src="resources/images/person_1.jpg" -->
+<!-- 															alt="Image placeholder"> -->
+<!-- 													</div> -->
+<!-- 													<div class="comment-body"> -->
+<!-- 														<h3>John Doe</h3> -->
+<!-- 														<div class="meta">October 03, 2018 at 2:21pm</div> -->
+<!-- 														<p>Lorem ipsum dolor sit amet, consectetur adipisicing -->
+<!-- 															elit. Pariatur quidem laborum necessitatibus, ipsam -->
+<!-- 															impedit vitae autem, eum officia, fugiat saepe enim -->
+<!-- 															sapiente iste iure! Quam voluptas earum impedit -->
+<!-- 															necessitatibus, nihil?</p> -->
+<!-- 														<p> -->
+<!-- 															<a href="#" class="reply">Reply</a> -->
+<!-- 														</p> -->
+<!-- 													</div> -->
+<!-- 												</li> -->
+<!-- 											</ul> -->
+<!-- 										</li> -->
+<!-- 									</ul> -->
+<!-- 								</li> -->
+<!-- 							</ul> -->
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			
 			<div class="ftco-animate">
               <h3 class="heading-sidebar"><p class="jg">비슷한 모임</p></h3>
@@ -329,4 +344,28 @@
 	</div>
 
 </body>
+<script type="text/javascript">
+function InsertReply(){
+	var reply = $('#reply').val();
+	var replyData = {"reply" : reply}
+	if(reply.length < 1){
+		alert("댓글을 입력하세요");
+	}
+	else{
+		$.ajax({
+			type : "POST",
+			url :  "/MeeterInsertDo",
+			data : replyData,
+			dataType : "json",
+			success : function(result){
+				alert("ㅅㄱ")
+			},
+			error : function(error){
+				alert(error);
+			}
+		})
+	}
+	
+}
+</script>
 </html>

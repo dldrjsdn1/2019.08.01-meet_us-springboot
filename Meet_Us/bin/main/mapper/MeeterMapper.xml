@@ -141,5 +141,21 @@ INSERT INTO MEETING_BOARD(
 						#{pageStart}, #{perPageNum}
 	]]>
 </select>
+
+<insert id="MeeterInsertDo" parameterType="hashMap">
+INSERT INTO 
+	MEET_REPLY
+	(
+		BOARD_NO,
+		USER_ID,
+		REPLY_CONTENT
+	) 
+	VALUES
+	(
+		#{board_no},
+		#{user_id},
+		#{reply_content}
+	)
+</insert>
 	
 </mapper>
