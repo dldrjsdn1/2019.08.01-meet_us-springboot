@@ -173,11 +173,13 @@
 					<a href="#" class="btn btn-primary py-3 px-4" style="width:100%; margin-top:3rem;">참석하기</a>
 				</p>
 			</div>
+			</div>
+			
 			
 			<hr>
-	
+	<div class="row">
 <!-- 				댓글작성 칸		 -->
-			<div class="col-md-12" style="margin-top : 30px;">
+			<div class="col-md-12">
 				<textarea style="width : 75%; height: 100px; float: left" id = "reply"></textarea>
 				<button class="btn btn-primary py-3 px-4" style="width:20%; height: 100px; float: right; vertical-align: middle;" onclick="InsertReply()">댓글작성</button>
 			</div>
@@ -330,8 +332,6 @@
                 </div>
               </div>
             </div>
-		</div>
-		</div>
 		</div>
 	</section>
 
