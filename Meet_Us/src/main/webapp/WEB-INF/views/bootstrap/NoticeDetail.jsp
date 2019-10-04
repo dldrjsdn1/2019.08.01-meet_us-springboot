@@ -74,7 +74,7 @@
 
 				<div class="tag-widget post-tag-container mb-5 mt-5">
 					<div class="tagcloud">
-						<a href="../Notice" class="tag-cloud-link">File Add</a>
+<!-- 						<a href="../Notice" class="tag-cloud-link">File Add</a> -->
 						<a href="../NoticeModify?board_no=${detail.board_no}" class="tag-cloud-link">MODIFY</a> 
 						<a href="../NoticeDelete?board_no=${detail.board_no}" class="tag-cloud-link">DELETE</a>
 						<a href="../Notice" class="tag-cloud-link">Back</a>

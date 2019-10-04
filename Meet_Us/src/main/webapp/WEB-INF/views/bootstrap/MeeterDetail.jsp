@@ -126,6 +126,7 @@
     							<h3 class="jg" style="word-break:break-all">${detail.MB_TITLE }</a></h3>
     							<p class="jg" style="word-break:break-all">${detail.MB_CONTENTS }</p>
     						</div>
+    						<p class="jg" style="word-break:break-all">작성자 : ${detail.MB_WRITER }<BR>작성일 : ${detail.MB_ModiDt }</p>
     					</div>
     				</div>
     		</div>
@@ -170,116 +171,140 @@
     <!-- 		참석 버튼 -->
 			<div class="col-md-12">
 				<p>
-					<a href="#" class="btn btn-primary py-3 px-4" style="width:100%; margin-top:3rem;">참석하기</a>
+					<a href="#" class="btn btn-primary py-3 px-4" style="float:right; width:200px; margin-top:3rem; margin-left:1rem;">참석하기</a>
+					<a href="../MeeterMain" class="btn btn-primary py-3 px-4" style="float:right; width:100px; margin-top:3rem; background:#23272b;">BACK</a>
 				</p>
 			</div>
 	</div>
-			
-            
-			<div class="col-md-12">
-				<div class="pt-5 mt-5">
-					<h3 class="mb-5">6 Reviews</h3>
-					<ul class="comment-list">
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="resources/images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">October 03, 2018 at 2:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-						</li>
-
-						<li class="comment">
-							<div class="vcard bio">
-								<img src="resources/images/person_1.jpg" alt="Image placeholder">
-							</div>
-							<div class="comment-body">
-								<h3>John Doe</h3>
-								<div class="meta">October 03, 2018 at 2:21pm</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-									autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
-									voluptas earum impedit necessitatibus, nihil?</p>
-								<p>
-									<a href="#" class="reply">Reply</a>
-								</p>
-							</div>
-
-							<ul class="children">
-								<li class="comment">
-									<div class="vcard bio">
-										<img src="resources/images/person_1.jpg"
-											alt="Image placeholder">
-									</div>
-									<div class="comment-body">
-										<h3>John Doe</h3>
-										<div class="meta">October 03, 2018 at 2:21pm</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-											vitae autem, eum officia, fugiat saepe enim sapiente iste
-											iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-										<p>
-											<a href="#" class="reply">Reply</a>
-										</p>
-									</div>
-
-
-									<ul class="children">
-										<li class="comment">
-											<div class="vcard bio">
-												<img src="resources/images/person_1.jpg"
-													alt="Image placeholder">
-											</div>
-											<div class="comment-body">
-												<h3>John Doe</h3>
-												<div class="meta">October 03, 2018 at 2:21pm</div>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-													vitae autem, eum officia, fugiat saepe enim sapiente iste
-													iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-												<p>
-													<a href="#" class="reply">Reply</a>
-												</p>
-											</div>
-
-											<ul class="children">
-												<li class="comment">
-													<div class="vcard bio">
-														<img src="resources/images/person_1.jpg"
-															alt="Image placeholder">
-													</div>
-													<div class="comment-body">
-														<h3>John Doe</h3>
-														<div class="meta">October 03, 2018 at 2:21pm</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-															elit. Pariatur quidem laborum necessitatibus, ipsam
-															impedit vitae autem, eum officia, fugiat saepe enim
-															sapiente iste iure! Quam voluptas earum impedit
-															necessitatibus, nihil?</p>
-														<p>
-															<a href="#" class="reply">Reply</a>
-														</p>
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
+	
+				<div class="tag-widget post-tag-container mb-5 mt-5">
+					<div class="tagcloud">
+						<a href="../MeetingImageInsert?MB_NO=${detail.MB_NO}" class="tag-cloud-link">Image Add</a>
+						<a href="../NoticeModify?board_no=" class="tag-cloud-link">MODIFY</a> 
+						<a href="../NoticeDelete?board_no=" class="tag-cloud-link">DELETE</a>
+						<a href="../Notice" class="tag-cloud-link">Back</a>
+					</div>
 				</div>
-			</div>
 			
-			<div class="ftco-animate">
+
+		<div class="col-md-12 tour-wrap" style="margin-bottom:3rem;">
+			<div class="">
+				<h3 class="mb-5">6 Reviews</h3>
+				<ul class="comment-list">
+					<li class="comment">
+						<div class="vcard bio">
+							<img src="resources/images/person_1.jpg" alt="Image placeholder">
+						</div>
+						<div class="comment-body">
+							<h3>John Doe</h3>
+							<div class="meta">October 03, 2018 at 2:21pm</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+								Pariatur quidem laborum necessitatibus, ipsam impedit vitae
+								autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
+								voluptas earum impedit necessitatibus, nihil?</p>
+							<p>
+								<a href="#" class="reply">Reply</a>
+							</p>
+						</div>
+					</li>
+
+					<li class="comment">
+						<div class="vcard bio">
+							<img src="resources/images/person_1.jpg" alt="Image placeholder">
+						</div>
+						<div class="comment-body">
+							<h3>John Doe</h3>
+							<div class="meta">October 03, 2018 at 2:21pm</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+								Pariatur quidem laborum necessitatibus, ipsam impedit vitae
+								autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
+								voluptas earum impedit necessitatibus, nihil?</p>
+							<p>
+								<a href="#" class="reply">Reply</a>
+							</p>
+						</div>
+
+						<ul class="children">
+							<li class="comment">
+								<div class="vcard bio">
+									<img src="resources/images/person_1.jpg" alt="Image placeholder">
+								</div>
+								<div class="comment-body">
+									<h3>John Doe</h3>
+									<div class="meta">October 03, 2018 at 2:21pm</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit. Pariatur quidem laborum necessitatibus, ipsam impedit
+										vitae autem, eum officia, fugiat saepe enim sapiente iste
+										iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+									<p>
+										<a href="#" class="reply">Reply</a>
+									</p>
+								</div>
+
+
+								<ul class="children">
+									<li class="comment">
+										<div class="vcard bio">
+											<img src="resources/images/person_1.jpg" alt="Image placeholder">
+										</div>
+										<div class="comment-body">
+											<h3>John Doe</h3>
+											<div class="meta">October 03, 2018 at 2:21pm</div>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit. Pariatur quidem laborum necessitatibus, ipsam impedit
+												vitae autem, eum officia, fugiat saepe enim sapiente iste
+												iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+											<p>
+												<a href="#" class="reply">Reply</a>
+											</p>
+										</div>
+
+										<ul class="children">
+											<li class="comment">
+												<div class="vcard bio">
+													<img src="resources/images/person_1.jpg" alt="Image placeholder">
+												</div>
+												<div class="comment-body">
+													<h3>John Doe</h3>
+													<div class="meta">October 03, 2018 at 2:21pm</div>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+														elit. Pariatur quidem laborum necessitatibus, ipsam
+														impedit vitae autem, eum officia, fugiat saepe enim
+														sapiente iste iure! Quam voluptas earum impedit
+														necessitatibus, nihil?</p>
+													<p>
+														<a href="#" class="reply">Reply</a>
+													</p>
+												</div>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+
+					<li class="comment">
+						<div class="vcard bio">
+							<img src="resources/images/person_1.jpg" alt="Image placeholder">
+						</div>
+						<div class="comment-body">
+							<h3>John Doe</h3>
+							<div class="meta">October 03, 2018 at 2:21pm</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+								Pariatur quidem laborum necessitatibus, ipsam impedit vitae
+								autem, eum officia, fugiat saepe enim sapiente iste iure! Quam
+								voluptas earum impedit necessitatibus, nihil?</p>
+							<p>
+								<a href="#" class="reply">Reply</a>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="ftco-animate">
               <h3 class="heading-sidebar"><p class="jg">비슷한 모임</p></h3>
               <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(resources/images/image_1.jpg);"></a>

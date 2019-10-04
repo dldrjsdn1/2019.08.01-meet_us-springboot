@@ -43,8 +43,16 @@
         </div>
       </div>
     </section>
+    
+        <div class="row justify-content-center" style="margin:2rem;">
+          <div class=" heading-section text-center ftco-animate">
+            <span class="subheading"><p class="jg">여기서 만나요!</p></span>
+            <h2 class="mb-4">Our Place</h2>
+            <p class="jg">서로가 인정하는 합리적인 만남 장소를 찾아보세요.<br>최대 5장소에 대한 중간지점을 찾을 수 있습니다.<br>찾은 중간지점에서 자세한 장소검색을 할 수도 있죠.<br></p>
+          </div>
+        </div>
 
-    <section class="ftco-section">
+    <section class="ftco-section" style="padding-top:0;">
       <div class="container">
 		<div class="row">
 			<div class="col-lg-8 ftco-animate">

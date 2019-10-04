@@ -210,7 +210,6 @@
 			if($("#user_other").val() != "" && $("#user_other").val() != null)
 				MB_LIMIT_OTHER = $("#user_other").val();
 			}
-
 		
 		if(MB_MEMBER == '' || MB_MEMBER == null)
 			swal("모집인원", "모집인원을 결정해주세요.","error");

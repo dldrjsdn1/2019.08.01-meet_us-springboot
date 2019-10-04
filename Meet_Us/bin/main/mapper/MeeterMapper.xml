@@ -118,6 +118,7 @@ INSERT INTO MEETING_BOARD(
 		SELECT 
     					@rownum:=@rownum+1 No
                         , MB_NO
+                        , MB_WRITER
                         , MB_VIEW_COUNT
                         , MB_MEMBER
                         , MB_CURRENT_MEMBER
@@ -141,5 +142,11 @@ INSERT INTO MEETING_BOARD(
 						#{pageStart}, #{perPageNum}
 	]]>
 </select>
+
+	<insert id="fileInsert" parameterType="Meet_Us.board.vo.FileVo">
+		INSERT INTO
+		MEETING_BOARD_FILE (UP_SEQ, FILE_NAME, FILE_REAL_NAME, FILE_PATH)
+		VALUES (#{up_Seq},#{file_Name},#{file_Real_Name},#{file_Path})
+	</insert>
 	
 </mapper>

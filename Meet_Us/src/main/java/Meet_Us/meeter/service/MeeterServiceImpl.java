@@ -1,12 +1,13 @@
 package Meet_Us.meeter.service;
 
-import java.util.HashMap;
+import java.util.HashMap; 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Meet_Us.meeter.vo.FileVo;
 import Meet_Us.meeter.dao.MeeterMapper;
 import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
@@ -29,18 +30,27 @@ public class MeeterServiceImpl implements MeeterService {
 	
 	@Override
 	public List<Map<String, Object>> selectCountSearchMeetingList(PageCriteria cri) throws Exception {
+		if(cri.getPlaceKeyword() == "" || cri.getPlaceKeyword() ==  null)
+			cri.setPlaceKeyword("null");
+		if(cri.getPurposeKeyword() == "" || cri.getPurposeKeyword() == null)
+			cri.setPurposeKeyword("null");
+		if(cri.getDateKeyword() == "" || cri.getDateKeyword() == null)
+			cri.setDateKeyword("null");
+		if(cri.getTitleKeyword() == "" || cri.getTitleKeyword() == null)
+			cri.setTitleKeyword("null");
+		
 		return mapper.selectCountSearchMeetingList(cri);
 	}
 	
 	@Override
 	public List<MeetingBoardVo> selectSearchMeetingList(PageCriteria cri) throws Exception {
-		if(cri.getPlaceKeyword() == "" || cri.getPlaceKeyword() == "")
+		if(cri.getPlaceKeyword() == "" || cri.getPlaceKeyword() ==  null)
 			cri.setPlaceKeyword("null");
-		if(cri.getPurposeKeyword() == "" || cri.getPurposeKeyword() == "")
+		if(cri.getPurposeKeyword() == "" || cri.getPurposeKeyword() == null)
 			cri.setPurposeKeyword("null");
-		if(cri.getDateKeyword() == "" || cri.getDateKeyword() == "")
+		if(cri.getDateKeyword() == "" || cri.getDateKeyword() == null)
 			cri.setDateKeyword("null");
-		if(cri.getTitleKeyword() == "" || cri.getTitleKeyword() == "")
+		if(cri.getTitleKeyword() == "" || cri.getTitleKeyword() == null)
 			cri.setTitleKeyword("null");
 		
 		return mapper.selectSearchMeetingList(cri);
@@ -75,5 +85,11 @@ public class MeeterServiceImpl implements MeeterService {
 		if(meetingBoardVo.getMB_LIMIT_OTHER() == "" || meetingBoardVo.getMB_LIMIT_OTHER() == null)
 			meetingBoardVo.setMB_LIMIT_OTHER("미정");
 		mapper.insertMeetingBoard(meetingBoardVo);
+	}
+	
+	//파일 업로드 
+	@Override
+	public void fileInsert(FileVo file) throws Exception {
+		mapper.fileInsert(file);
 	}
 }

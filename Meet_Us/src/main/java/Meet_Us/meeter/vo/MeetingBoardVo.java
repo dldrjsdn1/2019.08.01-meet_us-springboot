@@ -21,6 +21,7 @@ public class MeetingBoardVo {
     String MB_LIMIT_GENDER;
     String MB_LIMIT_OTHER;
     String condition;
+    
 	public int getMB_NO() {
 		return MB_NO;
 	}

@@ -36,13 +36,22 @@
 	</div>
 	</section>
 	
-	<section class="ftco-section">
+	     <div class="row justify-content-center" style="margin:2rem;">
+          <div class=" heading-section text-center ftco-animate">
+            <span class="subheading"><p class="jg">직접 만나요!</p></span>
+            <h2 class="mb-4">Our Meeting</h2>
+            <p class="jg">직접 사람들을 모아 보기도 하고<br>다른 사람이 만든 모임에 참여도 할 수도 있습니다.</p>
+          </div>
+        </div>
+        
+	<section class="ftco-section" style="padding-top:0;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 pr-lg-4">
 				<div class="row">
 					<c:if  test="${fn:length(list) == 0}">
 					<h4 class="col-md-6 col-lg-4 ftco-animate"><p class="jg" style="color:#e2c0bb; text-align: center;">검색 결과가 없습니다.</p></h4>
+					<input type="button" value="전체 Meeting 보기" class="btn py-3 px-4 btn-primary ftco-animate" onclick="location.href='/MeeterMain'" style="margin:3rem; width:100%;">
 					</c:if>
 					<c:forEach var="list" varStatus="i" items="${list }">
 						<div class="col-md-6-1 col-lg-4 ftco-animate">
@@ -72,9 +81,13 @@
 										<a href="../MeeterDetail?MB_NO=${list.MB_NO }"><p class="jg" style="margin-bottom:0;">${list.MB_TITLE }</p></a>
 									</h3>
 									
+									<div class="star d-flex clearfix" style="float:left;">
+											<span class="rate"><a href="#"><strong>작성자 :
+													${list.MB_WRITER }</strong></a></span>
+									</div>
 									<div class="star d-flex clearfix" style="float:right;">
-											<span class="rate"><a href="#">조회수 :
-													${list.MB_VIEW_COUNT }</a></span>
+											<span class="rate"><a href="#"><strong>조회수 :
+													${list.MB_VIEW_COUNT }</strong></a></span>
 									</div>
 								</div>
 							</div>
@@ -86,7 +99,7 @@
 						<div class="block-27">
 							<ul>
 								<c:choose>
-									<c:when test="${pageCriteria.getPlaceKeyword() == null and pageCriteria.getPurposeKeyword() == null and pageCriteria.getDateKeyword() == null and pageCriteria.getTitleKeyword() == null}">
+									<c:when test="${empty pageCriteria.getPlaceKeyword() and empty pageCriteria.getPurposeKeyword() and empty pageCriteria.getDateKeyword() and empty pageCriteria.getTitleKeyword()}">
 										<!-- 전체 리스트 출력 시 -->
 										<c:if test="${pageMaker.prev }">
 											<li><a
@@ -220,4 +233,7 @@
 	</div>
 
 </body>
+<script>
+var 
+</script>
 </html>
