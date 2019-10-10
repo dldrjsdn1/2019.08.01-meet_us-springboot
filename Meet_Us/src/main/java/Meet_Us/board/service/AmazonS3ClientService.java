@@ -1,6 +1,6 @@
 package Meet_Us.board.service;
 
-import java.io.IOException;
+import java.io.IOException;  
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;

@@ -19,7 +19,8 @@
     .placeinfo .tel {color:#0f7833;}
     .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
     /* 중간지점 스타일 */
-    .hAddr {position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    .hAddr {font-size:10px; position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+    @media(min-width:700px){.hAddr {font-size:15px; position:absolute;left:30px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}}
     #centerAddr {display:block;margin-top:2px;font-weight: normal;}
     .title {font-weight:bold;display:block;}
     
@@ -64,7 +65,7 @@
 			</div>
 
 			<div class="col-lg-4 sidebar ftco-animate">
-				<div class="sidebar-box">
+				<div class="sidebar-box-lee" style="margin-top:2rem;">
 					<form action="#" class="search-form" onkeypress="return event.keyCode != 13;">
 						<div class="form-group">
 							<span class="icon icon-search" onclick="SearchPlace()" style="cursor: pointer;"></span> <input type="text" id="SearchPlaceId"
@@ -74,7 +75,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="sidebar-box ftco-animate">
+				<div class="sidebar-box-lee ftco-animate">
 				<div id="meetingPlaceStyleId" style="margin-bottom:5%;" >
 					<h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">Meeting Place</p></h3>
 					<p id="meetingPlaceAddressId" style="font-size:80%;"></p>
@@ -93,11 +94,11 @@
 						<div class="form-group">
 							<button type="button"
 								onclick="centerView_click();"
-								class="btn py-3 px-4 btn-warning" style="width: 100%; color: white;">Center View</button>
+								class="btn py-3 px-4 btn-warning" style="width: 100%; color: white; background:#e2c0bb; border-color: #e2c0bb;">Center View</button>
 						</div>
 						<div class="form-group">
 							<button type="button" onclick="largeCenter_click();"
-								class="btn py-3 px-4 btn-primary" style="width: 100%;">Large Center</button>
+								class="btn py-3 px-4 btn-primary" style="width: 100%; background:#e8705e;">Large Center</button>
 						</div>
 						<div class="form-group">
 							<button type="button" onclick="reset_click();"
@@ -598,16 +599,18 @@
  			    swal(MeetingPlace, MeetingPlace+"가(이) Meeting Place로 선정되었습니다.", {
  			      icon: "success",
  			    });
-//  			  document.getElementById('meetingPlaceId').innerHTML = MeetingPlace;
-//  			  document.getElementById('meetingPlaceAddressId').innerHTML = address;
- 			  document.getElementById('meetingPlaceStyleId').innerHTML = '<div style="margin-bottom:0; border-style:solid; border-color:#e2c0bb; border-width:4px; padding:5px;"><h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">' +MeetingPlace+ '</p></h3><p id="meetingPlaceAddressId" style="font-size:80%; margin-bottom:0;">'+address+'</p><button type="button" onclick="urlSave();" class="btn btn-dark btn-sm" style="width:100%; margin-top:10px; background-color:#e2c0bb; border-color:#e2c0bb;">URL 복사</button></div>';
- 			 
+
+ 			  document.getElementById('meetingPlaceStyleId').innerHTML = '<div style="margin-bottom:0; border-style:solid; border-color:#e2c0bb; border-width:4px; padding:5px;"><h3 class="heading-sidebar" style="margin-bottom:0;"><p class="jg" id="meetingPlaceId" style="margin-bottom:0;">' +MeetingPlace+ '</p></h3><p id="meetingPlaceAddressId" style="font-size:80%; margin-bottom:0;">'+address+'</p><button type="button" onclick="urlSave();" class="btn btn-dark btn-sm" style="width:100%; margin-top:10px; background-color:#e2c0bb; border-color:#e2c0bb;">URL 복사</button></p><button type="button" onclick="meetingCreate('+"'"+ MeetingPlace+"'"+','+"'"+address+"'"+');" class="btn btn-dark btn-sm" style="width:100%; background-color:#e8705e; border-color:#e2c0bb;">Meeting 만들기</button></div>';
  			
  			   
  			   
  			  } 
  			});
  	}
+	function meetingCreate(MeetingPlace, address){
+
+		location.href="/MeeterFromMapInsert?MeetingPlace=" + MeetingPlace +"&address=" + address;
+	}
 
 	<!-- Meeting Place 클릭시 클립보드에 url 복사 -->
 	 src="//code.jquery.com/jquery-3.2.1.min.js"

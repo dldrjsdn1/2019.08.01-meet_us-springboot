@@ -12,6 +12,34 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style type="text/css">
+/*   로딩 돼지 */
+ #loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;  
+ z-index: 99;  
+ text-align: center; } 
+ 
+ #loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 28%;  
+ z-index: 100; }
+ 
+ @media(min-width:600px){
+ #loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 43%;  
+ z-index: 100; }
+ }
+</style>
 </head>
 <!-- 주소 값 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -62,7 +90,7 @@
 				<div class="form-group">
 					<label for="member"><strong>*최대 모집 멤버 인원</strong></label> <input
 						type="number" class="form-control" id="member"
-						name="member" placeholder="숫자만 입력가능" min="0" max="100">
+						name="member" placeholder="숫자만 입력가능" min="1" max="100">
 				</div>
 
 				<!-- 모이는 날짜 -->
@@ -75,7 +103,7 @@
 				<!-- 모이는 시간 -->
 				<div class="form-group">
 					<label for="MeetingDate"><strong>*만나는 시간</strong></label> <input
-						type="text" class="form-control" id="MeetingTime" placeholder="만나는 시간을 입력해주세요."
+						type="time" class="form-control" id="MeetingTime" placeholder="만나는 시간을 입력해주세요."
 						name="MeetingTime" autocomplete="off">
 				</div>
 
@@ -95,7 +123,24 @@
 					<input type="text" id="selfPurpose" name="selfPurpose" autocomplete="off"/>
 				</div>
 				
-				
+				<c:set var="MeetingPlace" value="${MeetingPlace }" />
+				<c:set var="address" value="${address }" />
+				<c:choose>
+				<c:when test="${!empty MeetingPlace and !empty address}">
+				<div class="form-group">
+					<label for="MeetingPlace"><strong>*만나는 장소</strong></label> <input
+						type="text" class="form-control" id="MeetingPlace"
+						name="MeetingPlace" placeholder="만남 장소를 입력해주세요." autocomplete="off" value="${MeetingPlace } - ${address }">
+				</div>
+				</c:when>
+				<c:otherwise>
+				<div class="form-group">
+					<label for="MeetingPlace"><strong>*만나는 장소</strong></label> <input
+						type="text" class="form-control" id="MeetingPlace"
+						name="MeetingPlace" placeholder="만남 장소를 입력해주세요." autocomplete="off">
+				</div>
+				</c:otherwise>
+				</c:choose>
 				<!-- 모이는 장소 -->
 				<div class="form-group">
 					<label for="MeetingPlace"><strong>*만나는 장소</strong></label> <input
@@ -127,9 +172,9 @@
 					<!-- 상단의 select box에서 '직접입력'을 선택하면 나타날 인풋박스 -->
 					<div class="card" id="selbocDirect_condition" name="selbocDirect_condition" style="padding:20px;">
 					    <label for="user_age"><strong>최소 나이</strong></label>
-					    <input type="number" class="form-control" id="user_age_min" name="user_age_min" placeholder="숫자만 입력가능" min="0" max="100"/><br>
+					    <input type="number" class="form-control" id="user_age_min" name="user_age_min" placeholder="숫자만 입력가능" min="10" max="100"/><br>
 					    <label for="user_age"><strong>최대 나이</strong></label>
-					    <input type="number" class="form-control" id="user_age_max" name="user_age_max" placeholder="숫자만 입력가능" min="0" max="100"/><br>
+					    <input type="number" class="form-control" id="user_age_max" name="user_age_max" placeholder="숫자만 입력가능" min="10" max="100"/><br>
 					    
 					    <div class="form-group">
 					    <label for="user_gender"><strong>성별</strong></label> <br/> 
@@ -151,7 +196,13 @@
 		</div>
 	</div>
 	
+	<!-- 	핑크 돼지 로딩 -->
+	<div id="loading">
+	<img id="loading-image" src="resources/images/Pinky Pig.svg" alt="Loading..." />
+	</div>
+	
 <script type="text/javascript">
+$('#loading').hide();
 	$(function(){
 	//직접입력 인풋박스 기존에는 숨어있다가
 	$("#selfPurpose").hide();
@@ -189,9 +240,9 @@
 		var MB_MEETING_TIME = $("#MeetingTime").val();
 		var MB_PURPOSE = $("#metting_purpose").val();
 		var condition = $("#metting_condition").val();
-		var MB_PLACE = $("#MeetingPlace").val()
-		var MB_TITLE = $("#title").val()
-		var MB_CONTENTS = $("#contents").val()
+		var MB_PLACE = $("#MeetingPlace").val();
+		var MB_TITLE = $("#title").val();
+		var MB_CONTENTS = $("#contents").val().replace(/\n/g,"<br>");
 		var MB_LIMIT_AGE_MIN;
 		var MB_LIMIT_AGE_MAX;
 		var MB_LIMIT_GENDER;
@@ -228,6 +279,7 @@
 		else if(MB_LIMIT_AGE_MIN >= MB_LIMIT_AGE_MAX)
 			swal("나이제한", "최대 나이가 최소나이보다 작거나 같습니다.","error");
 		else{
+			$('#loading').show();
 			$.ajaxSettings.traditional = true;
 			$.ajax({
 			    type: "POST",
@@ -247,9 +299,11 @@
 			             },
 			    contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			    success : function(){
+			    	$('#loading').hide();
 			    	swal("성공", "성공적으로 Meeting 게시글을 작성했습니다.", "success")
 			    	.then((value) => { location.href="../MeeterMain" })
 			    },error : function(){
+			    	$('#loading').hide();
 			    	swal("실패", "안타깝게도 Meeting 게시글을 작성하지 못했습니다..", "error");
 			    }
 			});

@@ -1,8 +1,11 @@
 package Meet_Us.board.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FileVo {
+public class FileVo implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	 private int seq;
 	 private int up_Seq;
 	 private String file_Name;

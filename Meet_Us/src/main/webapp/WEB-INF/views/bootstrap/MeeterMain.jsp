@@ -49,49 +49,61 @@
 		<div class="row">
 			<div class="col-lg-9 pr-lg-4">
 				<div class="row">
-					<c:if  test="${fn:length(list) == 0}">
+					<c:if  test="${fn:length(arrayList) == 0}">
 					<h4 class="col-md-6 col-lg-4 ftco-animate"><p class="jg" style="color:#e2c0bb; text-align: center;">검색 결과가 없습니다.</p></h4>
 					<input type="button" value="전체 Meeting 보기" class="btn py-3 px-4 btn-primary ftco-animate" onclick="location.href='/MeeterMain'" style="margin:3rem; width:100%;">
 					</c:if>
-					<c:forEach var="list" varStatus="i" items="${list }">
+					<c:forEach var="arrayList" varStatus="i" items="${arrayList }">
 						<div class="col-md-6-1 col-lg-4 ftco-animate">
 							<div class="project">
 								<div class="img">
+								<c:choose>
+									<c:when test="${!empty arrayList.getFILE_PATH()}" >
 									<a
-										href="../MeeterDetail?MB_NO=${list.MB_NO }">
-										<img src="resources/images/destination-1.jpg"
+										href="../MeeterDetail?MB_NO=${arrayList.getMB_NO() }">
+										<img src="${arrayList.getFILE_PATH() }" style="height:14rem; width:100%;"
 										class="img-fluid" alt="Colorlib Template">
 									</a>
+									</c:when>
+									<c:otherwise>
+									<a
+										href="../MeeterDetail?MB_NO=${arrayList.getMB_NO() }">
+										<img src="resources/images/destination-1.jpg" style="height:14rem; width:100%;"
+										class="img-fluid" alt="Colorlib Template">
+									</a>
+									</c:otherwise>
+								</c:choose>
 								</div>
 								<div class="text">
 									<h4 class="price">
 										<c:choose>
-											<c:when test="${list.MB_CURRENT_MEMBER == list.MB_MEMBER	}">
-												<span class="old-price">${list.MB_CURRENT_MEMBER }/${list.MB_MEMBER	}</span>
+											<c:when test="${arrayList.getMB_CURRENT_MEMBER() == arrayList.getMB_MEMBER()}">
+												<span class="old-price">${arrayList.getMB_CURRENT_MEMBER() }/${arrayList.getMB_MEMBER()	}</span>
 											</c:when>
 											<c:otherwise>
-												${list.MB_CURRENT_MEMBER }&nbsp/&nbsp${list.MB_MEMBER }
+												${arrayList.getMB_CURRENT_MEMBER() }&nbsp/&nbsp${arrayList.getMB_MEMBER() }
 											</c:otherwise>
 										</c:choose>
 									</h4>
 									<h5>
-										<a href="../MeeterDetail?MB_NO=${list.MB_NO }"><p class="jg" style="margin-top:1rem; margin-bottom:0; font-size:14px;">#${list.MB_PURPOSE }<br>#${list.MB_PLACE }<br>#${list.MB_MEETING_DATE }<br>#${list.MB_MEETING_TIME }</p></a>
+										<a href="../MeeterDetail?MB_NO=${arrayList.getMB_NO() }"><p class="jg" style="margin-top:1rem; margin-bottom:0; font-size:14px;">#${arrayList.getMB_PURPOSE() }<br>#${arrayList.getMB_PLACE() }<br>#${arrayList.getMB_MEETING_DATE() }<br>#${arrayList.getMB_MEETING_TIME() }</p></a>
 									</h5>
 									<h3>
-										<a href="../MeeterDetail?MB_NO=${list.MB_NO }"><p class="jg" style="margin-bottom:0;">${list.MB_TITLE }</p></a>
+										<a href="../MeeterDetail?MB_NO=${arrayList.getMB_NO() }"><p class="jg" style="margin-bottom:0;">${arrayList.getMB_TITLE() }</p></a>
 									</h3>
 									
 									<div class="star d-flex clearfix" style="float:left;">
 											<span class="rate"><a href="#"><strong>작성자 :
-													${list.MB_WRITER }</strong></a></span>
+													${arrayList.getMB_WRITER() }</strong></a></span>
 									</div>
 									<div class="star d-flex clearfix" style="float:right;">
 											<span class="rate"><a href="#"><strong>조회수 :
-													${list.MB_VIEW_COUNT }</strong></a></span>
+													${arrayList.getMB_VIEW_COUNT() }</strong></a></span>
 									</div>
 								</div>
 							</div>
 						</div>
+<%-- 						</c:forEach> --%>
 					</c:forEach>
 				</div>
 				<div class="row mt-5" style="margin-bottom:3rem;">

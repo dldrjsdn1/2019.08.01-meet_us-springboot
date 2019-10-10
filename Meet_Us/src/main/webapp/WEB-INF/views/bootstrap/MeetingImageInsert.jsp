@@ -11,13 +11,41 @@
 <title>Meet us</title>
 <meta charset="UTF-8">
 <meta name="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style type="text/css">
+/*   로딩 돼지 */
+ #loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;  
+ z-index: 99;  
+ text-align: center; } 
+ 
+ #loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 28%;  
+ z-index: 100; }
+ 
+ @media(min-width:600px){
+ #loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 43%;  
+ z-index: 100; }
+ }
+</style>
 </head>
 <!-- 주소 값 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
-
+	
 	<section class="hero-wrap hero-wrap-2"
 		style="background-image: url('resources/images/meeting.jpg');"
 		data-stellar-background-ratio="0.5">
@@ -62,11 +90,6 @@
 						</p>
 						<input type="file" id="input_imgs" name="input_imgs" multiple />
 					</div>
-					<!-- 					<div class="input_wrap"> -->
-					<!-- 						<a href="javascript:" onclick="fileUploadAction();" class="my_button">파일 업로드</a>  -->
-					<!-- 						<input type="file" id="input_imgs" name="input_imgs" multiple/> -->
-					<!-- 					</div> -->
-				
 				
 				<h3 style="margin-top:3rem;">Image PreView</h3>
 				<p style="font-size:14px;">*이미지 클릭시 삭제</p>
@@ -84,8 +107,15 @@
 		</div>
 	</div>
 	
+	<!-- 	핑크 돼지 로딩 -->
+	<div id="loading">
+	<img id="loading-image" src="resources/images/Pinky Pig.svg" alt="Loading..." />
+	</div>
+	
 <script type="text/javascript">
 $("#input_imgs").hide();
+$('#loading').hide();
+
 	function cencle_click(){
 		location.href="../";
 	}
@@ -145,9 +175,11 @@ $("#input_imgs").hide();
 		var ImageData = new FormData();
 		var MB_NO = ${MB_NO};
 		
-		if(sel_files.length == 0)
+		if(sel_files.length == 0){
 			swal("이미지","이미지가 없습니다.", "error");
+		}
 		else{
+			$('#loading').show(); 
 		for(var i=0; i < sel_files.length; i++){
 			var name = "image_"+i;
 			ImageData.append(name, sel_files[i]);
@@ -162,17 +194,16 @@ $("#input_imgs").hide();
  		   	processData: false,
 //  		   	dataType: "text",
  		    success : function(){
+ 		    	$('#loading').hide(); 
  		    	swal("성공", "성공적으로 이미지를 등록했습니다.", "success")
  		    	.then((value) => { location.href="../MeeterDetail?MB_NO=${MB_NO}" })
  		    },error : function(){
+ 		    	$('#loading').hide(); 
  		    	swal("실패", "안타깝게도 이미지를 등록하지 못했습니다.", "error");
  		    }
  		});
 	}
 	}
 </script>
-
-
 </body>
-
 </html>

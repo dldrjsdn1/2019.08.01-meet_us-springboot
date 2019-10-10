@@ -1,6 +1,7 @@
 package Meet_Us.board.controller;
 
-import java.io.File;  
+import java.io.File;
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
@@ -105,12 +106,14 @@ public class BoardController {
 
 	@RequestMapping(value = "/NoticeInsertProcess", method = RequestMethod.POST)
 	public String NoticeInsertProcess(Model model, BoardVo vo, FileVo file
-			, @RequestParam("files") MultipartFile[] files) throws Exception {
+												 , @RequestParam("files") MultipartFile[] files
+												 , Principal principal) throws Exception {
 		
 		System.out.println(files.length);
 		String description = vo.getBoard_content();
 		vo.setBoard_content(description.replace("\r\n", "<br>")); // 줄바꿈 처리
-		service.insertBoard(vo);
+		vo.setUser_id(principal.getName());
+//		service.insertBoard(vo);
 		int fileNo = service.latelyBoard();
 		
 		for(int i=0; i < files.length; i++) {
@@ -122,7 +125,8 @@ public class BoardController {
 		String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
 		File destinationFile;
 		String destinationFileName;
-		String fileUrl= "amazon.s3";
+		String fileRealUrl = "https://meet-us.s3.ap-northeast-2.amazonaws.com/" + fileName;
+		String fileUrl= fileRealUrl;
 		
 		do {
 			destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension;
@@ -137,6 +141,7 @@ public class BoardController {
            service.fileInsert(file); //file insert
 			}
 		}
+		service.insertBoard(vo);
 		return "redirect:/Notice";
 	}
 
@@ -172,7 +177,8 @@ public class BoardController {
 		String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
 		File destinationFile;
 		String destinationFileName;
-		String fileUrl= "amazon.s3";
+		String fileRealUrl = "https://meet-us.s3.ap-northeast-2.amazonaws.com/" + fileName;
+		String fileUrl= fileRealUrl;
 		
 		
 		do {

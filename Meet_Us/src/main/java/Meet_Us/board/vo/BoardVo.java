@@ -1,6 +1,9 @@
 package Meet_Us.board.vo;
 
-public class BoardVo {
+import java.io.Serializable;
+
+public class BoardVo implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	private int no;
 	private int board_no;

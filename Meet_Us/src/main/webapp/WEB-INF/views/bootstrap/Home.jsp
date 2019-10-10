@@ -19,7 +19,7 @@
 		  <div class="home-slider owl-carousel">
 	      
 	      
-	      <div class="slider-item">
+	      <div class="slider-item"style="overflow-y : scroll; overflow-y:hidden;">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -44,7 +44,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item">
+	      <div class="slider-item" style="overflow-y : scroll;">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -76,88 +76,41 @@
           <div class="col-md-7 heading-section text-center ftco-animate">
             <span class="subheading"><p class="jg">우리 만날까요?</p></span>
             <h2 class="mb-4">Meet Us</h2>
-            <p class="jg">현재 새로운 만남을 기대하는 사람들이 당신을 찾고 있습니다. <br>당신은 어떤 만남을 원하나요?</p>
+            <p class="jg">지금 가장 핫한 meeting을 추천해드립니다. <br>여러분도 함께 참여해보세요.</p>
           </div>
         </div>
         <div class="row d-flex">
+          <c:forEach var="list" varStatus="i" items="${list }">
           <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="single.html" class="block-20" style="background-image: url('resources/images/image_1.jpg');">
-              </a>
+          	<div class="blog-entry justify-content-end" style="width:100%;">
+          	<c:if test="${empty list.getFILE_PATH() }">
+          	<a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="block-20" style="background-image: url('resources/images/image_3.jpg');"></a>
+          	</c:if>
+          	<c:if test="${!empty list.getFILE_PATH() }">
+          	<a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="block-20" style="background-image: url('${list.getFILE_PATH()}');"></a>
+          	</c:if>
+<%--               <a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="block-20" style="background-image: url('${list.getFILE_PATH()}');"></a> --%>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">12</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
+              		<div class="yr">
+              			<span class="day">${list.getMB_CURRENT_MEMBER()}/${list.getMB_MEMBER()}</span>
+              			
               		</div>
               	</div>
-                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              	<p class="jg" style="color:#e2c0bb;"><a href="../MeeterDetail?MB_NO=${list.getMB_NO() }">#${list.getMB_PURPOSE()}#${list.getMB_PLACE()}#${list.getMB_MEETING_DATE()}#${list.getMB_MEETING_TIME()}</a></p>
+                <h3 class="heading"><a href="../MeeterDetail?MB_NO=${list.getMB_NO() }"><p class="jg">${list.getMB_TITLE()}</p></a></h3>
                 <div class="d-flex align-items-center mt-4 meta">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="mb-0"><a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
 	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+	                	<a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="mr-2">${list.getMB_WRITER()}</a>
+	                	<a href="../MeeterDetail?MB_NO=${list.getMB_NO() }" class="meta-chat"><span class="icon-eye"></span> ${list.getMB_VIEW_COUNT()}</a>
 	                </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="single.html" class="block-20" style="background-image: url('resources/images/image_2.jpg');">
-              </a>
-              <div class="text float-right d-block">
-              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">12</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
-              	</div>
-                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <div class="d-flex align-items-center mt-4 meta">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="single.html" class="block-20" style="background-image: url('resources/images/image_3.jpg');">
-              </a>
-              <div class="text float-right d-block">
-              	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">12</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
-              	</div>
-                <h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <div class="d-flex align-items-center mt-4 meta">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </c:forEach>
+          
         </div>
       </div>
     </section>

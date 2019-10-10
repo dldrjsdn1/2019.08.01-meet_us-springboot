@@ -16,7 +16,7 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
+   <section class="hero-wrap hero-wrap-2" style="background-image: url('resources/images/welcome.jpg');" data-stellar-background-ratio="0.5">
    <div class="overlay"></div>
    <div class="container">
       <div
@@ -34,17 +34,17 @@
    </div>
    </section>
    
-   	<section class="ftco-section" style="padding: 2em 0;">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-12 heading-section text-center ftco-animate">
-				<span class="subheading">Meet Us</span>
-					<p class="jg" style="font-size:30px;">회원가입</p>
-			</div>
-		</div>
-		<div class="row"></div>
-	</div>
-	</section>
+      <section class="ftco-section" style="padding: 2em 0;">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-12 heading-section text-center ftco-animate">
+            <span class="subheading">Meet Us</span>
+               <p class="jg" style="font-size:30px;">회원가입</p>
+         </div>
+      </div>
+      <div class="row"></div>
+   </div>
+   </section>
    
    
    <div class="container" style="max-width:900px; margin-bottom:1rem;">
@@ -63,7 +63,7 @@
             <!--이름 -->
             <!--번호 안들어가게 수정 -->
             <div class="form-group">
-               <label for="user_name">이름</label> 
+               <label for="user_name">닉네임 </label> 
                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="name">
                <div class="check_font" id="name_check"></div>
             </div>
@@ -83,11 +83,11 @@
             <div class="form-group">
             
                <label for="user_email">이메일</label> 
-               		<input type="text" class="form-control" id="user_email" name="user_email" placeholder="aaaa@aaaa.com">
-               		<div class="check_font" id="email_check"></div>
+                     <input type="text" class="form-control" id="user_email" name="user_email" placeholder="aaaa@aaaa.com">
+                     <div class="check_font" id="email_check"></div>
             </div>
- 		
- 			
+       
+          
             <div class="form-group">
                <label for="user_age">생일년도</label>
                <br/>
@@ -111,7 +111,7 @@
             <div class="form-group">
                <label for="user_gender">성별</label> 
                <br/>
-               	 <input type='radio' name='user_gender' id='user_gender' value='f'/>여성&nbsp;&nbsp;                      
+                   <input type='radio' name='user_gender' id='user_gender' value='f'/>여성&nbsp;&nbsp;                      
                  <input type='radio' name='user_gender' id='user_gender' value='m'/>남성
                <div class="check_font" id="gender_check"></div>
             </div>
@@ -128,9 +128,9 @@
             
             <input type="hidden" value= "${key}" name="key" id="key" >
             <c:if test="${key eq 2}">
-           	 	<input type="hidden" value="${user_kakaoImg }" name="user_kakaoImg" id="user_kakaoImg">
-           	 	<input type="hidden" value="${user_seq }" name="user_seq" id="user_seq">
-			</c:if>
+                  <input type="hidden" value="${user_kakaoImg }" name="user_kakaoImg" id="user_kakaoImg">
+                  <input type="hidden" value="${user_seq }" name="user_seq" id="user_seq">
+         </c:if>
             <div class="form-group">
                <input type="button" value="회원가입" class="btn py-3 px-4 btn-primary" onclick="userSubmit()">
                <input type="button" value="취소" class="btn py-3 px-4 btn-primary" onclick="cencle_click()" style="margin:10px;">
@@ -145,18 +145,18 @@
 </body>
 <script>
 function cencle_click(){
-	swal({
-		  title: "회원가입을 그만둘까요?",
-		  text: "취소하게 되면 현재까지 적었던 내용은 삭제됩니다.",
-		  icon: "warning",
-		  buttons: true,
-		  dangerMode: true,
-		})
-		.then((willDelete) => {
-		  if (willDelete) {
-		    location.href="../Login";
-		  }
-		});
+   swal({
+        title: "회원가입을 그만둘까요?",
+        text: "취소하게 되면 현재까지 적었던 내용은 삭제됩니다.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          location.href="../Login";
+        }
+      });
 }
 </script>
 
@@ -169,13 +169,18 @@ let key = ${key};
 //    alert(${key}==2);
    
    
-	
+   
    // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
    //id값이랑 name 값을 가져오는 기능 좋은데 외워줘
    $("#user_id").blur(function() {
+                 let pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글체크
+
+              let pattern_eng = /[a-zA-Z]/;   // 문자 
                   let user_id = $('#user_id').val();
                   let patton = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
                   let pattonNum = /[^0-9]/g;
+                  
+              
                   if (user_id.length == 0) {
                      $("#id_check").text("비었어요 : (");
                      $("#id_check").css("color", "red");
@@ -188,7 +193,11 @@ let key = ${key};
                      $("#id_check").text("숫자만 넣으면 안되요 : (");
                      $("#id_check").css("color", "red");
                      $("#reg_submit").attr("disabled", true);
-                  } else {
+                  } else if (pattern_kor.test(user_id)) {
+                      $("#id_check").text("함글이 있네요? 안되요 : (");
+                      $("#id_check").css("color", "red");
+                      $("#reg_submit").attr("disabled", true);
+                   }else {
                      $.ajax({
                               //controller 확인 주소
                               url : '${pageContext.request.contextPath}/idIsCheck?user_id='+user_id,
@@ -204,12 +213,12 @@ let key = ${key};
                                        $('#id_check').text('공백이 있으면 안되요 :(');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
-                                    } else if (user_id.length < 5) {
-                                       $('#id_check').text('아이디 길이가 너무 짧아요, 5~15글자  :( ');
+                                    } else if (user_id.length < 4) {
+                                       $('#id_check').text('아이디 길이가 너무 짧아요, 5~10글자  :( ');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
-                                    } else if (user_id.length > 16) {
-                                       $('#id_check').text('아이디 길이가 너무 길어요, 5~15글자 :( ');
+                                    } else if (user_id.length > 10) {
+                                       $('#id_check').text('아이디 길이가 너무 길어요, 5~10글자 :( ');
                                        $('#id_check').css('color','red');
                                        $("#reg_submit").attr("disabled", true);
                                     } else {
@@ -264,47 +273,63 @@ let key = ${key};
                   }
                });
                      
+               
+  
+                     
    $("#user_name").blur(function() {
-                  let user_name = $('#user_name').val();
+                 let user_name = $('#user_name').val();
                   let patton = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
                   let pattonNum = /[^0-9]/g;
+                  
                   if (user_name.length == 0) {
                      $("#name_check").text("공백은 안되요 :(");
                      $('#name_check').css('color', 'red');
                      $("#reg_submit").attr("disabled", true);
-                  } else if (user_name.replace(/\s/gi, "") == user_name) {
-                     if (patton.test(user_name)) {
-                        $("#name_check").text("특수문자 안되요 :(");
-                        $('#name_check').css('color', 'red');
-                        $("#reg_submit").attr("disabled", true);
-                     } else if (!pattonNum.test(user_password)) {
-                        $("#name_check").text("이름안에 숫자가 들어가 있습니다 :(");
-                        $('#name_check').css('color', 'red');
-                        $("#reg_submit").attr("disabled", true);
-                     } else {
-                        $("#name_check").text("사용 가능하십니다 :)");
-                        $('#name_check').css('color', 'blue');
-                        $("#reg_submit").attr("disabled", true);
-                        signList[count++]=true;
-                     }
-                  } else if (user_name.length < 2 && user_name.replace(/\s/gi, "") == user_name) {
-                     $("#name_check").text("이름이 너무 짧아요 :(");
+                  } else if (user_name.length < 2&& user_name.replace(/\s/gi, "") == user_name) {
+                     $("#name_check").text("닉네임이 너무 짧거나 길어요  :(");
                      $('#name_check').css('color', 'red');
                      $("#reg_submit").attr("disabled", true);
-                  } else {
-                     $("#name_check").text("이름안에 공백이 있으면 안되요 :(");
+                  } else if (user_name.replace(/\s/gi, "") == user_name) {
+                      if (patton.test(user_name)) {
+                          $("#name_check").text("특수문자 안되요 :(");
+                          $('#name_check').css('color', 'red');
+                          $("#reg_submit").attr("disabled", true);
+                       }else {
+                          $.ajax({
+                               //controller 확인 주소
+                               url : '${pageContext.request.contextPath}/nameIsCheck?user_name='+user_name,
+                               type : 'GET',
+                               success : function(data) {
+                                  if (data == 1) { 
+                                     $("#name_check").text("중복된 닉네임입니다 :p");
+                                     $("#name_check").css("color","red");
+                                     $("#reg_submit").attr("disabled", true);
+                                  } else {
+                                     $("#name_check").text("사용하세요!! :)");
+                                      $("#name_check").css("color","blue");
+                                      $("#reg_submit").attr("disabled", true);
+                                      signList[count++]=true;
+                                  }
+                               },
+                               error : function() {
+                                  console.log("실패");
+                               }
+                            });
+                       }
+                    } else {
+                     $("#name_check").text("닉네임 안에 공백이 있으면 안되요 :(");
                      $('#name_check').css('color', 'red');
                      $("#reg_submit").attr("disabled", true);
                   }
                });
                            
                $("#user_email").blur(function() {
-            	   let user_email = $('#user_email').val();
+                  let user_email = $('#user_email').val();
                    
                    let emailCheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
                    
                   if(emailCheck.test(user_email)){
-                	  $.ajax({
+                     $.ajax({
                           //controller 확인 주소
                           url : '${pageContext.request.contextPath}/emailIsCheck?user_email='+user_email,
                           type : 'GET',
@@ -326,8 +351,8 @@ let key = ${key};
                           }
                        });
                   }else{
-					//틀린 형식
-                	  $("#email_check").text("형식을 지켜주세요  :(");
+               //틀린 형식
+                     $("#email_check").text("형식을 지켜주세요  :(");
                       $('#email_check').css('color', 'red');
                       $("#email_check").attr("disabled", true);
                   }
@@ -370,7 +395,7 @@ let key = ${key};
                             $("[name=addr1]").val(data.zonecode);
                             $("[name=user_defaultAddress]").val(fullRoadAddr);
                             if(fullRoadAddr.length !=0 ){
-                            	signList[count++]=true;
+                               signList[count++]=true;
                             }
                         }
                      }).open();
@@ -380,53 +405,54 @@ let key = ${key};
 //key 1 5
 //key 2 4
 function userSubmit(){
-	 var form = document.userinput;
-	 let check = false;
-	 let ckeckValue = ${key} == 1 ? 5 : 4;
-// 	  alert( $('#user_age').val() +" "+$('input[name="user_gender"]:checked').val());
-	  
-// 	  alert($('#user_age').val() > 0 ); //ok
-// 	  alert($('input[name="user_gender"]:checked').val()!="f" || $('input[name="user_gender"]:checked').val()!="m");
-	 
-	  
-// 	  if(($('input[name="user_gender"]:checked').val()=="f" || $('input[name="user_gender"]:checked').val()=="m") && $('#user_age').val() > 0 && signList.length==check){
-		 
-// 		
-// 	  }	else 
-	
-	
-	
-	 if($('#user_age').val() == 0){
-		 $("#age_check").text("체크해주세요 :p");
+    var form = document.userinput;
+    let check = false;
+    let ckeckValue = ${key} == 1 ? 5 : 4;
+//      alert( $('#user_age').val() +" "+$('input[name="user_gender"]:checked').val());
+     
+//      alert($('#user_age').val() > 0 ); //ok
+//      alert($('input[name="user_gender"]:checked').val()!="f" || $('input[name="user_gender"]:checked').val()!="m");
+    
+     
+//      if(($('input[name="user_gender"]:checked').val()=="f" || $('input[name="user_gender"]:checked').val()=="m") && $('#user_age').val() > 0 && signList.length==check){
+       
+//       
+//      }   else 
+   
+   
+   
+    if($('#user_age').val() == 0){
+       $("#age_check").text("체크해주세요 :p");
          $('#age_check').css('color', 'red');
          $("#reg_submit").attr("disabled", true);
          
-	 }else{
-		 $("#age_check").text("good :p");
+    }else{
+       $("#age_check").text("good :p");
          $('#age_check').css('color', 'blue');
          $("#reg_submit").attr("disabled", true);
-	 }
-	if($('input[name="user_gender"]:checked').val() == undefined){
-		  $("#gender_check").text("체크해주세요 :p");
+    }
+   if($('input[name="user_gender"]:checked').val() == undefined){
+        $("#gender_check").text("체크해주세요 :p");
           $('#gender_check').css('color', 'red');
           $("#reg_submit").attr("disabled", true);
           return;
-	 }else {
-		 $("#gender_check").text("good :p");
+    }else {
+       $("#gender_check").text("good :p");
          $('#gender_check').css('color', 'blue');
          $("#reg_submit").attr("disabled", true);
-	 }
-	
-	for(var i=0; i<ckeckValue; i++) {
-	    if(signList[i] != true){
-	    	swal("한번더 자세히","잘못된 정보가 있습니다.","error");
-	    	return;
-	    }
-	}
-	
-	form.submit();
-	  
-	
+    }
+   
+   
+   for(var i=0; i<ckeckValue; i++) {
+       if(signList[i] != true){
+          swal("한번더 자세히","잘못된 정보가 있습니다.","error");
+          return;
+       }
+   }
+   
+   form.submit();
+     
+   
 }
 </script>
 

@@ -56,11 +56,10 @@
 				<!-- 내용 -->
 				<p class="mb-3">${detail.board_content }</p>
 <!-- 				첨부파일 폼 -->
-				<c:choose>
-					<c:when test="${!empty files}">
+					<c:if test="${!empty files}">
 							<hr>
 							<div class="form-group">
-								첨부파일 다운로드
+								<p class="jg">첨부파일 다운로드</p>
 <!-- 								<label>첨부파일</label> -->
 								<c:forEach var="files" varStatus="i" items="${files }">
 									<p>
@@ -68,8 +67,7 @@
 									</p>
 								</c:forEach>
 							</div>
-					</c:when>
-				</c:choose>
+					</c:if>
 
 
 				<div class="tag-widget post-tag-container mb-5 mt-5">

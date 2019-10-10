@@ -67,7 +67,7 @@
 		<!--       <h3 class="heading-sidebar">Notice</h3> -->
 		<ul class="categories">
 			<c:forEach var="list" varStatus="i" items="${list }">
-				<li><a href="../NoticeDetail?board_no=${list.board_no }">${list.board_title }<span>${list.board_insertdate }&nbsp&nbsp(${list.board_viewcount})</span></a>
+				<li><a href="../NoticeDetail?board_no=${list.board_no }"><span>${list.board_insertdate }&nbsp&nbsp(${list.board_viewcount})</span><br>${list.board_title }</a>
 				</li>
 			</c:forEach>
 		</ul>

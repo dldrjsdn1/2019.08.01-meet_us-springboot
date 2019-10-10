@@ -5,6 +5,31 @@
 
 <mapper namespace="Meet_Us.meeter.dao.MeeterMapper">
 
+<cache flushInterval="1000" />
+
+<select id="selectHomeMeetingList" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
+SELECT 
+	* 
+FROM 
+	MEETING_BOARD 
+WHERE 
+	MB_DELFLAG='N'AND MB_MEMBER != MB_CURRENT_MEMBER 
+ORDER BY 
+	MB_VIEW_COUNT DESC 
+LIMIT 0, 3
+</select>
+
+<select id="selectSimilarMeeting" parameterType="hashmap" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
+SELECT 
+	* 
+FROM 
+	MEETING_BOARD 
+WHERE MB_PURPOSE=#{MB_PURPOSE} AND MB_DELFLAG='N' AND MB_MEMBER != MB_CURRENT_MEMBER AND MB_NO != #{MB_NO}
+ORDER BY 
+	RAND() LIMIT 3
+</select>
+
+
 <insert id="insertMeetingBoard">
 INSERT INTO MEETING_BOARD(				
 	MB_WRITER										
@@ -21,7 +46,7 @@ INSERT INTO MEETING_BOARD(
     , MB_LIMIT_OTHER 	
     )
     VALUES(
-    '이건우'
+    #{MB_WRITER}
     , #{MB_MEMBER}
     , #{MB_MEETING_DATE}
     , #{MB_MEETING_TIME}
@@ -35,6 +60,26 @@ INSERT INTO MEETING_BOARD(
     , #{MB_LIMIT_OTHER}
 )
 </insert>
+
+<update id = "modifyMeetingBoard" >
+UPDATE
+	MEETING_BOARD
+SET
+	MB_ModiDt = NOW()
+    , MB_MEMBER			= #{MB_MEMBER}
+    , MB_MEETING_DATE	= #{MB_MEETING_DATE}
+    , MB_MEETING_TIME	= #{MB_MEETING_TIME}
+    , MB_PURPOSE		= #{MB_PURPOSE}
+    , MB_PLACE			= #{MB_PLACE}
+    , MB_TITLE			= #{MB_TITLE}
+    , MB_CONTENTS		= #{MB_CONTENTS}
+    , MB_LIMIT_AGE_MIN	= #{MB_LIMIT_AGE_MIN}
+    , MB_LIMIT_AGE_MAX	= #{MB_LIMIT_AGE_MAX}
+    , MB_LIMIT_GENDER	= #{MB_LIMIT_GENDER}
+    , MB_LIMIT_OTHER	= #{MB_LIMIT_OTHER}
+WHERE
+	MB_NO = #{MB_NO}
+</update>
   
 <update id="viewCountIncrease">
      UPDATE 
@@ -72,6 +117,14 @@ INSERT INTO MEETING_BOARD(
    		WHERE
        				    MB_DELFLAG = 'N'
 	]]>
+</select>
+
+<select id="imagePath" resultType="String">
+select FILE_PATH FROM MEETING_BOARD_FILE WHERE UP_SEQ = #{no} AND DELFLAG ='N' LIMIT 1;
+</select>
+
+<select id="selectOne" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
+	SELECT * FROM MEETING_BOARD WHERE MB_NO = #{MB_NO}
 </select>
 
 <select id="selectMeetingDetail" resultType="Meet_Us.meeter.vo.MeetingBoardVo">
@@ -149,4 +202,106 @@ INSERT INTO MEETING_BOARD(
 		VALUES (#{up_Seq},#{file_Name},#{file_Real_Name},#{file_Path})
 	</insert>
 	
+	<select id="selectMeetingImageUrl" resultType="String">
+	SELECT FILE_PATH FROM MEETING_BOARD_FILE WHERE UP_SEQ = #{MB_NO} AND DELFLAG = 'N'
+	</select>
+	
+	<update id="MeetingDelete">
+		UPDATE MEETING_BOARD SET MB_DELFLAG = 'Y' WHERE MB_NO = #{MB_NO}
+	</update>
+	
+	<update id="MeetingDeleteImage">
+		UPDATE MEETING_BOARD_FILE SET DELFLAG = 'Y' WHERE UP_SEQ = #{MB_NO}
+	</update>
+	
+	<select id="selectImage" resultType="Meet_Us.meeter.vo.ImageVo">
+		select * from MEETING_BOARD_FILE WHERE UP_SEQ = #{MB_NO}
+	</select>
+	
+<!-- 	댓글 -->
+	<select id="replyList" parameterType="int" resultType="Meet_Us.meeter.vo.MeetBoardReplyVo">
+      SELECT 
+               MB_NO,
+               BOARD_REPLY_NO,
+                  BOARD_REPLY_WRITER,
+                    BOARD_REPLY_CONTENT,
+                  date_format(BOARD_REPLY_INSERTDATE, '%M %d. %Y %H :%i') BOARD_REPLY_INSERTDATE,
+                  date_format(BOARD_REPLY_INSERTDATE, '%M %d. %Y %H :%i') BOARD_REPLY_UPDATEDATE
+      FROM 
+               MEET_BOARD_REPLY
+      WHERE 
+               MB_NO=#{mb_no}
+      AND
+               BOARD_REPLY_DEFLAG='N'
+   </select>
+   
+   <insert id="insertReply" parameterType="Meet_Us.meeter.vo.MeetBoardReplyVo">
+      INSERT 
+      INTO 
+               MEET_BOARD_REPLY
+               (
+               MB_NO,
+               BOARD_REPLY_WRITER,
+               BOARD_REPLY_CONTENT,
+               BOARD_REPLY_INSERTDATE
+               )
+      VALUES
+               (
+               #{mb_no},
+               #{board_reply_writer},
+               #{board_reply_content},
+               now()
+               )
+   </insert>
+   
+   <update id="replyDelete" parameterType="int">
+      UPDATE 
+               MEET_BOARD_REPLY 
+      SET 
+               BOARD_REPLY_DEFLAG='Y' 
+      WHERE 
+               BOARD_REPLY_NO=#{board_reply_no}
+   </update>
+   
+   <select id="replyCount" parameterType="int" resultType="int">
+      SELECT 
+               COUNT(*)
+      FROM 
+               MEET_BOARD_REPLY
+      WHERE 
+               MB_NO=#{mb_no}
+      AND 
+               BOARD_REPLY_DEFLAG='N'
+   </select>
+   
+   <insert id="MeetingAttend" parameterType="hashmap">
+   INSERT INTO MEETING_ATTEND(UP_SEQ, ATTEND_NAME) VALUES(#{MB_NO}, #{name})
+   </insert>
+   
+   <update id="CurrentCountInc">
+   UPDATE
+   		MEETING_BOARD
+   SET 
+   		MB_CURRENT_MEMBER = MB_CURRENT_MEMBER+1
+   WHERE
+   		MB_NO=#{MB_NO}
+   </update>
+   
+   <select id="AttendMember" resultType="String">
+   SELECT ATTEND_NAME FROM MEETING_ATTEND WHERE UP_SEQ=#{MB_NO}
+   </select>
+   
+   <delete id="MeetingAttendCancel" parameterType="hashmap">
+   DELETE FROM MEETING_ATTEND WHERE ATTEND_NAME = #{name} AND UP_SEQ = #{MB_NO}
+   </delete>
+   
+   <update id="CurrentCountDec">
+   UPDATE
+   		MEETING_BOARD
+   SET 
+   		MB_CURRENT_MEMBER = MB_CURRENT_MEMBER-1
+   WHERE
+   		MB_NO=#{MB_NO}
+   </update>
+   
 </mapper>

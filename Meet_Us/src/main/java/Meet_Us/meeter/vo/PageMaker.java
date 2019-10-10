@@ -1,6 +1,9 @@
 package Meet_Us.meeter.vo;
 
-public class PageMaker {
+import java.io.Serializable;
+
+public class PageMaker implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	private PageCriteria cri;
 	private int totalCount;

@@ -64,7 +64,7 @@
             <!--아이디 -->
             <div class="form-group">
                <label for="user_id">아이디</label> 
-               <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID">
+               <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID" autocomplete="off">
                <div class="check_font" id="id_check"></div>
             </div>
 		 </c:if>
@@ -73,14 +73,14 @@
             <!--번호 안들어가게 수정 -->
             <div class="form-group">
                <label for="user_name">이름</label> 
-               <input type="text" class="form-control" id="user_name" name="user_name" placeholder="name" >
+               <input type="text" class="form-control" id="user_name" name="user_name" placeholder="name" autocomplete="off">
                <div class="check_font" id="name_check"></div>
             </div>
 
             <!--이메일 -->
             <div class="form-group">
                <label for="user_email">이메일</label> 
-               <input type="text" class="form-control" id="user_email" name="user_email" placeholder="email">
+               <input type="text" class="form-control" id="user_email" name="user_email" placeholder="email" autocomplete="off">
                <div class="check_font" id="email_check"></div>
             </div>
             

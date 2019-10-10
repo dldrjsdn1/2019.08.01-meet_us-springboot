@@ -28,7 +28,7 @@
       </div>
     </section>
 
-<section class="ftco-section testimony-section" style="margin-top:5%; margin-bottom:5%;">
+<section class="ftco-section testimony-section" style="margin-top:5%; margin-bottom:5%; overflow-y : scroll; overflow-y:hidden;">
     	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob" alt="Colorlib Free Template">
     	<img src="${pageContext.request.contextPath}/resources/images/blob-shape-2.svg" class="svg-blob-2" alt="Colorlib Free Template">
       <div class="container">
@@ -39,12 +39,13 @@
           </div>
         </div> 
         
-<!--         조준서 -->
-        <div class="row ftco-animate justify-content-center">
+
+        <div class="row ftco-animate justify-content-center" style="overflow-y : scroll; overflow-y:hidden;">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel ftco-owl">
             
-              <div class="item">
+<!--         조준서 -->
+              <div class="item" style="overflow-y : scroll; overflow-y:hidden;">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/jun.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
@@ -60,7 +61,7 @@
               </div>
               
 <!--               이건우 -->
-              <div class="item">
+              <div class="item" style="overflow-y : scroll; overflow-y:hidden;">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/geon.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
@@ -76,7 +77,7 @@
               </div>
               
 <!--               박웅기 -->
-              <div class="item">
+              <div class="item" style="overflow-y : scroll; overflow-y:hidden;">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/park.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
@@ -92,7 +93,7 @@
               </div>
               
 <!--               서유진 -->
-              <div class="item">
+              <div class="item" style="overflow-y : scroll; overflow-y:hidden;">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/seo.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
@@ -108,7 +109,7 @@
               </div>
               
 <!--               이치수 -->
-              <div class="item">
+              <div class="item" style="overflow-y : scroll; overflow-y:hidden;">
                 <div class="testimony-wrap text-center py-4 pb-5">
                   <div class="user-img" style="background-image: url(resources/images/chichi.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">

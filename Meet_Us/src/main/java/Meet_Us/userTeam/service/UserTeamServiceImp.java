@@ -6,13 +6,16 @@ import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import Meet_Us.userTeam.dao.UserTeamMapper;
 import Meet_Us.userTeam.vo.UserTeamVo;
 
 @Service
 public class UserTeamServiceImp implements UserTeamService {
+	
    @Autowired
    private JavaMailSender mailSender;
 
@@ -24,6 +27,12 @@ public class UserTeamServiceImp implements UserTeamService {
    public int userIdCheck(String user_id) {
       return mapper.userIdCheck(user_id);
    }
+   
+   @Override
+   public int nameIsCheck(String user_name) {
+   	return mapper.nameIsCheck(user_name);
+   }
+
 
    // 이메일 중복 체크
    @Override
@@ -31,15 +40,16 @@ public class UserTeamServiceImp implements UserTeamService {
       return mapper.emailIsCheck(user_email);
    }
 
-   // 사용자 가입
+   // 사용자 가입 트랜젝션 걸자 망필 온다-> 이거하고 CustomUserDetailsService 여기 고쳐랴 해요
    @Override
+   @Transactional
    public int userInsert(UserTeamVo vo) throws Exception{
       if(vo.getUser_email()!=null) {
       MailHandler sendMail = new MailHandler(mailSender);
        sendMail.setSubject("[Meet_us  서비스 이메일 인증]");
            sendMail.setText(
                    new StringBuffer().append("<h1>메일인증</h1>")
-                                  .append("<a href='http://localhost:8087/emailConfirm?user_email=")
+                                  .append("<a href='https://meet-us.herokuapp.com/emailConfirm?user_email=")
                                   .append(vo.getUser_email())
                                   .append("&user_authority=")
                                   .append(vo.getUser_authority())
@@ -48,8 +58,11 @@ public class UserTeamServiceImp implements UserTeamService {
            sendMail.setFrom("jodummy158@gmail.com", "Meet_us ");
            sendMail.setTo(vo.getUser_email());
            sendMail.send();
+           mapper.userInsert(vo);
+           mapper.insertAuthority(vo.getUser_id());
+           return 1;
       }
-      return mapper.userInsert(vo);
+      return 0;
    }
 
    // 사용자 고유 번호 넣기
@@ -81,14 +94,15 @@ public class UserTeamServiceImp implements UserTeamService {
 
    @Override
    public int SeachUserPw(UserTeamVo vo) throws Exception {
-      String result = new TempKey().getKey(9, true);
-      vo.setUser_password(result);
+	  BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+	  String result = new TempKey().getKey(9, true);
+      vo.setUser_password(bcryptPasswordEncoder.encode(result));
       if(mapper.SeachUserPw(vo) == 1) {
          MailHandler sendMail = new MailHandler(mailSender);
          sendMail.setSubject("[Meet_us 서비스 이메일 인증]");
               sendMail.setText(
                    new StringBuffer().append("<h1>메일인증</h1>")
-                                  .append("<a href='localhost:8087/Login")
+                                  .append("<a href='localhost:8087/")
                                   .append("' target='_blank'>Login</a>")
                                   .append("<h1>"+result+"</h1>").toString());
            sendMail.setFrom("jodummy158@gmail.com", "Meet_us");
@@ -103,7 +117,10 @@ public class UserTeamServiceImp implements UserTeamService {
    }
 
    @Override
-   public int userLogin(UserTeamVo vo) {
-      return mapper.userLogin(vo);
+   public UserTeamVo userSetting(String user_name) {
+	   return mapper.userSetting(user_name);
    }
+
+
+
 }

@@ -1,6 +1,10 @@
 package Meet_Us.board.vo;
 
-public class PageCriteria {
+import java.io.Serializable;
+
+public class PageCriteria implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private int page; 
 	private int perPageNum; 
 	private String keyword; 

@@ -46,6 +46,13 @@
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
    
+    <!-- MeetingModify 페이지-->
+   <definition name="bootstrap.MeetingModify" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/MeetingModify.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
    <!-- Notice 페이지-->
    <definition name="bootstrap.Notice" extends="defaultLayout"> 
       <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
@@ -123,10 +130,24 @@
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
    
-	<!--사용자 정보 찾기 시스템 -->
+   <!--계정 찾기 -->
     <definition name="bootstrap.UserSearch" extends="defaultLayout"> 
       <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
       <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSearch.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+	<!-- MyPage -->
+    <definition name="bootstrap.MyPage" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/MyPage.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+   	<!--AdminPage -->
+    <definition name="bootstrap.AdminPage" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/AdminPage.jsp" />
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
 

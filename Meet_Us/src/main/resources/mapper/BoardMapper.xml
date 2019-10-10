@@ -4,6 +4,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Meet_Us.board.dao.BoardMapper">
+
+<cache flushInterval="1000" />
         
 <select id="selectBoardList" parameterType="Meet_Us.board.vo.BoardVo" resultType="Meet_Us.board.vo.BoardVo" >
 	SELECT 
@@ -143,8 +145,7 @@
 	INSERT INTO 
 						MEET_BOARD(USER_ID , BOARD_TITLE, BOARD_CONTENT) 
 	VALUES 
-						("jodummy" , #{board_title} , #{board_content})
-
+						(#{user_id} , #{board_title} , #{board_content})
 </insert>
 
 <update id="ModifyBoard" parameterType="Meet_Us.board.vo.BoardVo">

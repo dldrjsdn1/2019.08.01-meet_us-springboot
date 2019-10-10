@@ -9821,14 +9821,69 @@ textarea.form-control {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
 
+@media (min-width: 700px){
+.sidebar-box {
+
+/*   padding: 25px; */
+  
+    padding-top: 3% !important;;
+    padding-bottom: 5% !important;;
+    padding-left: 20% !important;;
+    padding-right: 20% !important;;
+    
+    
+  font-size: 15px;
+  width: 100%; }
+}
+
+.sidebar-box-lee {
+
+   padding: 25px; 
+  
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-left: 5% !important;;
+    padding-right: 5% !important;;
+    
+    
+  font-size: 15px;
+  width: 100%; }
+  
+/*   로딩 돼지 */
+ .loading {
+ width: 100%;  
+ height: 100%;  
+ top: 0px;
+ left: 0px;
+ position: fixed;  
+ display: block;  
+ opacity: 0.7;  
+ background-color: #fff;  
+ z-index: 99;  
+ text-align: center; } 
+ 
+.loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 40%;  
+ z-index: 100; }
+ 
+ @media(min-width:700px){
+ .loading-image {  
+ position: absolute;  
+ top: 50%;   
+ left: 47%;  
+ z-index: 100; }
+ }
+
 .sidebar-box {
 
 /*   padding: 25px; */
   
     padding-top: 3%;
     padding-bottom: 5%;
-    padding-left: 17%;
-    padding-right: 17%;
+    padding-left: 5%;
+    padding-right: 5%;
     
     
   font-size: 15px;
@@ -9839,6 +9894,7 @@ textarea.form-control {
   .sidebar-box .heading-sidebar {
     font-weight: 500;
     margin-bottom: 20px; }
+
 
 .categories, .sidelink {
   padding: 0;
@@ -9858,7 +9914,7 @@ textarea.form-control {
       color: #1a1a1a; }
       .categories li a span, .sidelink li a span {
         position: absolute;
-        right: 0;
+/*         right: 0; */
         top: 0;
         color: #ccc; }
     .categories li.active a, .sidelink li.active a {

@@ -1,6 +1,10 @@
 package Meet_Us.meeter.vo;
 
-public class MeetingBoardVo {
+import java.io.Serializable;
+
+public class MeetingBoardVo implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	
 	int MB_NO; 
     String MB_WRITER;
@@ -21,6 +25,7 @@ public class MeetingBoardVo {
     String MB_LIMIT_GENDER;
     String MB_LIMIT_OTHER;
     String condition;
+    String FILE_PATH;
     
 	public int getMB_NO() {
 		return MB_NO;
@@ -136,6 +141,13 @@ public class MeetingBoardVo {
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
+	
+	public String getFILE_PATH() {
+		return FILE_PATH;
+	}
+	public void setFILE_PATH(String fILE_PATH) {
+		FILE_PATH = fILE_PATH;
+	}
 	@Override
 	public String toString() {
 		return "MeetingBoardVo [MB_NO=" + MB_NO + ", MB_WRITER=" + MB_WRITER + ", MB_CrtDt=" + MB_CrtDt + ", MB_ModiDt="
@@ -144,6 +156,7 @@ public class MeetingBoardVo {
 				+ ", MB_MEETING_TIME=" + MB_MEETING_TIME + ", MB_PURPOSE=" + MB_PURPOSE + ", MB_PLACE=" + MB_PLACE
 				+ ", MB_TITLE=" + MB_TITLE + ", MB_CONTENTS=" + MB_CONTENTS + ", MB_LIMIT_AGE_MIN=" + MB_LIMIT_AGE_MIN
 				+ ", MB_LIMIT_AGE_MAX=" + MB_LIMIT_AGE_MAX + ", MB_LIMIT_GENDER=" + MB_LIMIT_GENDER
-				+ ", MB_LIMIT_OTHER=" + MB_LIMIT_OTHER + ", condition=" + condition + "]";
+				+ ", MB_LIMIT_OTHER=" + MB_LIMIT_OTHER + ", condition=" + condition + ", FILE_PATH=" + FILE_PATH + "]";
 	}
+	
 }
