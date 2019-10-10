@@ -5,6 +5,8 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -174,7 +176,15 @@ public class MeeterController {
 									, @RequestParam("MB_NO") int MB_NO
 									) throws Exception {
 		model.addAttribute("MB_NO", MB_NO);
+		model.addAttribute("imageUrl", service.selectMeetingImageUrl(MB_NO));
+		
 		return "bootstrap.MeetingImageInsert";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/MeetingDeleteImage", method = RequestMethod.GET)
+	public void MeetingDeleteImage(Model model, @RequestParam("MB_NO") String MB_NO) throws Exception {
+		service.MeetingDeleteImage(Integer.parseInt(MB_NO));
 	}
 	
 	@RequestMapping(value = "/MeetingImageInsertAction", method = RequestMethod.POST)

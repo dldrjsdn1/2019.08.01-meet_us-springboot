@@ -187,6 +187,7 @@
 					    <input type="text" class="form-control" id="user_other" name="user_other" placeholder="(컴공 전공/대학생만/)" autocomplete="off"/><br>
 					</div>
 				</div>
+				
 
 				<div class="form-group">
 					<input type="button" value="작성하기" class="btn py-3 px-4 btn-primary" onclick="MeetingBoardInsert()">
@@ -201,6 +202,8 @@
 	<img id="loading-image" src="resources/images/Pinky Pig.svg" alt="Loading..." />
 	</div>
 	
+
+<!-- 정보 입력 관련 스크립트 -->
 <script type="text/javascript">
 $('#loading').hide();
 	$(function(){

@@ -34,7 +34,7 @@
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
 		          		<span class="subheading pl-5">place</span>
-			            <h1 class="jg">만남 장소를 찾아보세요</h1>
+			            <h1 class="jg">우리 어디서 만나요?</h1>
 			            <p>고민은 그만! 중간 지점을 찾아 모두가 인정할 합리적인 만남 장소를 찾도록 도와줍니다.</p>
 			            
 			            <p><a href="../Map" class="btn btn-primary px-5 py-3 mt-3">Place Search  <span class="ion-ios-arrow-forward"></span></a></p>
@@ -44,7 +44,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="overflow-y : scroll;">
+	      <div class="slider-item" style="overflow-y : scroll; overflow-y:hidden;">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -57,7 +57,7 @@
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
 		          		<span class="subheading pl-5">Meeting</span>
-			            <h1 class="jg">새로운 만남을 기대하세요</span></h1>
+			            <h1 class="jg">우리 누구와 만나요?</span></h1>
 			            <p>자신이 원하는 모임을 만들어 사람들을 모으거나, 만들어진 모임에 참여할 수 있습니다.</p>
 			            
 			            <p><a href="../MeeterMain" class="btn btn-primary px-5 py-3 mt-3">Meeting Search <span class="ion-ios-arrow-forward"></span></a></p>
