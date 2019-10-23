@@ -150,5 +150,33 @@
       <put-attribute name="body"         value="/WEB-INF/views/bootstrap/AdminPage.jsp" />
       <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
    </definition>
+   
+   <!-- 자기 정보 확인 -->
+    <definition name="bootstrap.UserSetting" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSetting.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+
+   <!-- 자기 정보 수정 -->
+     <definition name="bootstrap.UserSettingModify" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/UserSettingModify.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+   <!-- 관리자 페이지 -->
+    <definition name="bootstrap.AdminManager" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/AdminManager.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
+   
+    <!-- MyPageImageSave -->
+    <definition name="bootstrap.MyPageImageSave" extends="defaultLayout"> 
+      <put-attribute name="header"      value="/WEB-INF/views/bootstrap/include/header.jsp" />
+      <put-attribute name="body"         value="/WEB-INF/views/bootstrap/MyPageImageSave.jsp" />
+      <put-attribute name="footer"      value="/WEB-INF/views/bootstrap/include/footer.jsp" />
+   </definition>
 
 </tiles-definitions>

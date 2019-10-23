@@ -29,7 +29,7 @@
 <!--              <li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li> -->
              
              <sec:authorize access="isAnonymous()">
-            <li class="nav-item"><a href="../Login" class="nav-link"><span>Login</span></a></li>
+            <li class="nav-item"><a href="../Login" class="nav-link"><span><strong>Login</strong></span></a></li>
            </sec:authorize>
            
            <sec:authorize access="isAuthenticated()">
@@ -38,7 +38,7 @@
 <!--                       <button type="submit" style="background-color:transparent;  border:0px transparent solid; padding:top 10px"> -->
 <!--                       </button> -->
                    </form>
-               <li class="nav-item"><a class="nav-link" onclick="location.href='/UserSetting'"><span>UserSetting</span></a></li>
+               <li class="nav-item"><a class="nav-link" onclick="location.href='/UserSetting'"><span>MyPage</span></a></li>
                <li class="nav-item"><a class="nav-link" onclick="submitAtag()"><span><strong>Logout</strong></span></a></li>
                
            </sec:authorize>

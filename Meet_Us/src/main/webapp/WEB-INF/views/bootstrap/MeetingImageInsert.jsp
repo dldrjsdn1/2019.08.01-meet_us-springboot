@@ -87,9 +87,9 @@
 				<div class="card" style="padding:1rem;">
 				
 				<h3>Image PreView</h3>
-				<div class="card" id="deleteCard">
+				<div class="card" id="deleteCard" style="display:block;">
 				<c:forEach var="imageUrl" items="${imageUrl }">
-						<img style='width:200px; height:200px; margin:1.7rem;' src="${imageUrl}" class='selProductFile'>
+						<img style="width:200px; height:200px; margin:1.7rem; margin-right:0;" src="${imageUrl}" class='selProductFile'>
 				</c:forEach>
 				</div>
 				
@@ -184,7 +184,6 @@ $('#loading').hide();
 		var index = 0;
 		filesArr.forEach(function(f){
 			if(!f.type.match("image.*")){
-// 				alert("확장자는 이미지 확장자만 가능합니다.");
 				swal("이미지","이미지가 아닙니다.","error");
 				return ;
 			}
@@ -192,7 +191,7 @@ $('#loading').hide();
 			
 			var reader = new FileReader();
 			reader.onload = function(e){
-				var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img style='width:200px; height:200px; margin:1.7rem;' src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
+				var html = "<a href=\"javascript:void(0);\" onclick=\"deleteImageAction("+index+")\" id=\"img_id_"+index+"\"><img style='width:200px; height:200px; margin:1.7rem; margin-right:0;' src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selProductFile' title='Click to remove'></a>";
 				$(".imgs_wrap").append(html);
 				index++;
 			}
@@ -238,7 +237,7 @@ $('#loading').hide();
 //  		    	.then((value) => { location.href="../MeeterDetail?MB_NO=${MB_NO}" })
  		    },error : function(){
  		    	$('#loading').hide(); 
- 		    	swal("실패", "안타깝게도 이미지를 등록하지 못했습니다.", "error");
+ 		    	swal("실패", "(https://)로 다시 접속해주세요.", "error");
  		    }
  		});
 	}

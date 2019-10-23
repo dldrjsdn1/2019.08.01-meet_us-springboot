@@ -1,10 +1,12 @@
 package Meet_Us.userTeam.vo;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 
-public class UserTeamVo {
+public class UserTeamVo implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	private String user_seq; 
 	private String user_id; 

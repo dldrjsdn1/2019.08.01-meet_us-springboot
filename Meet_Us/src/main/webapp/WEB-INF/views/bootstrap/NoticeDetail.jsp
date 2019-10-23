@@ -1,6 +1,7 @@
 </html><%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -73,8 +74,10 @@
 				<div class="tag-widget post-tag-container mb-5 mt-5">
 					<div class="tagcloud">
 <!-- 						<a href="../Notice" class="tag-cloud-link">File Add</a> -->
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="../NoticeModify?board_no=${detail.board_no}" class="tag-cloud-link">MODIFY</a> 
 						<a href="../NoticeDelete?board_no=${detail.board_no}" class="tag-cloud-link">DELETE</a>
+						</sec:authorize>
 						<a href="../Notice" class="tag-cloud-link">Back</a>
 					</div>
 				</div>

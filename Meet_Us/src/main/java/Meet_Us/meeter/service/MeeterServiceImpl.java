@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Meet_Us.meeter.dao.MeeterMapper;
+import Meet_Us.meeter.vo.AttendUserInfo;
 import Meet_Us.meeter.vo.FileVo;
 import Meet_Us.meeter.vo.ImageVo;
 import Meet_Us.meeter.vo.MeetBoardReplyVo;
 import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
+import Meet_Us.meeter.vo.PushUsertokens;
+import Meet_Us.userTeam.vo.UserTeamVo;
  
 @Service
 public class MeeterServiceImpl implements MeeterService {
@@ -194,7 +197,7 @@ public class MeeterServiceImpl implements MeeterService {
 	   }
 	   
 	   //ATTEND LIST 
-	   public List<String> AttendMember(int MB_NO) throws Exception{
+	   public List<AttendUserInfo> AttendMember(int MB_NO) throws Exception{
 		   return mapper.AttendMember(MB_NO);
 	   }
 	   
@@ -210,4 +213,66 @@ public class MeeterServiceImpl implements MeeterService {
 	   public void CurrentCountDec(String MB_NO) throws Exception{
 		     mapper.CurrentCountDec(MB_NO);
 	   }
+	   
+	   @Override
+	   public List<MeetingBoardVo> userSettingMeeter(String mb_writer) {
+	      return mapper.userSettingMeeter(mb_writer);
+	   }
+
+	   @Override
+	   public List<MeetingBoardVo> metterListAdmin() {
+	      return mapper.metterListAdmin();
+	   }
+	   
+	   // myBoardList
+	   @Override
+	   public List<MeetingBoardVo> myAttendList(String name){
+		   return mapper.myAttendList(name);
+	   }
+	   
+	   // 로그인 사용자 프로필 가져오기
+	   @Override
+	   public String LoginUserProfile(String name) {
+		   return mapper.LoginUserProfile(name);
+	   }
+	   
+	   //푸시 알림 관련 서비스-------------------------------------------------------------------------
+	   //등록된 Meeting 조회
+	   @Override
+	   public List<Integer> SelectRegisterMeeting(){
+	   		return mapper.SelectRegisterMeeting();
+	   }
+	   //마감 Meeting 등록
+	   @Override
+	   public void registerMeeting(int MB_NO) {
+		   mapper.registerMeeting(MB_NO);
+	   }
+	   //푸시 카운트 +1
+	   @Override
+	   public void pushCountIcre(int MB_NO){
+		    mapper.pushCountIcre(MB_NO);
+	   }
+	   //푸시 카운트 0인 Meeting에 참가한 사람의 토근 조회
+	   @Override
+	   public List<PushUsertokens> registerUserToken(int MB_NO){
+	   return mapper.registerUserToken(MB_NO);
+	   }
+	   
+	 //푸시에 보낸 가장 처음 사진
+	 @Override
+	 public String pushImage(int MB_NO) {
+		 return mapper.pushImage(MB_NO);
+	 }
+	 
+	//유저 제한 사항 조회
+	 @Override
+     public UserTeamVo userLimit(String name){
+		 return mapper.userLimit(name);
+	 }
+	 
+	//유저 제한 사항 조회
+	@Override
+	    public String masterToken(String name){
+		return mapper.masterToken(name);
+		 }
 }

@@ -141,12 +141,6 @@
 				</div>
 				</c:otherwise>
 				</c:choose>
-				<!-- 모이는 장소 -->
-				<div class="form-group">
-					<label for="MeetingPlace"><strong>*만나는 장소</strong></label> <input
-						type="text" class="form-control" id="MeetingPlace"
-						name="MeetingPlace" placeholder="만남 장소를 입력해주세요." autocomplete="off">
-				</div>
 
 				<!-- 제목 -->
 				<div class="form-group">

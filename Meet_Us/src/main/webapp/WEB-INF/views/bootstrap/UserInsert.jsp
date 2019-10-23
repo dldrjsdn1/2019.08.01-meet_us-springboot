@@ -116,15 +116,15 @@
                <div class="check_font" id="gender_check"></div>
             </div>
 
-            <div class="form-group">  
-            <label for="user_gender">우편주소</label>  
-            <br/>                
-               <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly">
-                <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>                               
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" style="top: 5px;" placeholder="도로명 주소" name="user_defaultAddress" id="user_defaultAddress"  readonly="readonly"/>
-            </div>
+<!--             <div class="form-group">   -->
+<!--             <label for="user_gender">우편주소</label>   -->
+<!--             <br/>                 -->
+<!--                <input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly"> -->
+<!--                 <button type="button" class="btn btn-default" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>                                -->
+<!--             </div> -->
+<!--             <div class="form-group"> -->
+<!--                 <input type="text" class="form-control" style="top: 5px;" placeholder="도로명 주소" name="user_defaultAddress" id="user_defaultAddress"  readonly="readonly"/> -->
+<!--             </div> -->
             
             <input type="hidden" value= "${key}" name="key" id="key" >
             <c:if test="${key eq 2}">
@@ -165,8 +165,6 @@ let signCheck=0;
 let signList = new Array();
 let count =0;
 let key = ${key};
-//    alert(${key}==1);
-//    alert(${key}==2);
    
    
    
@@ -308,7 +306,6 @@ let key = ${key};
                                      $("#name_check").text("사용하세요!! :)");
                                       $("#name_check").css("color","blue");
                                       $("#reg_submit").attr("disabled", true);
-                                      signList[count++]=true;
                                   }
                                },
                                error : function() {
@@ -359,47 +356,47 @@ let key = ${key};
                 });      
                      
                      
-               function execPostCode() {
-                     new daum.Postcode({
-                         oncomplete: function(data) {
-                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+//                function execPostCode() {
+//                      new daum.Postcode({
+//                          oncomplete: function(data) {
+//                             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
              
-                            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                            var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-                            var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+//                             // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+//                             // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+//                             var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+//                             var extraRoadAddr = ''; // 도로명 조합형 주소 변수
              
-                            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                                extraRoadAddr += data.bname;
-                            }
-                            // 건물명이 있고, 공동주택일 경우 추가한다.
-                            if(data.buildingName !== '' && data.apartment === 'Y'){
-                               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                            }
-                            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                            if(extraRoadAddr !== ''){
-                                extraRoadAddr = ' (' + extraRoadAddr + ')';
-                            }
-                            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-                            if(fullRoadAddr !== ''){
-                                fullRoadAddr += extraRoadAddr;
-                            }
+//                             // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+//                             // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+//                             if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+//                                 extraRoadAddr += data.bname;
+//                             }
+//                             // 건물명이 있고, 공동주택일 경우 추가한다.
+//                             if(data.buildingName !== '' && data.apartment === 'Y'){
+//                                extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+//                             }
+//                             // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+//                             if(extraRoadAddr !== ''){
+//                                 extraRoadAddr = ' (' + extraRoadAddr + ')';
+//                             }
+//                             // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+//                             if(fullRoadAddr !== ''){
+//                                 fullRoadAddr += extraRoadAddr;
+//                             }
              
-                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                            console.log(data.zonecode);
-                            console.log(fullRoadAddr);
+//                             // 우편번호와 주소 정보를 해당 필드에 넣는다.
+//                             console.log(data.zonecode);
+//                             console.log(fullRoadAddr);
                             
                             
-                            $("[name=addr1]").val(data.zonecode);
-                            $("[name=user_defaultAddress]").val(fullRoadAddr);
-                            if(fullRoadAddr.length !=0 ){
-                               signList[count++]=true;
-                            }
-                        }
-                     }).open();
-                 }
+//                             $("[name=addr1]").val(data.zonecode);
+//                             $("[name=user_defaultAddress]").val(fullRoadAddr);
+//                             if(fullRoadAddr.length !=0 ){
+//                                signList[count++]=true;
+//                             }
+//                         }
+//                      }).open();
+//                  }
                
              
 //key 1 5
@@ -407,17 +404,7 @@ let key = ${key};
 function userSubmit(){
     var form = document.userinput;
     let check = false;
-    let ckeckValue = ${key} == 1 ? 5 : 4;
-//      alert( $('#user_age').val() +" "+$('input[name="user_gender"]:checked').val());
-     
-//      alert($('#user_age').val() > 0 ); //ok
-//      alert($('input[name="user_gender"]:checked').val()!="f" || $('input[name="user_gender"]:checked').val()!="m");
-    
-     
-//      if(($('input[name="user_gender"]:checked').val()=="f" || $('input[name="user_gender"]:checked').val()=="m") && $('#user_age').val() > 0 && signList.length==check){
-       
-//       
-//      }   else 
+    let ckeckValue = ${key} == 1 ? 4 : 4;
    
    
    
@@ -441,8 +428,7 @@ function userSubmit(){
          $('#gender_check').css('color', 'blue');
          $("#reg_submit").attr("disabled", true);
     }
-   
-   
+   signList[count++]=true;
    for(var i=0; i<ckeckValue; i++) {
        if(signList[i] != true){
           swal("한번더 자세히","잘못된 정보가 있습니다.","error");

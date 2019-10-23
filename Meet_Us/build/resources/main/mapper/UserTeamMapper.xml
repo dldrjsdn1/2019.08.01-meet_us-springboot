@@ -63,7 +63,7 @@
             #{user_name},
             DATE_FORMAT(now(), '%Y') - #{user_age} +1,
             #{user_gender},
-            #{user_defaultAddress},
+            'null',
             #{user_authority},
             #{user_kakaoImg}
             )
@@ -191,5 +191,71 @@
     AND 
           USER_AUTHORITY='Y'
    </select>
+   
+   <update id="userSettingUpdate" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
+    UPDATE 
+             MEET_USER
+   SET 
+            USER_NAME=#{user_name}, 
+            USER_AGE=#{user_age},
+            USER_GENDER=#{user_gender}
+   WHERE 
+            USER_ID=#{user_id}
+   AND 
+            USER_AUTHORITY='Y'
+   
+   </update>
+   
+   <select id="userPwCheck" parameterType="String" resultType="String">
+    SELECT 
+             USER_PASSWORD
+   FROM 
+            MEET_USER
+   WHERE 
+            USER_NAME=#{user_name}
+   AND 
+            USER_AUTHORITY='Y'
+   </select>
+   
+   <update id="userPwUpdate" parameterType="Meet_Us.userTeam.vo.UserTeamVo">
+   UPDATE 
+               MEET_USER 
+      SET 
+               USER_PASSWORD=#{user_password}
+      WHERE 
+               USER_NAME=#{user_name}
+   </update>
+   
+   <select id="userLsitAdmin" resultType="Meet_Us.userTeam.vo.UserTeamVo">
+   SELECT 
+            USER_ID,
+               USER_EMAIL,
+               USER_NAME,
+               USER_AGE,
+                 USER_GENDER
+   FROM 
+            MEET_USER
+   WHERE 
+            USER_AUTHORITY='Y'
+   </select>
+   
+   <update id="profileDelete">
+   UPDATE 
+               PROFILE_FILE 
+      SET 
+               DELFLAG = 'Y'
+      WHERE 
+               USER_NAME=#{name}
+   </update>
+   
+   <insert id="profileInsert" parameterType="Meet_Us.userTeam.vo.UImageVo">
+		INSERT INTO
+		PROFILE_FILE (USER_NAME, FILE_NAME, FILE_REAL_NAME, FILE_PATH)
+		VALUES (#{user_name},#{file_Name},#{file_Real_Name},#{file_Path})
+	</insert>
+	
+	<select id="profilePath" resultType="String">
+	SELECT FILE_PATH FROM PROFILE_FILE WHERE USER_NAME = #{name} AND DELFLAG = 'N'
+	</select>
 
 </mapper>

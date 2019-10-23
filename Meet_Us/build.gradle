@@ -88,6 +88,11 @@ dependencies {
    // 이메일 쪽 에러 떄문에 수정
    compile 'com.sendgrid:sendgrid-java:4.0.1'
    
+   //푸시알림
+   compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.5.0'
+   compile group: 'org.json', name: 'json', version: '20160810'
+   compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+   compile group: 'nl.martijndwars', name: 'web-push', version: '5.0.2'
    
    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8' // 인코딩 UTF-8로 통일.
 }

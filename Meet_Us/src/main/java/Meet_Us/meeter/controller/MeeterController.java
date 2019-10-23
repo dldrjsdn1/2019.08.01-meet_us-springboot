@@ -5,8 +5,6 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//import com.sendgrid.Content;
+import Meet_Us.Notification.service.firebasePushAction;
+
+//import com.sendgrid.Content; 
 //import com.sendgrid.Email;
 //import com.sendgrid.Mail;
 //import com.sendgrid.Method;
@@ -31,11 +31,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import Meet_Us.meeter.service.MAmazonS3ClientService;
 import Meet_Us.meeter.service.MeeterService;
+import Meet_Us.meeter.vo.AttendUserInfo;
 import Meet_Us.meeter.vo.FileVo;
 import Meet_Us.meeter.vo.MeetBoardReplyVo;
 import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
 import Meet_Us.meeter.vo.PageMaker;
+import Meet_Us.meeter.vo.PushUsertokens;
 
 @Controller
 @EnableAutoConfiguration
@@ -45,6 +47,8 @@ public class MeeterController {
 	private MeeterService service;
 	@Autowired
 	private MAmazonS3ClientService amazonS3ClientService;
+	@Autowired 
+	private firebasePushAction firebasepushAction;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String Home(Model model) throws Exception {
@@ -54,7 +58,6 @@ public class MeeterController {
 			list[i].setFILE_PATH(service.imagePath(list[i].getMB_NO()));
 		}
 		model.addAttribute("list", list);
-		
 		return "bootstrap.Home";
 	}
 
@@ -106,6 +109,37 @@ public class MeeterController {
 		
 		service.viewCountIncrease(MB_NO);
 		MeetingBoardVo detail = service.selectMeetingDetail(MB_NO);
+		
+		//모집 마감 알림 보내기
+		//인원이 마감 되었을 때
+		if(detail.getMB_MEMBER() == detail.getMB_CURRENT_MEMBER()) {
+			//푸시 대기 테이블에 등록되어있는지 확인하고
+			if(service.SelectRegisterMeeting().contains(MB_NO) == false) {
+				//없을 시 등록한다
+				service.registerMeeting(MB_NO);
+				//방금 등록한 게시글이므로 푸시를 보낸적 없다.
+				//이 게시글의 참가자들의 토큰을 조회한다.
+				List<PushUsertokens> userTokens = service.registerUserToken(MB_NO);
+				//이 게시글에 사진이 있을 경우
+				if(service.pushImage(MB_NO) != null) {
+					for(int i=0; i<userTokens.size();i++) {
+						String token = userTokens.get(i).getPush_user_token();
+			        	firebasepushAction.FirstMassagePush(token,service.pushImage(MB_NO),detail);
+					}
+					firebasepushAction.FirstMassagePush(service.masterToken(detail.getMB_WRITER()),service.pushImage(MB_NO),detail);
+				}else {
+					for(int i=0; i<userTokens.size();i++) {
+						String token = userTokens.get(i).getPush_user_token();
+			        	firebasepushAction.FirstMassagePush(token,detail);
+					}
+					firebasepushAction.FirstMassagePush(service.masterToken(detail.getMB_WRITER()),detail);
+					
+				}
+				//푸시 알림 횟수 +1
+				service.pushCountIcre(MB_NO);
+			  }
+			}
+		
 		List<MeetingBoardVo> subList= service.selectSimilarMeeting(Integer.toString(MB_NO), detail.getMB_PURPOSE());
 		List<MeetBoardReplyVo> vo = service.replyList(MB_NO);
 		   
@@ -126,6 +160,8 @@ public class MeeterController {
 	    model.addAttribute("name", principal.getName());
 	    model.addAttribute("count", service.replyCount(MB_NO));
 	    model.addAttribute("memberList", service.AttendMember(MB_NO));
+	    model.addAttribute("LoginUserProfile", service.LoginUserProfile(principal.getName()));
+	    model.addAttribute("userLimit", service.userLimit(principal.getName()));
 	    
 		return "bootstrap.MeeterDetail";
 	}
@@ -135,7 +171,6 @@ public class MeeterController {
 	   public int insertReply(MeetBoardReplyVo vo) {
 	      String description = vo.getBoard_reply_content();
 	      vo.setBoard_reply_content(description.replace("\r\n","<br>")); // 줄바꿈 처리
-//	       System.out.println(vo.getBoard_reply_content());
 	       
 	      return service.insertReply(vo);
 	   }
@@ -143,7 +178,6 @@ public class MeeterController {
 	   @RequestMapping(value = "/replyDelete", method = RequestMethod.GET)
 	   @ResponseBody
 	   public int replyDelete(MeetBoardReplyVo vo) {
-//	      System.out.println(vo.toString());
 	      
 	      return service.replyDelete(vo.getBoard_reply_no());
 	   }
@@ -263,8 +297,19 @@ public class MeeterController {
 	@RequestMapping(value = "/MeetingAttend", method = RequestMethod.GET)
 	public String MeetingAttend(Model model, @RequestParam("MB_NO") String MB_NO, Principal principal,RedirectAttributes redirectAttributes) throws Exception {
 		
-		service.MeetingAttend(MB_NO, principal.getName());
-		service.CurrentCountInc(MB_NO);
+		List<AttendUserInfo> userInfo = service.AttendMember(Integer.parseInt(MB_NO));
+		//참가할 사람이 참가자 목록에 기재된적 있는지 확인하기 위한 변수
+		String Attendance = "no";
+		for(int i=0;i<userInfo.size();i++) {
+			if(userInfo.get(i).getAttend_name() == principal.getName())
+			 	Attendance = "yes";
+		}
+		if(Attendance == "no") {
+			service.MeetingAttend(MB_NO, principal.getName());
+			service.CurrentCountInc(MB_NO);
+		}
+//		service.MeetingAttend(MB_NO, principal.getName());
+//		service.CurrentCountInc(MB_NO);
 		redirectAttributes.addAttribute("MB_NO", MB_NO);
 		
 		return "redirect:/MeeterDetail";
@@ -279,5 +324,4 @@ public class MeeterController {
 		
 		return "redirect:/MeeterDetail";
 	}
-	
 }

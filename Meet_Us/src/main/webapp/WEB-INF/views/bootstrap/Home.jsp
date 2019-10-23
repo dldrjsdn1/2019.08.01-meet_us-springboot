@@ -19,12 +19,12 @@
 		  <div class="home-slider owl-carousel">
 	      
 	      
-	      <div class="slider-item"style="overflow-y : scroll; overflow-y:hidden;">
+	      <div class="slider-item"style="overflow-y : scroll; overflow-y:hidden; ">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/place.jpg);">
+	          		<div class="img cipal" style="background-image:url(resources/images/place.jpg);" >
 	          			<div class="overlay"></div>
 	          		</div>
 	          		<div class="bg-primary">
@@ -44,12 +44,12 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="overflow-y : scroll; overflow-y:hidden;">
+	      <div class="slider-item" style="overflow-y : scroll; overflow-y:hidden; ">
 	      	<div class="overlay"></div>
 	        <div class="container-fluid p-0">
 	          <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third order-md-last">
-	          		<div class="img" style="background-image:url(resources/images/meeting.jpg);">
+	          		<div class="img cipal" style="background-image:url(resources/images/meeting.jpg);">
 	          			<div class="overlay"></div>
 	          		</div>
 	          		<div class="vr"><span class="pl-3 py-4" style="background-image: url(resources/images/bg_2-2.jpg);">Meeting</span></div>

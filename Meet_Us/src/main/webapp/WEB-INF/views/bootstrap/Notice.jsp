@@ -6,6 +6,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html lang="en">
 <head>
 <title>Meet us</title>
@@ -16,14 +17,12 @@
 
 <script type="text/javascript">
 	function noticeDetail(board_no) {
-		alert(board_no);
 		location.href = "/NoticeDetail?board_no=" + board_no;
 	}
 	function enterCheck(keyword) {
 		let test = keyword.value();
         if (event.keyCode == 13) {
            //SearchPlace();
-    		alert(test);
     		location.href = "/NoticeDetail?board_no=" + board_no;
         }
      }
@@ -75,9 +74,11 @@
 
 <!-- 관리자 페이지로 이전 -->
 		<div class="tag-widget post-tag-container mb-5 mt-5">
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
 			<div class="tagcloud">
 				<a href="../NoticeInsert" class="tag-cloud-link">공지사항 추가</a>
 			</div>
+		</sec:authorize>
 		</div>
 
 <!-- 		<div class="sidebar-box"> -->

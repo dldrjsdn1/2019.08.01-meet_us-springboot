@@ -25,7 +25,7 @@ import org.springframework.web.servlet.view.tiles3.TilesView;
 //@Configuration : 현재 클래스가 Spring의 설정 파일임을 알려주는 어노테이션
 //@EnableAutoConfiguration : Spring boot 클래스패스 세팅 및 다양한 Bean 추가 등을 시켜주는 어노테이션
 //@ComponetScan : 다른 컴포넌트, 서비스, 설정 등을 찾을 수 있게 도와주는 어노테이션
-@MapperScan(value={"Meet_Us.main.dao", "Meet_Us.board.dao","Meet_Us.userTeam.dao", "Meet_Us.meeter.dao"})
+@MapperScan(value={"Meet_Us.main.dao", "Meet_Us.board.dao","Meet_Us.userTeam.dao", "Meet_Us.meeter.dao", "Meet_Us.Notification.dao"})
 
 public class Index extends SpringBootServletInitializer{
 	
@@ -63,28 +63,5 @@ public class Index extends SpringBootServletInitializer{
 		resolver.setViewClass(TilesView.class);
 		return resolver;
 	}
-	
-//	@Bean
-//	public MultipartConfigElement multipartConfigElement() {
-//	    MultipartConfigFactory factory = new MultipartConfigFactory();
-//
-//	    factory.setMaxFileSize(1024);
-//	    factory.setMaxRequestSize(1024);
-//
-//	    return factory.createMultipartConfig();
-//	}
-//
-//	@Bean
-//	public MultipartResolver multipartResolver() {
-//	    return new StandardServletMultipartResolver();
-//	}
-	
-//	@Bean
-//	public MultipartResolver multipartResolver() {
-//	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-//	    multipartResolver.setMaxUploadSize(10485760); // 1024 * 1024 * 10
-//	    return multipartResolver;
-//	}
- 
 }
 

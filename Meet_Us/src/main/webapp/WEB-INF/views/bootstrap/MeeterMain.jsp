@@ -68,7 +68,7 @@
 									<c:otherwise>
 									<a
 										href="../MeeterDetail?MB_NO=${arrayList.getMB_NO() }">
-										<img src="resources/images/destination-1.jpg" style="height:14rem; width:100%;"
+										<img src="resources/images/gallery-1.jpg" style="height:14rem; width:100%;"
 										class="img-fluid" alt="Colorlib Template">
 									</a>
 									</c:otherwise>

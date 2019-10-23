@@ -3,11 +3,14 @@ package Meet_Us.meeter.service;
 import java.util.List;
 import java.util.Map;
 
+import Meet_Us.meeter.vo.AttendUserInfo;
 import Meet_Us.meeter.vo.FileVo;
 import Meet_Us.meeter.vo.ImageVo;
 import Meet_Us.meeter.vo.MeetBoardReplyVo;
 import Meet_Us.meeter.vo.MeetingBoardVo;
 import Meet_Us.meeter.vo.PageCriteria;
+import Meet_Us.meeter.vo.PushUsertokens;
+import Meet_Us.userTeam.vo.UserTeamVo;
 
 public interface MeeterService {
 	
@@ -72,13 +75,44 @@ public interface MeeterService {
      public void CurrentCountInc(String MB_NO) throws Exception;
      
      //ATTEND LIST 
-     public List<String> AttendMember(int MB_NO) throws Exception;
+     public List<AttendUserInfo> AttendMember(int MB_NO) throws Exception;
      
 	 //Meeting 참여 취소
      public void MeetingAttendCancel(String MB_NO, String name) throws Exception;
      
      //CURRENT_MEMBER 감소
      public void CurrentCountDec(String MB_NO) throws Exception;
+     
+     // user 가입한 팀 userSetting쪽
+     public List<MeetingBoardVo> userSettingMeeter(String mb_writer);
+
+     // admin lsit team
+     public List<MeetingBoardVo> metterListAdmin();
+     
+     // myBoardList
+     public List<MeetingBoardVo> myAttendList(String name);
+     
+     // 로그인 사용자 프로필 가져오기
+     public String LoginUserProfile(String name);
+     
+     //푸시 알림 관련 서비스-------------------------------------------------------------------------
+     //등록된 Meeting 조회
+     public List<Integer> SelectRegisterMeeting();
+     //마감 Meeting 등록
+     public void registerMeeting(int MB_NO);
+     //푸시 카운트 +1
+     public void pushCountIcre(int MB_NO);
+     //푸시 카운트 0인 Meeting에 참가한 사람의 토근 조회
+     public List<PushUsertokens> registerUserToken(int MB_NO);
+     //푸시에 보낸 가장 처음 사진
+     public String pushImage(int MB_NO);
+     
+   //유저 제한 사항 조회
+     public UserTeamVo userLimit(String name);
+     
+   //방장토큰 조회
+     public String masterToken(String name);
+     
      
 
 } 

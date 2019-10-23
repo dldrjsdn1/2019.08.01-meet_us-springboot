@@ -12,7 +12,6 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
@@ -86,7 +85,6 @@
 							<c:set var="MB_LIMIT_GENDER" value="${detail.MB_LIMIT_GENDER }" />
 							<c:set var="MB_LIMIT_OTHER" value="${detail.MB_LIMIT_OTHER }" />
 							
-<%-- 							<c:choose> --%>
 							<c:if test="${MB_LIMIT_AGE_MIN ne '0'}">
 							<p class="jg">최소 나이 : ${detail.MB_LIMIT_AGE_MIN }</p>
 							</c:if>
@@ -108,7 +106,6 @@
 							<c:if test="${MB_LIMIT_OTHER ne '미정'}">
 							<p class="jg">${detail.MB_LIMIT_OTHER }</p>
 							</c:if>
-<%-- 							</c:choose> --%>
 							
 							</p></h3>
 						</div>
@@ -152,10 +149,15 @@
 			<ul class="comment-list">
 			    <li class="comment">
                   <div class="vcard bio" style="width:50px;">
-                    <img src="resources/images/jun.jpg" style="width:50px; height:50px; border:solid; border-color:#e2c0bb;" alt="Image placeholder">
+						<c:if test="${!empty memberList.file_path}">
+							<img src="${memberList.file_path}" style="width:50px; height:50px; border:solid; border-color:#e2c0bb;" alt="Image placeholder">
+						</c:if>
+						<c:if test="${empty memberList.file_path}">
+							<img src="resources/images/profile.png" style="width:50px; height:50px; border:solid; border-color:#e2c0bb;" alt="Image placeholder">
+						</c:if>
                   </div>
                   <div class="comment-body" style="margin-top:1rem; float:left; margin-left:1rem;">
-                    <h7 class="jg">${memberList}</h7>
+                    <h7 class="jg">${memberList.attend_name}</h7>
                   </div>
                 </li>
             </ul>
@@ -209,12 +211,12 @@
 				<c:set var="writer" value="${detail.MB_WRITER }"/>
 				<c:set var="memberCheck" value="false"/>
 				<c:forEach var="memberList" items="${memberList }">
-					<c:if test="${memberList eq name }">
+					<c:if test="${memberList.attend_name eq name }">
 						<c:set var="memberCheck" value="true"/>
 					</c:if>
 				</c:forEach>
 				<c:choose>
-						<c:when test="${writer eq name}">
+						<c:when test="${writer eq name }">
 						<p class="btn btn-primary py-3 px-4" style="background:#ffc107; float:right; width:200px; margin-top:3rem; margin-left:2%; margin-bottom:0;">방장입니다.</p>
 						</c:when>
 						<c:when test="${memberCheck eq 'true'}">
@@ -249,7 +251,12 @@
             <ul class="comment-list">
                <li class="comment">
                 <div class="vcard bio">
-                    <img src="resources/images/jun.jpg" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:70px; height:70px;">
+						<c:if test="${!empty LoginUserProfile}">
+							<img src="${LoginUserProfile }" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:70px; height:70px;">
+						</c:if>
+						<c:if test="${empty LoginUserProfile}">
+							<img src="resources/images/profile.png" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:70px; height:70px;">
+						</c:if>
                   </div>
                   <div class="comment-body">
                      <h4 class="jg"><strong>${name }</strong></h4>
@@ -272,7 +279,13 @@
                <!-- c태그 거는거 염두해둬요 -->
                <li class="comment">
                 <div class="vcard bio">
-                    <img src="resources/images/seo.jpg" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:60px; height:60px;">
+<!--                     <img src="resources/images/seo.jpg" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:60px; height:60px;"> -->
+                	<c:if test="${!empty list.file_path}">
+						<img src="${list.file_path }" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:60px; height:60px;">
+					</c:if>
+					<c:if test="${empty list.file_path}">
+					<img src="resources/images/profile.png" alt="Image placeholder" style="border:solid; border-color:#e2c0bb; width:60px; height:60px;">
+					</c:if>
                   </div>
                   <div class="comment-body">
                      <h3 class="jg"><strong>${list.board_reply_writer }</strong></h3>
@@ -332,7 +345,6 @@ let checkInsert = 0;
             url : '${pageContext.request.contextPath}/replyDelete?board_reply_no='+board_reply_no,
             type : 'GET',
             success : function(data) {
-              alert(data);
               location.reload();
             },
             error : function() {
@@ -341,10 +353,12 @@ let checkInsert = 0;
          });
    }
 
+   let click = true;
+
    function replyInsert(){
       let insertForm = $("#ff").serialize();
+      if (click) {
       $.ajax({
-         //controller 확인 주소
          url : '${pageContext.request.contextPath}/insertReply',
          type : 'GET',
          data : insertForm,
@@ -355,27 +369,45 @@ let checkInsert = 0;
             console.log("실패");
          }
       });
+      click = !click;
+      }else{
+         
+      }
    }
-   
    function AttendClick(){
-	   swal({
-		   title: "참여",
-		   text: "현재 보고 계신 Meeting 에 참여하시겠습니까?",
-		   icon: "info",
-		   buttons: true,
-		   dangerMode: true,
-		 })
-		 .then((willDelete) => {
-		   if (willDelete) {
-		     swal("성공","성공적으로 참여되었습니다.", {
-		       icon: "success",
-		     }).then((value) => {
-		    	 location.href="/MeetingAttend?MB_NO="+ ${detail.MB_NO};
-		    	 
-			   });
-		   } else {
-		   }
-		 });
+	   var limit_min_age = ${detail.MB_LIMIT_AGE_MIN };
+	   var limit_max_age = ${detail.MB_LIMIT_AGE_MAX };
+	   var limit_gender = '${detail.MB_LIMIT_GENDER }';
+	   
+       var user_age = ${userLimit.user_age };
+       var user_gender = '${userLimit.user_gender }';
+       
+       if(limit_min_age > user_age){
+    	   swal("나이 조건", "참가자의 나이가 제한 나이보다 적습니다.", "error");
+       }else if(limit_max_age < user_age && limit_max_age != 0){
+    	   swal("나이 조건", "참가자의 나이가 제한 나이보다 많습니다.", "error");
+       }else if(limit_gender != 'n' ){
+    	   if(limit_gender != user_gender)
+    		   swal("성별 조건", "참가자의 성별이 제한 성별과 다릅니다.", "error");
+       }else{
+    	   swal({
+    		   title: "참여",
+    		   text: "현재 보고 계신 Meeting 에 참여하시겠습니까?",
+    		   icon: "info",
+    		   buttons: true,
+    		   dangerMode: true,
+    		 })
+    		 .then((willDelete) => {
+    		   if (willDelete) {
+    		     swal("성공","성공적으로 참여되었습니다.", {
+    		       icon: "success",
+    		     }).then((value) => {
+    		    	 location.href="/MeetingAttend?MB_NO="+ ${detail.MB_NO};
+    			   });
+    		   } else {
+    		   }
+    		 });
+       }
    }
    
    function AttendcancelClick(){

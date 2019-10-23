@@ -106,7 +106,6 @@ $("#checkButton").click(function() {
     let pattonNum = /[^0-9]/g;
     let emailCheck = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     
-// 	alert(user_id===undefined);
 	
 	if (user_name.length == 0) {
 	    $("#name_check").text("공백은 안돼요 :(");
@@ -178,7 +177,6 @@ $("#checkButton").click(function() {
 	         url : '${pageContext.request.contextPath}/SeachUserPw?user_email='+user_email+'&user_name='+user_name+'&user_id='+user_id,
 	         type : 'GET',
 	         success : function(data) {
-// 	        	 alert(data);
 				if(data==0){
 					swal("ㅠㅠ", "아이디가 존재하지 않습니다.",'error')
 				}else{

@@ -1,6 +1,6 @@
 package Meet_Us.board.controller;
 
-import java.io.File;
+import java.io.File; 
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
@@ -85,7 +85,6 @@ public class BoardController {
 		
 		List<FileVo> files = service.fileDetail(vo.getBoard_no());
 		model.addAttribute("files", files);
-		System.out.println(files);
 
 		return "bootstrap.NoticeDetail";
 	}
@@ -109,7 +108,6 @@ public class BoardController {
 												 , @RequestParam("files") MultipartFile[] files
 												 , Principal principal) throws Exception {
 		
-		System.out.println(files.length);
 		String description = vo.getBoard_content();
 		vo.setBoard_content(description.replace("\r\n", "<br>")); // 줄바꿈 처리
 		vo.setUser_id(principal.getName());
