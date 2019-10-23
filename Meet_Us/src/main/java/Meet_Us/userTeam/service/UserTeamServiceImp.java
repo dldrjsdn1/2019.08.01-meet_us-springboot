@@ -68,7 +68,7 @@ public class UserTeamServiceImp implements UserTeamService {
                    .append("' target='_blank'>이메일 인증 확인</a>")
                    .toString());
           Mail mail = new Mail(from, subject, to, content);
-           SendGrid sg = new SendGrid("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");
+//          
            Request request = new Request();
            try {
              request.setMethod(Method.POST);
